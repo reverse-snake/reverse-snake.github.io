@@ -12,12 +12,13 @@ for (var i = 0; i < height; i++) {
 }
 
 // initial values for snake
-var snake = [[1, 1]]; // x, y
+var snake = [[0, 0]]; // x, y
 var dir = 'right';
 var food = [-1, -1];
 
-// idle functions (if there are no food bits)
-// go right until right wall is reached, then go down
+// idle functions - snake goes clockwise by default
+// go right, checking for food along the way
+// go down when right wall is reached; top is ignored
 function idleRight() {
   // checks if it is at the right wall or above the food (same x-coords, different y-coords)
   if (snake[0][0] >= width - 1 || (snake[0][0] == food[0] && snake[0][1] != food[1])) {
@@ -29,33 +30,38 @@ function idleRight() {
   }
 }
 
-// go down until collision
+// go down blindly until the bottom wall is reached, then go left
 function idleDown() {
   if (snake[0][1] >= height - 1) {  // checks if it is at the bottom wall
     idleLeft();
   } else {
     moveHead('down');
     delTail();
+    idleDown();
   }
 }
 
+// go to the left blindly until the left wall is reached, then go up
 function idleLeft() {
   if (snake[0][0] <= 0) {
     idleUp();
   } else {
     moveHead('left');
     delTail();
-    chooseDir();
+    idleDown();
   }
 }
 
+// go up, checking for food along the way
+// if top side is reached, go right; left side is ignored
 function idleUp() {
-  if (snake[0][1] <= 0) {
+  // checks if it is at the top wall or to the left of the food (same y-coords, different x-coords)
+  if (snake[0][1] <= 0 || (snake[0][1] == food[1] && snake[0][0] != food[0])) {
     idleRight();
   } else {
     moveHead('up');
     delTail();
-    chooseDir();
+    idleUp();
   }
 }
 
