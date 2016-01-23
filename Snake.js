@@ -70,17 +70,19 @@ function moveHead(dir) {
 
 //	}
 	snake.unshift(newHead); // add newHead to the beginning of the list
-	updateBoard(snake);
 	if (snake[0] == food) { // if snake's head is on the food
 		food = [-1, -1];
 	} else {
 		delTail();
 	}
+	for (var s=0; s<snake.length; s++) {
+	  console.log(snake[s]);
+	}
+	updateBoard(snake);
 }
 
 function delTail() {	// simple function to remove the tail
   snake.pop();
-	updateBoard(snake);
 }
 
 function placeFood(x, y) {

@@ -19,18 +19,15 @@ for (var i=0; i<height; i+=1) {
 	for (var j=0; j<width; j+=1) {
 		var cell = row.insertCell(j);
 		cell.setAttribute("class", "emptycell");
-		cell.setAttribute("name", i+"_"+j);
+		cell.setAttribute("name", j+"_"+i);
 		var btn = document.createElement("button");
 		btn.setAttribute("class", "invisible");
-		btn.setAttribute("onclick", "placeFood("+i+","+j+")");
+		btn.setAttribute("onclick", "placeFood("+j+","+i+")");
 		cell.appendChild(btn);
 	}
 }
 
 function updateBoard(snake) {
-	for (var s=0; s<snake.length; s++) {
-		console.log(snake[s]);
-	}
 	for (var r=0, row; r<table.rows.length; r++) {
 		for (var c=0; c<table.rows[r].cells.length; c++) {
 			var cell = table.rows[r].cells[c];
