@@ -12,6 +12,10 @@ td.foodcell {
   background-color:#1111FF;
 }
 
+td.level {
+  font-size: 4em;
+}
+
 table.snaketable {
   border: 1px solid black;
   background-color: black;
@@ -31,4 +35,18 @@ button.invisible {
 
 button:focus {
   outline:0;
+}
+
+
+
+button.upButton {
+  font-size: 3em;
+  height: 100px;
+  width: 100px
+}
+
+button.downButton {
+  font-size: 3em;
+  height: 100px;
+  width: 100px
 }
