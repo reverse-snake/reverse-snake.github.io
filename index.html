@@ -11,27 +11,29 @@
 	</head>
 	<body>
 		<table style="background-color: blue; border: 10px solid black" width="100%" cellspacing="10px" cellpadding="5px">
-		<tbody>
-			<tr><td class="snakecell">1</td><td class="snakecell">2</td><td class="snakecell">3</td><td class="snakecell">4</td><td class="snakecell">5</td></tr>
-			<tr><td class="snakecell">5</td><td class="snakecell">4</td><td class="snakecell">3</td><td class="snakecell">2</td><td class="snakecell">1</td></tr>
-			<tr><td class="snakecell">1</td><td class="snakecell">2</td><td class="snakecell">3</td><td class="snakecell">4</td><td class="snakecell">5</td></tr>
-			<tr><td class="snakecell">5</td><td class="snakecell">4</td><td class="snakecell">3</td><td class="snakecell">2</td><td class="snakecell">1</td></tr>
-			<tr><td class="snakecell">1</td><td class="snakecell">2</td><td class="snakecell">3</td><td class="snakecell">4</td><td class="snakecell">5</td></tr>
-		</tbody></table>
+		</table>
 	</body>
 </html>
 
 <script>
-	<!--http://stackoverflow.com/questions/1145850/how-to-get-height-of-entire-document-with-javascript-->
 	var body = document.body,
-    html = document.documentElement;
+  var html = document.documentElement;
+	var body = html.getElementsByTagName("body")[0];
+	var table = body.getElementsByTagName("table")[0];
 
-	var height = Math.max( body.scrollHeight, body.offsetHeight,
-                       html.clientHeight, html.scrollHeight, html.offsetHeight );
-	console.log(height);
-	body = html.getElementsByTagName("body")[0];
-	console.log(body);
-	table = body.getElementsByTagName("table")[0];
-	console.log(table);
+	<!--http://stackoverflow.com/questions/1145850/how-to-get-height-of-entire-document-with-javascript-->
+	var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+	var width = Math.max(body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth);
 	table.setAttribute("height", height + "px");
+	table.setAttribute("width", width + "px");
+	for (var i=0; i<height; i+=10) {
+		var row = document.createElement("tr");
+		for (var j=0; j<width; j+=10) {
+			var cell = document.createElement("td");
+			cell.setAttribute("class", "snakecell");
+			cell.value = i+"_"+j;
+			row.appendChild(cell);
+		}
+		table.appendChild(row);
+	}
 </script>
