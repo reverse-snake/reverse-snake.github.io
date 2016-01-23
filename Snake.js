@@ -1,8 +1,8 @@
 // board is double array
 // snake is a list w/head and tail
 
-snake = [[1, 0], [0, 0]]; // x, y
-dir = 'right';
+var snake = [[1, 0], [0, 0]]; // x, y
+var dir = 'right';
 var board = [];     // top left is 0, 0, bottom right is height-1, width-1
 var food = [-1, -1];
 var refreshRate = 300; // How quickly the snake moves. (ms)
@@ -10,9 +10,7 @@ var intervalId = null;
 
 // initialize board and snake, and start snake movement
 function initSnake() {
-  console.log(intervalId);
   if (intervalId !== null) {
-    console.log("Intervalid is null");
     return;
   }
   board.length = width; // board[x][y]
