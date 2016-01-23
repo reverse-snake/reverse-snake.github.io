@@ -1,15 +1,12 @@
 td.snakecell {
-  border-spacing: 1px;
   background-color:red;
 }
 
 td.emptycell {
-  border-spacing: 1px;
   background-color: white;
 }
 
 td.foodcell {
-  border-spacing: 1px;
   background-color:blue;
 }
 
