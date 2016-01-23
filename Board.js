@@ -29,12 +29,8 @@ for (var i=0; i<height; i+=1) {
 
 function updateBoard(snake) {
   console.log(snake);
-  var rows = table.getElementsByTagName("tr"); // Syntax says so.
-	for (var row in rows) {
-  	console.log("Row:");
-  	console.log(row.childNodes);
-  	var cells = row.getElementsByTagName("td");
-	  for (var cell in cells) {
+	for (var row in table.rows) {
+	  for (var cell in row.cells) {
 	    var isSnakeCell = false;
 	    for (var s in snake) {
   	    if (cell.name == s[0]+"_"+s[1]) {
