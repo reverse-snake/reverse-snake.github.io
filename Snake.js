@@ -8,6 +8,7 @@ var gameIsStopped = true;
 
 // Clears board & stops AI
 function stopGame() {
+  window.clearInterval(intervalId);
   console.log("Game stopped");
   gameIsStopped = true;
   upLevel();
@@ -25,6 +26,7 @@ function stopGame() {
   dir = 'right';
   debugSnake();
   updateBoard();
+  console.log("Game ready");
 }
 
 // Snake collided with self, start next AI level
