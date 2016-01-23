@@ -3,6 +3,7 @@ var html = document.documentElement;
 var body = html.getElementsByTagName("body")[0];
 var table = body.getElementsByTagName("table")[0];
 var size = 20; // Size of cell
+size += 2; // Add border
 
 // Credit to http://stackoverflow.com/questions/1145850/how-to-get-height-of-entire-document-with-javascript
 var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
@@ -37,8 +38,10 @@ function updateBoard(snake) {
 	}
 	console.log(snake);
 	for (s in snake) {
-	  var cell = document.getElementsByName(s[0]+"_"+s[1])[0];
+	  var cell = table.getElementsByName(s[0]+"_"+s[1])[0];
 	  console.log(cell);
 	  cell.setAttribute("class", "snakecell");
 	}
 }
+
+idleRight();
