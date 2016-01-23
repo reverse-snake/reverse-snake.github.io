@@ -25,8 +25,8 @@ for (var i=0; i<height; i+=1) {
 		var btn = document.createElement('button');
 		btn.setAttribute('class', 'invisible');
 		btn.setAttribute('onclick', 'placeFood('+j+','+i+')');
-		btn.setAttribute('height', size+'px');
-		btn.setAttribute('width', size+'px');
+		btn.style.height = size+'px';
+		btn.style.width = size+'px';
 		cell.appendChild(btn);
 	}
 }
