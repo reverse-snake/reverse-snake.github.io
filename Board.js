@@ -12,8 +12,8 @@ height -= 10;
 width = Math.floor(width/size);
 height = Math.floor(height/size);
 console.log("Width: "+width, " Height: "+height);
-table.setAttribute("height", height + "px");
-table.setAttribute("width", width + "px");
+table.setAttribute("height", height*size + "px");
+table.setAttribute("width", width*size + "px");
 for (var i=0; i<height; i+=1) {
 	var row = document.createElement("tr");
 	for (var j=0; j<width; j+=1) {
