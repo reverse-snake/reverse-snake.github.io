@@ -1,6 +1,6 @@
 var dir = 'right';
 var level = -1; // Since startGame() increases level, and our first AI is 0, we start at -1.
-var maxLevel = 0;
+var maxLevel = 5;
 console.log(document.getElementsByClassName("downButton"));
 console.log(document.getElementsByClassName("upButton"));
 console.log(document.getElementsByClassName("downButton")[0]);
@@ -14,6 +14,7 @@ function setLevel(_level) {
   if (level > maxLevel) {
     maxLevel = level;
   }
+  levelGuage.value = level;
   downButton.disabled = (level === 0);
   upButton.disabled = (level == maxLevel);
 }
@@ -216,6 +217,7 @@ function aiLevel1() {
 
 // Same as level 1, but will decide to turn left or right on obstruction based on loop formation.
 function aiLevel2() {
+  debugSnake();
   if (dir == 'right') {
     // Blocked by wall
     if (snake[0][0] == width - 1) {
