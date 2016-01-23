@@ -26,6 +26,9 @@
 	<!--http://stackoverflow.com/questions/1145850/how-to-get-height-of-entire-document-with-javascript-->
 	var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
 	var width = Math.max(body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth);
+	width -= 10; // Make the table a little smaller so there's a valid border.
+	height -= 10;
+	console.log("Width: "+width, " Height"+height);
 	table.setAttribute("height", height + "px");
 	table.setAttribute("width", width + "px");
 	for (var i=0; i<height; i+=30) {
