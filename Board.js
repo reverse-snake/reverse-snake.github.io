@@ -5,8 +5,8 @@ var table = body.getElementsByTagName('table')[0];
 var size = 20; // Size of cell
 
 // Make the table a little smaller so there's a valid border.
-var height = 20;
-var width = 20;
+var height = 15;
+var width = 10;
 console.log('Width: '+width, ' Height: '+height);
 table.setAttribute('height', height*size + 'px');
 table.setAttribute('width', width*size + 'px');
