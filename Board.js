@@ -25,13 +25,12 @@ for (var i=0; i<height; i+=1) {
 	table.appendChild(row);
 }
 
-function getHeight() {return height;}
-function getWidth() {return width;}
-
 function updateBoard(snake) {
   console.log(snake);
-	for (var row in (table.getElementsByTagName("tr"))) {
-	  for (var cell in (row.getElementsByTagName("td"))) {
+  var rows = table.getElementsByTagName("tr"); // Syntax says so.
+	for (var row in rows) {
+  	var cells = row.getElementsByTagName("td");
+	  for (var cell in cells) {
 	    var isSnakeCell = false;
 	    for (var s in snake) {
   	    if (cell.name == s[0]+"_"+s[1]) {
