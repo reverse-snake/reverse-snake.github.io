@@ -4,10 +4,9 @@ var body = html.getElementsByTagName('body')[0];
 var table = body.getElementsByTagName('table')[0];
 var size = 20; // Size of cell
 
-var height = window.innerHeight;
-var width = window.innerWidth;
-width -= 10; // Make the table a little smaller so there's a valid border.
-height -= 10;
+// Make the table a little smaller so there's a valid border.
+var height = window.innerHeight-70;
+var width = window.innerWidth-20;
 width = Math.floor(width/size);
 height = Math.floor(height/size);
 console.log('Width: '+width, ' Height: '+height);
