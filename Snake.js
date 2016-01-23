@@ -19,6 +19,7 @@ function stopGame() {
   for (var i=0; i<level+2; i++) {
     snake.unshift([i, 0]);
   }
+  debugSnake();
   updateBoard();
 }
 
