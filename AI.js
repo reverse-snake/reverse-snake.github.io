@@ -33,6 +33,10 @@ function ai(level) {
     case 2:
       return aiLevel2();
     case 3:
+      return aiLevel3();
+    case 4:
+      return aiLevel4();
+    case 5:
       console.log('Victory!');
   }
 }
