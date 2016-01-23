@@ -14,7 +14,7 @@ function init(height, width) {
   var dir = 'right';
   var food = [-1, -1];
   window.setInterval(aiLevel0, 500);
-  aiLevel0('right');
+  aiLevel0();
 }
 
 function aiLevel0() {
