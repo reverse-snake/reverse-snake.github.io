@@ -85,7 +85,7 @@ function delTail() {  // simple function to remove the tail
 }
 
 function placeFood() {
-  if (invalid) { // oob, collide w/ snake, already food
+  if (true) { // oob, collide w/ snake, already food
     return false;
   }
 }
