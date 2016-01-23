@@ -83,6 +83,7 @@ function placeFood(x, y) {
 			isSnakeCell = true;
 			break;
 		}
+	}
 	if (food != [-1, -1]) { // already food
 		console.log("Invalid food placement: There is already food");
 		return false;
