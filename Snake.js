@@ -3,7 +3,7 @@
 
 // initialize board and snake, and start snake movement
 function init(height, width) {
-  var board = [];     // top left is 0, 0, bottom right is max, max
+  var board = [];     // top left is 0, 0, bottom right is length-1, width-1
   board.length = height;
   for (var i = 0; i < height; i++) {
     board[i] = [];
@@ -21,7 +21,7 @@ function init(height, width) {
 // go down when right wall is reached; top is ignored
 function idleRight() {
   // checks if it is at the right wall or above the food (same x-coords, different y-coords)
-  if (snake[0][0] >= width - 1 || (snake[0][0] == food[0] && snake[0][1] != food[1])) {
+  if (snake[0][0] >= width - 1 || (snake[0] == food)) {
     idleDown(); // this could miss some food appearance, but that is OK because it is stupid
   } else {
     moveHead('right');
