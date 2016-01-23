@@ -38,6 +38,7 @@ function updateBoard() {
 					break;
 				}
 			}
+			console.log(food);
 			if (cell.getAttribute("name") == food[0]+"_"+food[1]) {
   			isFoodCell = true;
 			}
