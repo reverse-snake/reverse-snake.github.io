@@ -4,16 +4,15 @@
 		<title>Reverse Snake</title>
 		<style>
 			td.snakecell{
-				color:red;
-				text-align:center;
+				background-color:red;
 			}
 			td.emptycell{
-				color:white;
+				background-color:black;
 			}
 		</style>
 	</head>
 	<body>
-		<table style="background-color: blue; border: 10px solid black" width="100%" cellspacing="10px" cellpadding="5px">
+		<table style="background-color: white; border: 5px solid white" cellspacing="1px">
 		</table>
 	</body>
 </html>
@@ -29,15 +28,26 @@
 	var width = Math.max(body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth);
 	table.setAttribute("height", height + "px");
 	table.setAttribute("width", width + "px");
-	for (var i=0; i<height; i+=10) {
+	for (var i=0; i<height; i+=30) {
 		var row = document.createElement("tr");
-		for (var j=0; j<width; j+=10) {
+		for (var j=0; j<width; j+=30) {
 			var cell = document.createElement("td");
 			cell.setAttribute("class", "emptycell");
-			cell.setAttribute("x", i);
-			cell.setAttribute("y", j);
+			cell.setAttribute("name", i+"_"+j);
 			row.appendChild(cell);
 		}
 		table.appendChild(row);
+	}
+
+	function updateBoard(snake) {
+		for row in table.getElementsByTagName("tr") {
+			for cell in row.getElementsByTagName("td") {
+				cell.setAttribute("class", "emptycell");
+			}
+		}
+		for s in snake {
+			cell = table.getElementsByName(cell[0]+"_"+cell[1]);
+			cell.setAttribute("class", "snakecell");
+		}
 	}
 </script>
