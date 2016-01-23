@@ -64,13 +64,13 @@ function moveHead(dir) {
   // 'right', 'left', 'up', and 'down'
   var newHead = snake[0];
   if (dir == 'up') {  // add new head above current one
-    newhead[1]--;  // changes y-coordinate by -1 (going UP)
+    newHead[1]--;  // changes y-coordinate by -1 (going UP)
   } else if (dir == 'down') {
-    newhead[1]++;
+    newHead[1]++;
   } else if (dir == 'right') {
-    newhead[0]++;
+    newHead[0]++;
   } else if (dir == 'left') {
-    newhead[0]--;
+    newHead[0]--;
   } else {  // there is an error
     // some error should happen
   }
