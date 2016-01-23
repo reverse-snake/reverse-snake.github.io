@@ -18,13 +18,14 @@ for (var i=0; i<height; i+=1) {
 	// var row = document.createElement("tr");
 	var row = table.insertRow(i);
 	for (var j=0; j<width; j+=1) {
-	  var cell = document.createElement("td");
+	  // var cell = document.createElement("td");
+	  var cell = row.insertCell(j);
 	  cell.setAttribute("class", "emptycell");
 	  cell.setAttribute("name", i+"_"+j);
     var btn = document.createElement("button");
 	  btn.setAttribute("onclick", "placeFood("+i+","+j+")");
 	  cell.appendChild(btn);
-	  row.appendChild(cell);
+	  // row.appendChild(cell);
 	}
 	// table.appendChild(row);
 }
