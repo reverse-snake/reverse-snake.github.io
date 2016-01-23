@@ -27,21 +27,22 @@ for (var i=0; i<height; i+=size) {
 }
 
 function updateBoard(snake) {
-	rows = table.getElementsByTagName("tr");
-	for (var r=0; r<rows.length; r++) {
-	  var row = rows[r];
-	  cells = row.getElementsByTagName("td");
-	  for (var c=0; c<cells.length; c++) {
-	    var cell = cells[c];
-	    cell.setAttribute("class", "emptycell");
+  console.log(snake);
+	for (row in table.getElementsByTagName("tr")) {
+	  for (cell in row.getElementsByTagName("td")) {
+	    var isSnakeCell = false;
+	    for (var s in snake) {
+  	    if (cell.name == s[0]+"_"+s[1]) {
+    	    isSnakeCell = true;
+    	    break;
+    	  }
+	    }
+	    console.log(cell);
+	    if (isSnakeCell) {
+        cell.setAttribute("class", "snakecell");
+	    } else {
+  	    cell.setAttribute("class", "emptycell");
+  	  }
 	  }
 	}
-	console.log(snake);
-	for (s in snake) {
-	  var cell = document.getElementsByName(s[0]+"_"+s[1])[0];
-	  console.log(cell);
-	  cell.setAttribute("class", "snakecell");
-	}
 }
-
-idleRight();
