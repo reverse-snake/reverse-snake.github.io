@@ -84,10 +84,6 @@ function placeFood(x, y) {
   initSnake();
   if (inSnake(x+'_'+y)) {
     console.log('Invalid food placement: Food collides with snake');
-    return;
-  }
-  if (!(food[0] == -1 && food[1] == -1)) { // already food
-    console.log('Invalid food placement: There is already food');
   } else if (x >= width || y >= height || x < 0 || y < 0) { // off of board
     console.log('Invalid food placement: Food is off board');
   } else {
