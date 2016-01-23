@@ -21,6 +21,7 @@ for (var i=0; i<height; i+=1) {
 	  cell.setAttribute("class", "emptycell");
 	  cell.setAttribute("name", i+"_"+j);
     var btn = document.createElement("button");
+    btn.setAttribute("class", "invisible");
 	  btn.setAttribute("onclick", "placeFood("+i+","+j+")");
 	  cell.appendChild(btn);
 	}
