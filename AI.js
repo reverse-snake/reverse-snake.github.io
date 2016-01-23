@@ -521,7 +521,7 @@ function aiLevel3() {
         dir = 'left';
       // If near the left side of the board, go right
       } else if (snake[0][0] <= 1) {
-        console.log('524');
+        console.log('524', dir);
         dir = 'right';
       } else {
         for (var i = snake[0][0] + 1; i < width; i++) { // Check along top edge for our own tail (loop)
@@ -547,7 +547,7 @@ function aiLevel3() {
     }
     // Blocked by tail
     if (inSnake(snake[0][0] + '_' + (snake[0][1] - 1))) {
-      console.log('550');
+      console.log('550', dir);
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
         dir = 'left';
       } else {
@@ -556,7 +556,7 @@ function aiLevel3() {
       return moveHead(dir);
     }
     // Food is where we are | slightly ahead.
-    console.log('559');
+    console.log('559', dir);
     if (snake[0][1] == food[1] || snake[0][1]-1 == food[1]) {
       if (snake[0][0] < food[0]) {
         if (!inSnake((snake[0][0]+1)+'_'+snake[0][1])) {
@@ -564,12 +564,11 @@ function aiLevel3() {
         }
       } else if (snake[0][0] == food[0]) {
         if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
-    	    console.log('567');
   	      dir = 'up';
   	    }
       } else if (snake[0][0] > food[0]) {
-        console.log('571');
         if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
+          console.log('571', dir);
           dir = 'left';
         }
       }
