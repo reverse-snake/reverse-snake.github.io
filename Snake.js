@@ -17,6 +17,7 @@ function stopGame() {
     board[i] = [];
     board[i].length = height;
   }
+  food = [-1, -1];
   snake = [];
   for (var i=0; i<level+3; i++) {
     snake.unshift([i, 0]);
