@@ -27,10 +27,12 @@ function aiLevel0() {
       } else {
         dir = 'up';
       }
-    } else if (snake[0][0] == width - 1) {  // is the snake at the right wall?
-      dir = 'down';
-    } else if (snake[0][0] == 0) {  // is the snake at the left wall?
-      dir = 'up';
+    } else if ((snake[0][0] == width - 1) || (snake[0][0] == 0)) {  // is the snake at a side wall?
+      if (snake[0][1] >= (height/2)) {
+		  dir = 'up';
+	  } else {
+		  dir = 'down';
+	  }
     } // else dir is unchanged
   } else if (dir == 'up' || dir == 'down') {
     if (snake[0][1] == food[1]) {   // is the snake to the right or left of the food?
@@ -39,11 +41,13 @@ function aiLevel0() {
       } else {
         dir = 'left';
       }
-    } else if (snake[0][1] == 0) {  // is the snake at the top wall?
-      dir = 'right';
-    } else if (snake[0][0] == width - 1) {  // is the snake at the bottom wall?
-      dir = 'left';
-    } // else dir is unchanged
+    } else if ((snake[0][1] == 0) || (snake[0][0] == width - 1)) {  // is the snake at a vertical wall?
+		if (snake[0][0] >= (width/2)) {
+			dir = 'left';
+		} else {
+			dir = 'right';
+		}
+	} // else dir is unchanged
   }
 }
 
