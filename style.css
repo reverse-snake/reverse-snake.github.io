@@ -16,6 +16,10 @@ table.snaketable {
   margin: auto;
 }
 
+table {
+  background-color: gray;
+}
+
 button.invisible {
   height: 30px;
   width: 30px;

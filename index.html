@@ -6,34 +6,44 @@
 	<script src="detectmobilebrowser.js"></script>
 </head>
 <body>
-	<table width="100%"><tr>
+	<table width="100%">
+		<tr>
 			<td>
 				<font size="2em"><table>
 					<tr>
 						<td rowspan="3">Level</td>
 						<td><button class="upButton" onclick="upLevel()">▲</button></td>
-					</tr><tr align="center">
+					</tr>
+					<tr align="center">
 						<td class="level">0</td>
-					</tr><tr>
+					</tr>
+					<tr>
 						<td><button class="downButton" disabled onclick="downLevel()">▼</button></td>
 					</tr>
-				</table></font>
-			</td><td>
-				<table class="snaketable" cellspacing="1px" cellpadding="0px"></table>
-			</td><td>
+				</table>
+			</font>
+		</td>
+		<td>
+			<table class="snaketable" cellspacing="1px" cellpadding="0px"></table>
+		</td>
+		<td>
 			<div align="right" style="vertical-align:top">Version 2.10</div>
+			<table>
+				<thead>
+					<tr>
+						<td><b>LEGEND</b></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td class="snakecell">   </td><td>SNAKE</td></tr>
+					<tr><td class="foodcell">    </td><td>FOOD</td></tr>
+					<tr><td class="emptycell">    </td><td>FREE SPACE</td></tr>
+				</tbody>
 			</td>
-		</tr></table>
+		</tr>
+	</table>
 	<script src="Snake.js"></script>
 	<script src="AI.js"></script>
 	<script src="Board.js"></script>
-	<table>
-		<tr><td><b>LEGEND</b></td></tr>
-	</table>
-	<table>
-		<tr><td class="snakecell">    </td><td>SNAKE</td></tr>
-		<tr><td class="foodcell">    </td><td>FOOD</td></tr>
-		<tr><td class="emptycell">    </td><td>FREE SPACE</td></tr>
-	</table>
 </body>
 </html>
