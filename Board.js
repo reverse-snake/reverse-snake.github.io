@@ -28,8 +28,8 @@ for (var i=0; i<height; i+=size) {
 
 function updateBoard(snake) {
   console.log(snake);
-	for (row in table.getElementsByTagName("tr")) {
-	  for (cell in row.getElementsByTagName("td")) {
+	for (var row in (table.getElementsByTagName("tr"))) {
+	  for (var cell in (row.getElementsByTagName("td"))) {
 	    var isSnakeCell = false;
 	    for (var s in snake) {
   	    if (cell.name == s[0]+"_"+s[1]) {
