@@ -6,18 +6,26 @@
 	<script src="detectmobilebrowser.js"></script>
 </head>
 <body>
-	<div align="right" style="vertical-align:top">Version 2.8</div>
 	<table>
 		<tr>
-			<td rowspan="3">Level</td>
-			<td><button class="upButton" onclick="upLevel()">▲</button></td>
-		</tr><tr align="center">
-			<td class="level">0</td>
-		</tr><tr>
-			<td><button class="downButton" disabled onclick="downLevel()">▼</button></td>
+			<td>
+				<table>
+					<tr>
+						<td rowspan="3">Level</td>
+						<td><button class="upButton" onclick="upLevel()">▲</button></td>
+					</tr><tr align="center">
+						<td class="level">0</td>
+					</tr><tr>
+						<td><button class="downButton" disabled onclick="downLevel()">▼</button></td>
+					</tr>
+				</table>
+			</td><td>
+				<table class="snaketable" cellspacing="1px" cellpadding="0px"></table>
+			</td><td>
+			<div align="right" style="vertical-align:top">Version 2.9</div>
+			</td>
 		</tr>
 	</table>
-	<table class="snaketable" cellspacing="1px" cellpadding="0px"></table>
 	<script src="Snake.js"></script>
 	<script src="AI.js"></script>
 	<script src="Board.js"></script>
