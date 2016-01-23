@@ -4,18 +4,31 @@ var food = [-1, -1];
 var refreshRate = 250; // How quickly the snake moves. (ms)
 var intervalId;
 var level = -1; // Since startGame() increases level, and our first AI is 0, we start at -1.
+var gameIsStopped = true;
 
+// Clears board & stops AI
+function stopGame() {
   board = [];
   board.length = width; // board[x][y]
   for (var i = 0; i < width; i++) {
     board[i] = [];
     board[i].length = height;
   }
+  snake = [];
+  for (var i=0; i<level+2; i++) {
+    snake.unshift([i, 0]);
+  }
+  window.clearInterval(intervalId);
+  updateBoard();
 }
 
 // Snake collided with self, start next AI level
-function levelUp() {
-  window.clearInterval(intervalId);
+function startGame() {
+  if (!gameIsStopped) {
+    return;
+  }
+  level++;
+  console.log("Round ended! Advancing to AI level", level);
   intervalId = window.setInterval(ai(level), refreshRate);
   ai(level);
 }
@@ -50,28 +63,28 @@ function moveHead(dir) {
     if (newHead[0] == width - 1) {
       throw 'cannot move right from' + newHead[0] + ', ' + newHead[1];
     } else if (inSnake((newHead[0]+1)+'_'+newHead[1])) {
-      levelUp();
+      stopGame();
     }
     newHead[0]++;
   } else if (dir == 'left') {
     if (newHead[0] === 0) {
       throw 'cannot move left from' + newHead[0] + ', ' + newHead[1];
     } else if (inSnake((newHead[0]-1)+'_'+newHead[1])) {
-      levelUp();
+      stopGame();
     }
     newHead[0]--;
   } else if (dir == 'up') {  // add new head above current one
     if (newHead[1] === 0) {
       throw 'cannot move up from ' + newHead[0] + ', ' + newHead[1];
     } else if (inSnake(newHead[0]+'_'+(newHead[1]-1))) {
-      levelUp();
+      stopGame();
     }
     newHead[1]--;  // changes y-coordinate by -1 (going UP)
   } else if (dir == 'down') {
     if (newHead[1] == height - 1) {
       throw 'cannot move down from ' + newHead[0] + ', ' + newHead[1];
     } else if (inSnake(newHead[0]+'_'+(newHead[1]+1))) {
-      levelUp();
+      stopGame();
     }
     newHead[1]++;
   }
@@ -89,7 +102,7 @@ function delTail() {  // simple function to remove the tail
 }
 
 function placeFood(x, y) {
-  initSnake();
+  startGame();
   if (inSnake(x+'_'+y)) {
     console.log('Invalid food placement: Food collides with snake');
   } else if (x >= width || y >= height || x < 0 || y < 0) { // off of board
