@@ -9,7 +9,7 @@
 		</style>
 	</head>
 	<body>
-		<table style="background-color: blue; border: 10px solid black" width="100%"> 
+		<table style="background-color: blue; border: 10px solid black" width="100%">
 		<tbody>
 			<tr><td class="snakecell">1</td><td class="snakecell">2</td><td class="snakecell">3</td><td class="snakecell">4</td><td class="snakecell">5</td></tr>
 			<tr><td class="snakecell">5</td><td class="snakecell">4</td><td class="snakecell">3</td><td class="snakecell">2</td><td class="snakecell">1</td></tr>
@@ -28,4 +28,6 @@
 	var height = Math.max( body.scrollHeight, body.offsetHeight, 
                        html.clientHeight, html.scrollHeight, html.offsetHeight );
 	console.log(height);
+	table = html.getElementbyId("table");
+	console.log(table);
 </script>
