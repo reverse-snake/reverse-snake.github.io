@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.css"></link>
 	<link rel="Stylesheet" href="style.css"></link>
 	<title>Reverse Snake</title>
 	<script src="Snake.js"></script>
@@ -13,12 +12,12 @@
 		<div class='container'>
 			<div class='col-md-2'>
 				<h2>Level</h2>
-				<button class="upButton" onclick="upLevel()"><span class='glyphicon glyphicon-menu-up'></span></button>
-				<h3> 3</h3>
-				<button class="downButton" onclick="downLevel()"><span class='glyphicon glyphicon-menu-down'></span></button>
+				<button class="upButton" onclick="upLevel()">^</button>
+				3
+				<button class="downButton" onclick="downLevel()">v</button>
 			</div>
 			<div class='col-md-8'>
-				<table class="snaketable table-bordered"></table>
+				<table class="snaketable"></table>
 			</div>
 		</div>
 	</div>
