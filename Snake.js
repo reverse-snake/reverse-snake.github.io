@@ -1,6 +1,4 @@
 var snake = [[1, 0], [0, 0]]; // An array of [x, y] pairs. The head is at [0], tail is at [-1].
-console.log("Initializtion");
-debugSnake();
 var board; // top left is 0, 0, bottom right is height-1, width-1
 var food = [-1, -1];
 var refreshRate; // How quickly the snake moves. (ms)
@@ -11,7 +9,7 @@ function initSnake() {
   if (intervalId !== null) {
     return;
   }
-  console.log("L14");
+  console.log("Initialization");
   debugSnake();
   board = [];
   board.length = width; // board[x][y]
@@ -21,8 +19,14 @@ function initSnake() {
   }
   refreshRate = 300;
   intervalId = window.setInterval(aiLevel0, refreshRate);
+  console.log("22");
+  debugSnake();
   aiLevel0();
+  console.log("25");
+  debugSnake();
   updateBoard();
+  console.log("28");
+  debugSnake();
 }
 
 function debugSnake() {
@@ -91,7 +95,6 @@ function delTail() {  // simple function to remove the tail
 
 function placeFood(x, y) {
   initSnake();
-  debugSnake();
   if (inSnake(x+'_'+y)) {
     console.log('Invalid food placement: Food collides with snake');
     return;
