@@ -18,21 +18,20 @@ for (var i=0; i<height; i+=1) {
 	var row = document.createElement("tr");
 	for (var j=0; j<width; j+=1) {
 	  var cell = document.createElement("td");
-	  var btn = document.createElement("button");
 	  cell.setAttribute("class", "emptycell");
 	  cell.setAttribute("name", i+"_"+j);
+    var btn = document.createElement("button");
 	  btn.setAttribute("onclick", "placeFood("+i+","+j+")");
+	  cell.appendChild(btn);
 	  row.appendChild(cell);
 	}
 	table.appendChild(row);
 }
 
 function updateBoard(snake) {
-  console.log(snake);
-	for (var row in table.rows) {
-  	console.log(row);
-	  for (var cell in row.cells) {
-  	  console.log(cell);
+	for (var r=0; r<table.rows.length; r++) {
+	  for (var c=0; c<table.rows[r].cells.length; c++) {
+  	  var cell = table.rows[r].cells[c];
 	    var isSnakeCell = false;
 	    for (var s in snake) {
   	    if (cell.name == s[0]+"_"+s[1]) {
@@ -40,7 +39,6 @@ function updateBoard(snake) {
     	    break;
     	  }
 	    }
-	    console.log(cell);
 	    if (isSnakeCell) {
         cell.setAttribute("class", "snakecell");
 	    } else {
