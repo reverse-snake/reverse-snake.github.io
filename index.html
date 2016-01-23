@@ -28,7 +28,8 @@
 	var height = Math.max( body.scrollHeight, body.offsetHeight, 
                        html.clientHeight, html.scrollHeight, html.offsetHeight );
 	console.log(height);
-	table = document.getElementById("table");
+	body = html.getElementById("body")
+	table = body.getElementById("table");
 	console.log(table);
 	table.setAttribute("height", height + "px");
 </script>
