@@ -15,7 +15,7 @@ function initSnake() {
     board[i] = [];
     board[i].length = height;
   }
-  refreshRate = 300;
+  refreshRate = 100;
   intervalId = window.setInterval(aiLevel0, refreshRate);
   aiLevel0();
 }
