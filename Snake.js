@@ -91,7 +91,7 @@ function delTail() {  // simple function to remove the tail
 }
 
 function placeFood(x, y) {
-  if (food != [-1, -1] { // already food
+  if (food != [-1, -1]) { // already food
     console.log("Invalid food placement: There is already food");
     return false;
   } else if (x >= width || y >= height || x < 0 || y < 0) { // off of board
