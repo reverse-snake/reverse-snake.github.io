@@ -250,11 +250,11 @@ function aiLevel2() {
     }
     if (snake[0][0] == food[0]) {
       if (snake[0][1] < food[1]) {
-        if (!inSnake((snake[0][0]+1)+'_'+snake[0][1])) {
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) {
           dir = 'down';
         }
       } else {
-        if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
           dir = 'up';
         }
       }
@@ -295,11 +295,11 @@ function aiLevel2() {
     // Snake above/below food
     if (snake[0][0] == food[0]) {
       if (snake[0][1] < food[1]) {
-        if (!inSnake((snake[0][0]+1)+'_'+snake[0][1])) {
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) {
           dir = 'down';
         }
       } else {
-        if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
           dir = 'up';
         }
       }
@@ -339,11 +339,11 @@ function aiLevel2() {
     }
     if (snake[0][1] == food[1]) { // Snake left/right of food
       if (snake[0][0] < food[0]) {
-        if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) {
+        if (!inSnake((snake[0][0]+1)+'_'+snake[0][1])) {
           dir = 'right';
         }
       } else {
-        if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
+        if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
           dir = 'left';
         }
       }
@@ -383,11 +383,11 @@ function aiLevel2() {
     }
     if (snake[0][1] == food[1]) { // Snake left/right of food
       if (snake[0][0] < food[0]) {
-        if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) {
+        if (!inSnake((snake[0][0]+1)+'_'+snake[0][1])) {
           dir = 'right';
         }
       } else {
-        if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
+        if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
           dir = 'left';
         }
       }
@@ -444,6 +444,10 @@ function aiLevel3() {
   	    if (!inSnake((snake[0][0]+1)+'_'+snake[0][1])) {
   	      dir = 'down';
   	    }
+  	  } else if (snake[0][1] == food[1]) {
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) {
+  	      dir = 'right';
+  	    }
 	    } else if (snake[0][1] > food[1]) {
   	    if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
   	      dir = 'up';
@@ -493,11 +497,15 @@ function aiLevel3() {
     // Food is where we are | slightly ahead.
 	  if (snake[0][0] == food[0] || snake[0][0]-1 == food[0]) {
   	  if (snake[0][1] < food[1]) {
-    	  if (!inSnake((snake[0][0]+1)+'_'+snake[0][1])) {
+    	  if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) {
           dir = 'down';
         }
+      } else if (snake[0][1] == food[1]) {
+  	    if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
+  	      dir = 'left';
+  	    }
       } else if (snake[0][1] > food[1]) {
-        if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
           dir = 'up';
         }
       }
@@ -548,6 +556,10 @@ function aiLevel3() {
         if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) {
           dir = 'right';
         }
+      } else if (snake[0][0] == food[0]) {
+  	    if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
+  	      dir = 'up';
+  	    }
       } else if (snake[0][0] > food[0]) {
         if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
           dir = 'left';
@@ -597,11 +609,15 @@ function aiLevel3() {
     // Food is where we are | slightly ahead.
     if (snake[0][1] == food[1] || snake[0][1]+1 == food[1]) {
       if (snake[0][0] < food[0]) {
-        if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) {
+        if (!inSnake((snake[0][0]+1)+'_'+snake[0][1])) {
           dir = 'right';
         }
+      } else if (snake[0][0] == food[0]) {
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) {
+          dir = 'down';
+        }
       } else if (snake[0][0] > food[0]) {
-        if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
+        if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
           dir = 'left';
         }
       }
