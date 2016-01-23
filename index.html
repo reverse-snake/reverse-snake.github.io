@@ -16,7 +16,6 @@
 				background-color:gray;
 				margin: auto;
 			}
-			/* http://stackoverflow.com/questions/13990629/html-css-invisible-button */
 			button.invisible {
 				background: transparent;
 				border: none;
@@ -32,6 +31,16 @@
 		<script src="detectmobilebrowser.js"></script>
 	</head>
 	<body>
+		<table>
+			<tr>
+				<td rowspan="3">Level</td>
+				<td><button class="upButton" onclick="upLevel()">^</button></td>
+			</tr><tr align="center">
+				<td class="level">3</td>
+			</tr><tr>
+				<td><button class="downButton" onclick="downLevel()">v</button></td>
+			</tr>
+		</table>
 		<table class="snaketable" cellspacing="1px" cellpadding="0px"></table>
 	</body>
 	<script src="Board.js"></script>
