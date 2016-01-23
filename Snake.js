@@ -17,7 +17,7 @@ function stopGame() {
     board[i].length = height;
   }
   snake = [];
-  for (var i=0; i<level+2; i++) {
+  for (var i=0; i<level+3; i++) {
     snake.unshift([i, 0]);
   }
   debugSnake();
