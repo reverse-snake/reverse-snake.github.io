@@ -29,6 +29,16 @@
 			</td>
 			<td width="30%">
 				<div align="right" style="vertical-align:top">Version 2.12</div>
+				<!-- Speed Slider -->
+				<table>
+					<tr>
+						<div class="range-slider vertical-range" align="right" style="vertical-align: top" data-slider data-options="start: 100; end: 500; vertical: true;" >
+							<span class="range-slider-handle" role="slider" tabindex="25"></span>
+							<span class="range-slider-active-segment"></span>
+							<input type="hidden">
+						</div>
+					</tr>
+				</table>
 				<table>
 					<tr>
 						<td><b>Legend</b></td>
@@ -39,14 +49,6 @@
 					<tr><td class="foodcell" width="30px" height="30px"></td><td>Food</td></tr>
 					<tr><td class="emptycell" width="30px" height="30px"></td><td>Empty Cell</td></tr>
 				</table>
-				<!-- Speed Slider -->
-				<tr>
-					<div class="range-slider vertical-range" data-slider data-options="start: 100; end: 500; vertical: true;" >
-						<span class="range-slider-handle" role="slider" tabindex="25"></span>
-						<span class="range-slider-active-segment"></span>
-						<input type="hidden">
-					</div>
-				</tr>
 				<script src="Snake.js"></script>
 				<script src="AI.js"></script>
 				<script src="Board.js"></script>
