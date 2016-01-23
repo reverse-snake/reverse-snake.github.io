@@ -4,6 +4,9 @@
 	<link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.css"></link>
 	<title>Reverse Snake</title>
 	<style>
+	td {
+		border: 1px solid black;
+	}
 	td.snakecell {
 		background-color:red;
 	}
@@ -37,9 +40,9 @@
 		<div class='container'>
 			<div class='col-md-3'>
 				<h3>Level</h3>
-				<button class="upButton" onclick="upLevel()">^</button>
-				<p align='center'>3</p>
-				<button class="downButton" onclick="downLevel()">v</button>
+				<button class="upButton" onclick="upLevel()"><span class='glyphicon glyphicon-menu-up'></button>
+				<h4>3</h4>
+				<button class="downButton" onclick="downLevel()"><span class='glyphicon glyphicon-menu-down'></button>
 			</div>
 			<div class='col-md-9'>
 				<table class="snaketable" cellspacing="1px" cellpadding="0px"></table>
