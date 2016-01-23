@@ -38,7 +38,7 @@ button.invisible {
 }
 
 button:focus {
-  outline:0;
+  outline: none;
 }
 
 button.upButton {
@@ -53,6 +53,6 @@ button.downButton {
   width: 70px;
 }
 
-img {
+a, a:active, a:focus, table.td {
   outline: none;
 }
