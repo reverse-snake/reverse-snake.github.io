@@ -12,6 +12,7 @@ var intervalId;
 function initSnake() {
   console.log(intervalId);
   if (intervalId !== null) {
+    console.log("Intervalid is null");
     return;
   }
   board.length = width; // board[x][y]
