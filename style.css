@@ -1,0 +1,22 @@
+td.snakecell {
+  background-color:red;
+}
+td.emptycell {
+  background-color:white;
+}
+td.foodcell {
+  background-color:blue;
+}
+table.snaketable {
+  background-color:gray;
+  margin: auto;
+}
+button.invisible {
+  background: transparent;
+  border: none;
+  height: 20px;
+  width: 20px;
+}
+button:focus {
+  outline:0;
+}
