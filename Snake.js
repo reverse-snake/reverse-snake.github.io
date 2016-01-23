@@ -90,8 +90,18 @@ function delTail() {  // simple function to remove the tail
   updateBoard(snake);
 }
 
-function placeFood() {
-  if (true) { // oob, collide w/ snake, already food
+function placeFood(x, y) {
+  if (food != [-1, -1] { // already food
+    console.log("Invalid food placement: There is already food");
     return false;
+  } else if (x >= width || y >= height || x < 0 || y < 0) { // off of board
+    console.log("Invalid food placement: Food is off board");
+    return false;
+  } else if (false) {   // collides with snake
+    console.log("Invalid food placement: Food collides with snake");
+    return false;
+  } else {
+    food = [x, y];
+    return true;
   }
 }
