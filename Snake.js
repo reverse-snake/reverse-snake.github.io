@@ -65,10 +65,9 @@ function moveHead(dir) {
     newHead[0]--;
   }
 //  if (newHead[0] < 0 || newHead[0] >= width || newHead[1] < 0 || newHead[1] >= height) {
-	  
-//  }  
+
+//  }
   snake.unshift(newHead); // add newHead to the beginning of the list
-  console.log(snake);
   updateBoard(snake);
   if (snake[0] == food) { // if snake's head is on the food
     food = [-1, -1];
@@ -78,7 +77,6 @@ function moveHead(dir) {
 }
 
 function delTail() {  // simple function to remove the tail
-  console.log(snake.pop());
   updateBoard(snake);
 }
 
