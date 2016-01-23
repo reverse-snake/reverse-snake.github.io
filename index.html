@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.css"></link>
 		<title>Reverse Snake</title>
 		<style>
 			td.snakecell {
@@ -31,17 +32,19 @@
 		<script src="detectmobilebrowser.js"></script>
 	</head>
 	<body>
-		<table>
-			<tr>
-				<td rowspan="3">Level</td>
-				<td><button class="upButton" onclick="upLevel()">^</button></td>
-			</tr><tr align="center">
-				<td class="level">3</td>
-			</tr><tr>
-				<td><button class="downButton" onclick="downLevel()">v</button></td>
-			</tr>
-		</table>
-		<table class="snaketable" cellspacing="1px" cellpadding="0px"></table>
+		<div class='row'>
+			<div class='container'>
+				<div class='col-md-3'>
+					<h3>Level</h3>
+					<button class="upButton" onclick="upLevel()">^</button>
+					<p align='center'>3</p>
+					button class="downButton" onclick="downLevel()">v</button>
+				</div>
+				<div class='col-md-9'>
+					<table class="snaketable" cellspacing="1px" cellpadding="0px"></table>
+			</div>
+			</div>
+		</div>
 	</body>
 	<script src="Board.js"></script>
 </html>
