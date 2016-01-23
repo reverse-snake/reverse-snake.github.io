@@ -66,9 +66,15 @@ function moveHead(dir) {
     }
     newHead[1]++;
   }
+  console.log("Before unshift:");
+  for (var s=0; s<snake.length; s++) {
+    console.log(s[0], s[1]);
+  }
   snake.unshift(newHead); // add newHead to the beginning of the list
-  console.log(snake);
-  console.log(snake[0][0], snake[0][1], food[0], food[1]);
+  console.log("After unshift:");
+  for (var s=0; s<snake.length; s++) {
+    console.log(s[0], s[1]);
+  }
   if (snake[0][0] == food[0] && snake[0][1] == food[1]) { // if snake's head is on the food
     food = [-1, -1];
   } else {
