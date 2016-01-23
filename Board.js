@@ -26,7 +26,7 @@ for (var i=0; i<height; i+=1) {
 		cell.setAttribute('name', j+'_'+i);
 		var btn = document.createElement('button');
 		btn.setAttribute('class', 'invisible');
-		btn.setAttribute('onclick', 'placeFood('+j+','+i+')');
+		btn.setAttribute('onmousedown', 'placeFood('+j+','+i+')');
 		btn.style.height = size+'px';
 		btn.style.width = size+'px';
 		cell.appendChild(btn);
