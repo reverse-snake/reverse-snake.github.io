@@ -11,6 +11,7 @@
 		<tr>
 			<td width="30%">
 				<table>
+					<!-- change Level -->
 					<tr>
 						<td rowspan="3"><span style="font-size: 4em">Level</span></td>
 						<td><button class="upButton" onclick="upLevel()">▲</button></td>
@@ -21,30 +22,42 @@
 					<tr>
 						<td><button class="downButton" disabled onclick="downLevel()">▼</button></td>
 					</tr>
-				</table>
-		</td>
-		<td width="40%">
-			<table class="snaketable"></table>
-		</td>
-		<td width="30%">
-			<div align="right" style="vertical-align:top">Version 2.12</div>
-			<table>
-				<table>
-					<tr>
-						<td><b>Legend</b></td>
-					</tr>
-				</table>
-				<table>
-					<tr><td class="snakecell" width="30px" height="30px"></td><td>Snake</td></tr>
-					<tr><td class="foodcell" width="30px" height="30px"></td><td>Food</td></tr>
-					<tr><td class="emptycell" width="30px" height="30px"></td><td>Empty Cell</td></tr>
+					<!-- Speed Slider -->
+					<div class="row">
+						<div class="small-10 columns">
+							<div class="range-slider" data-slider data-options="display_selector: #refreshRate; initial: 100;">
+								<span class="range-slider-handle" role="slider" tabindex="0"></span>
+								<span class="range-slider-active-segment"></span>
+							</div>
+						</div>
+						<div class="small-2 columns">
+							<input type="number" id="refreshRate" value="100" />
+						</div>
+					</div>
 				</table>
 			</td>
-		</tr>
-	</table>
-	<script src="Snake.js"></script>
-	<script src="AI.js"></script>
-	<script src="Board.js"></script>
-	<!-- script src="detectmobilebrowser.js"></script-->
-</body>
-</html>
+			<td width="40%">
+				<table class="snaketable"></table>
+			</td>
+			<td width="30%">
+				<div align="right" style="vertical-align:top">Version 2.12</div>
+				<table>
+					<table>
+						<tr>
+							<td><b>Legend</b></td>
+						</tr>
+					</table>
+					<table>
+						<tr><td class="snakecell" width="30px" height="30px"></td><td>Snake</td></tr>
+						<tr><td class="foodcell" width="30px" height="30px"></td><td>Food</td></tr>
+						<tr><td class="emptycell" width="30px" height="30px"></td><td>Empty Cell</td></tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<script src="Snake.js"></script>
+		<script src="AI.js"></script>
+		<script src="Board.js"></script>
+		<!-- script src="detectmobilebrowser.js"></script-->
+	</body>
+	</html>
