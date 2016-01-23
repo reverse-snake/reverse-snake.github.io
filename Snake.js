@@ -10,6 +10,7 @@ var gameIsStopped = true;
 function stopGame() {
   console.log("Game stopped");
   gameIsStopped = true;
+  upLevel();
   board = [];
   board.length = width; // board[x][y]
   for (var i = 0; i < width; i++) {
@@ -31,7 +32,6 @@ function startGame() {
   }
   gameIsStopped = false;
   console.log("Game started");
-  upLevel();
   console.log("Round ended! Advancing to AI level", level);
   intervalId = window.setInterval(ai, refreshRate, level); // calls ai(level) at refreshRate
   ai(level);
