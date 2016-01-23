@@ -382,6 +382,30 @@ function aiLevel2() {
 
 // Same as level 2 but will intentionally leave a 1-wide gap until edge before turning to avoid getting trapped.
 function aiLevel3() {
+	if (dir == 'right') {
+		// if snake almost run into right wall
+		if (snake[0][0] == width - 2) {
+			// if snake almost at bottom edge
+			if (snake[0][1] >= height - 2) {
+				dir = 'up';
+			} else {
+				// check tail along right edge
+				for (var j = snake[0][1]; j < height; j++) {
+					if (inSnake((width -1) + '_' + j) {
+						dir = 'up';
+						return moveHead(dir);
+					}
+				}
+				// check tail along bottom edge
+				for (var i = width - 1; i >= 0; i--) {
+					if (inSnake(i + '_' + (height -1)) {
+						dir = 'up';
+						return moveHead(dir);
+					}
+				}
+				dir = 'down';
+			}
+	}	
 }
 // Perfect play (or at least very close to it)
 function aiLevel4() {
