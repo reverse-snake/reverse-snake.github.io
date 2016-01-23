@@ -1,6 +1,6 @@
 var dir = 'right';
 var level = -1; // Since startGame() increases level, and our first AI is 0, we start at -1.
-var maxLevel = 5;
+var maxLevel = 2;
 var upButton = document.getElementsByClassName("upButton")[0];
 var levelGauge = document.getElementsByClassName("level")[0];
 var downButton = document.getElementsByClassName("downButton")[0];
@@ -13,7 +13,7 @@ function setLevel(_level) {
     maxLevel = level;
   }
   levelGauge.innerHTML = level;
-  downButton.disabled = (level <= 0);
+  downButton.disabled = (level === 0);
   upButton.disabled = (level == maxLevel);
   console.log("After setting level: ");
   console.log(level);
