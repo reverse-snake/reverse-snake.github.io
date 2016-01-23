@@ -8,12 +8,12 @@ var gameIsStopped = true;
 
 // Clears board & stops AI
 function stopGame() {
-  window.clearInterval(intervalId);
   console.log("Game stopped");
   gameIsStopped = true;
   upLevel();
   board = [];
   board.length = width; // board[x][y]
+  console.log("Board reset");
   for (var i = 0; i < width; i++) {
     board[i] = [];
     board[i].length = height;
