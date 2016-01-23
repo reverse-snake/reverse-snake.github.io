@@ -1,7 +1,7 @@
 /* colors from https://www.wpi.edu/Images/CMS/Marketing/WPILogoUsage_QuickReferenceGuide.pdf */
 
 td.snakecell {
-  background-color: #AC2B37;
+  background-color: #CF0808;
 }
 
 td.emptycell {
@@ -9,7 +9,7 @@ td.emptycell {
 }
 
 td.foodcell {
-  background-color:#000000;
+  background-color:#009292;
 }
 
 table.snaketable {
