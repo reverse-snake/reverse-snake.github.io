@@ -33,6 +33,8 @@ function updateBoard() {
       } else {
 				cell.setAttribute('class', 'emptycell');
 			}
+			cell.setAttribute('height', size+'px');
+			cell.setAttribute('width', size+'px');
 		}
 	}
 }
