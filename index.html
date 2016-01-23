@@ -43,8 +43,8 @@
 	}
 
 	function updateBoard(snake) {
-		for row in table.getElementsByTagName("tr") {
-			for cell in row.getElementsByTagName("td") {
+		for (row in table.getElementsByTagName("tr")) {
+			for (cell in row.getElementsByTagName("td")) {
 				cell.setAttribute("class", "emptycell");
 			}
 		}
