@@ -20,7 +20,7 @@ var food = [-1, -1];
 // go right until right wall is reached, then go down
 function idleRight() {
   // checks if it is at the right wall or above the food (same x-coords, different y-coords)
-  if (snake[0][0] >= width - 1 || (snake[0][0] == food[0] && snake[0][1] != food[1]) {
+  if (snake[0][0] >= width - 1 || (snake[0][0] == food[0] && snake[0][1] != food[1])) {
     idleDown(); // this could miss some food appearance, but that is OK because it is stupid
   } else {
     moveHead('right');
