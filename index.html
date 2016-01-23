@@ -22,6 +22,7 @@
   var html = document.documentElement;
 	var body = html.getElementsByTagName("body")[0];
 	var table = body.getElementsByTagName("table")[0];
+	var size = 20; // Size of cell
 
 	<!--http://stackoverflow.com/questions/1145850/how-to-get-height-of-entire-document-with-javascript-->
 	var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
@@ -31,9 +32,9 @@
 	console.log("Width: "+width, " Height"+height);
 	table.setAttribute("height", height + "px");
 	table.setAttribute("width", width + "px");
-	for (var i=0; i<height; i+=30) {
+	for (var i=0; i<height; i+=size) {
 		var row = document.createElement("tr");
-		for (var j=0; j<width; j+=30) {
+		for (var j=0; j<width; j+=size) {
 			var cell = document.createElement("td");
 			cell.setAttribute("class", "emptycell");
 			cell.setAttribute("name", i+"_"+j);
