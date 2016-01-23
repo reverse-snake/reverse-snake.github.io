@@ -35,7 +35,6 @@ function updateBoard() {
 	for (var r=0; r<table.rows.length; r++) {
 		for (var c=0; c<table.rows[r].cells.length; c++) {
 			var cell = table.rows[r].cells[c];
-			console.log(cell);
 			if (inSnake(cell.getAttribute('name'))) {
 				cell.setAttribute('class', 'snakecell');
 			} else if (cell.getAttribute('name') == food[0]+'_'+food[1]) {
