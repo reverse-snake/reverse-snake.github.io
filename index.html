@@ -29,11 +29,22 @@
 			</td>
 			<td width="30%">
 				<div align="right" style="vertical-align:top">Version 2.12</div>
+				<table>
+					<tr>
+						<td><b>Legend</b></td>
+					</tr>
+				</table>
+				<table>
+					<tr><td class="snakecell" width="30px" height="30px"></td><td>Snake</td></tr>
+					<tr><td class="foodcell" width="30px" height="30px"></td><td>Food</td></tr>
+					<tr><td class="emptycell" width="30px" height="30px"></td><td>Empty Cell</td></tr>
+				</table>
 				<!-- Speed Slider -->
 				<table>
 					<form name = "weight1" id = "weight1" >
 						<!-- http://webtutsdepot.com/2010/04/24/html-5-slider-input-tutorial/ -->
-						<text><b> weight1 </b></text> <input id="weight1" input type="range" name="weight1" min="0" max="100" value="0" step="1" onchange="showValue(this)" />
+						<text><b>Snake Speed</b></text>
+						<input id="speedSlider" input type="range" name="speed" min="100" max="500" value="0" step="25" onchange="showValue(this)"/>
 						<span id="range">0</span>
 						<script type="text/javascript">
 						function get_nextsibling(n)
@@ -51,16 +62,6 @@
 						}
 						</script>
 					</form>
-				</table>
-				<table>
-					<tr>
-						<td><b>Legend</b></td>
-					</tr>
-				</table>
-				<table>
-					<tr><td class="snakecell" width="30px" height="30px"></td><td>Snake</td></tr>
-					<tr><td class="foodcell" width="30px" height="30px"></td><td>Food</td></tr>
-					<tr><td class="emptycell" width="30px" height="30px"></td><td>Empty Cell</td></tr>
 				</table>
 				<script src="Snake.js"></script>
 				<script src="AI.js"></script>
