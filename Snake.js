@@ -4,7 +4,6 @@ var board; // top left is 0, 0, bottom right is height-1, width-1
 var food = [-1, -1];
 var refreshRate = 250; // How quickly the snake moves. (ms)
 var intervalId;
-var level = -1; // Since startGame() increases level, and our first AI is 0, we start at -1.
 var gameIsStopped = true;
 
 // Clears board & stops AI
@@ -30,7 +29,7 @@ function startGame() {
   }
   gameIsStopped = false;
   console.log("Game started");
-  level++;
+  upLevel();
   console.log("Round ended! Advancing to AI level", level);
   intervalId = window.setInterval(ai, refreshRate, level); // calls ai(level) at refreshRate
   ai(level);
