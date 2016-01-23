@@ -225,7 +225,7 @@ function aiLevel2() {
         dir = 'up';
       } else {
         console.log('227');
-        for (var j = snake[0][1] + 1; j++; j < height) { // Check along right edge for our own tail (loop)
+        for (var j = snake[0][1] + 1; j < height; j++) { // Check along right edge for our own tail (loop)
           if (inSnake((width - 1) + '_' + j)) {
             dir = 'up';
             console.log('231');
@@ -233,7 +233,7 @@ function aiLevel2() {
           }
         }
         console.log('235');
-        for (var i = width - 1; i--; i >= 0) { // Check along bottom edge for our own tail (loop)
+        for (var i = width - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
           if (inSnake(i + '_' + (width - 1))) {
             dir = 'up';
             console.log('239');
@@ -259,13 +259,13 @@ function aiLevel2() {
       if (snake[0][1] === 0) {
         dir = 'down';
       } else {
-        for (var j = snake[0][1] - 1; j--; j >= 0) { // Check along left edge for our own tail (loop)
+        for (var j = snake[0][1] - 1; j >= 0; j--) { // Check along left edge for our own tail (loop)
           if (inSnake(0 + '_' + j)) {
             dir = 'down';
             return moveHead(dir);
           }
         }
-        for (var i = 0; i++; i < width) { // Check along top edge for our own tail (loop)
+        for (var i = 0; i < width; i++) { // Check along top edge for our own tail (loop)
           if (inSnake(i + '_' + 0)) {
             dir = 'down';
             return moveHead(dir);
@@ -288,13 +288,13 @@ function aiLevel2() {
       if (snake[0][0] == width - 1) {
         dir = 'left';
       } else {
-        for (var i = snake[0][0] + 1; i++; i < width) { // Check along top edge for our own tail (loop)
+        for (var i = snake[0][0] + 1; i < width; i++) { // Check along top edge for our own tail (loop)
           if (inSnake(i + '_' + 0)) {
             dir = 'left';
             return moveHead(dir);
           }
         }
-        for (var j = 0; j++; j < height) { // Check along right edge for our own tail (loop)
+        for (var j = 0; j < height; j++) { // Check along right edge for our own tail (loop)
           if (inSnake(width - 1 + '_' + j)) {
             dir = 'left';
             return moveHead(dir);
@@ -320,7 +320,7 @@ function aiLevel2() {
         dir = 'right';
       } else {
         console.log('322');
-        for (var i = snake[0][0] - 1; i--; i >= 0) { // Check along bottom edge for our own tail (loop)
+        for (var i = snake[0][0] - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
           if (inSnake(i + '_' + height - 1)) {
             dir = 'right';
             console.log('326');
@@ -328,7 +328,7 @@ function aiLevel2() {
           }
         }
         console.log('330');
-        for (var j = height - 1; j--; j < 0) { // Check along left edge for our own tail (loop)
+        for (var j = height - 1; j < 0; j--) { // Check along left edge for our own tail (loop)
           if (inSnake(0 + '_' + j)) {
             dir = 'right';
             console.log('334');
