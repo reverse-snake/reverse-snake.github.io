@@ -31,14 +31,14 @@ function startGame() {
   }
   level++;
   console.log("Round ended! Advancing to AI level", level);
-  intervalId = window.setInterval(ai(level), refreshRate);
+  intervalId = window.setInterval(ai, refreshRate, level); // calls ai(level) at refreshRate
   ai(level);
 }
 
 function speedUp() {
   refreshRate /= 1.5; // 50% faster
   window.clearInterval(intervalId);
-  intervalId = window.setInterval(ai(level), refreshRate);
+  intervalId = window.setInterval(ai, refreshRate, level); // calls ai(level) at refreshRate
 }
 
 function debugSnake() {
