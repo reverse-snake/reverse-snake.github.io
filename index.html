@@ -5,14 +5,12 @@
 		<style>
 			td.snakecell{
 				color:red;
-				cellpadding:3;
-				cellspacing:7;
-				align:center;
+				text-align:center;
 			}
 		</style>
 	</head>
 	<body>
-		<table style="background-color: blue; border: 10px solid black" width="100%">
+		<table style="background-color: blue; border: 10px solid black" width="100%" cellspacing="10px" cellpadding="5px">
 		<tbody>
 			<tr><td class="snakecell">1</td><td class="snakecell">2</td><td class="snakecell">3</td><td class="snakecell">4</td><td class="snakecell">5</td></tr>
 			<tr><td class="snakecell">5</td><td class="snakecell">4</td><td class="snakecell">3</td><td class="snakecell">2</td><td class="snakecell">1</td></tr>
@@ -28,7 +26,7 @@
 	var body = document.body,
     html = document.documentElement;
 
-	var height = Math.max( body.scrollHeight, body.offsetHeight, 
+	var height = Math.max( body.scrollHeight, body.offsetHeight,
                        html.clientHeight, html.scrollHeight, html.offsetHeight );
 	console.log(height);
 	body = html.getElementsByTagName("body")[0];
