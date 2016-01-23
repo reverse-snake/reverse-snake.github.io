@@ -5,7 +5,7 @@ snake = [[1, 0], [0, 0]]; // x, y
 dir = 'right';
 var board = [];     // top left is 0, 0, bottom right is height-1, width-1
 var food = [-1, -1];
-var refreshRate = 500; // How quickly the snake moves. (ms)
+var refreshRate = 300; // How quickly the snake moves. (ms)
 var intervalId = null;
 
 // initialize board and snake, and start snake movement
@@ -46,17 +46,26 @@ function moveHead(dir) {
   // 'right', 'left', 'up', and 'down'
   var newHead = snake[0];
   if (dir == 'up') {  // add new head above current one
+    if (newHead[1] === 0) {
+      throw 'cannot move up from ' + newHead[0] + ', ' + newHead[1];
+    }
     newHead[1]--;  // changes y-coordinate by -1 (going UP)
   } else if (dir == 'down') {
+    if (newHead[1] == height - 1) {
+      throw 'cannot move down from ' + newHead[0] + ', ' + newHead[1];
+    }
     newHead[1]++;
   } else if (dir == 'right') {
+    if (newHead[0] == width - 1) {
+      throw 'cannot move right from' + newHead[0] + ', ' + newHead[1];
+    }
     newHead[0]++;
   } else if (dir == 'left') {
+    if (newHead[0] === 0) {
+      throw 'cannot move left from' + newHead[0] + ', ' + newHead[1];
+    }
     newHead[0]--;
   }
-//  if (newHead[0] < 0 || newHead[0] >= width || newHead[1] < 0 || newHead[1] >= height) {
-
-//  }
   snake.unshift(newHead); // add newHead to the beginning of the list
   console.log(snake);
   updateBoard();
