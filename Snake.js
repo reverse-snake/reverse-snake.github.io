@@ -25,10 +25,11 @@ function stopGame() {
 
 // Snake collided with self, start next AI level
 function startGame() {
-  console.log("Game started");
   if (!gameIsStopped) {
     return;
   }
+  gameIsStopped = false;
+  console.log("Game started");
   level++;
   console.log("Round ended! Advancing to AI level", level);
   intervalId = window.setInterval(ai, refreshRate, level); // calls ai(level) at refreshRate
