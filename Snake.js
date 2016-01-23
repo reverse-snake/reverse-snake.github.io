@@ -1,9 +1,6 @@
 // board is double array
 // snake is a list w/head and tail
 
-var height = 10;  // height is y-coords (also length of board var)
-var width = 10;   // width is x-coords
-
 // initialize board and snake, and start snake movement
 function init(height, width) {
   var board = [];     // top left is 0, 0, bottom right is max, max
