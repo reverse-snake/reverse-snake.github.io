@@ -1,13 +1,13 @@
 td.snakecell {
-  background-color:red;
+  background-color: #AC2B37;
 }
 
 td.emptycell {
-  background-color: white;
+  background-color: #A9B0B7;
 }
 
 td.foodcell {
-  background-color:blue;
+  background-color:#000000;
 }
 
 table.snaketable {
@@ -17,7 +17,7 @@ table.snaketable {
 }
 
 table {
-  background-color: gray;
+  background-color: black;
 }
 
 button.invisible {
