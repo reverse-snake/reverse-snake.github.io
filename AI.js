@@ -547,6 +547,7 @@ function aiLevel3() {
     }
     // Blocked by tail
     if (inSnake(snake[0][0] + '_' + (snake[0][1] - 1))) {
+      console.log('550');
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
         dir = 'left';
       } else {
@@ -555,6 +556,7 @@ function aiLevel3() {
       return moveHead(dir);
     }
     // Food is where we are | slightly ahead.
+    console.log('559');
     if (snake[0][1] == food[1] || snake[0][1]-1 == food[1]) {
       if (snake[0][0] < food[0]) {
         if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) {
@@ -562,9 +564,11 @@ function aiLevel3() {
         }
       } else if (snake[0][0] == food[0]) {
   	    if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
+    	    console.log('567');
   	      dir = 'up';
   	    }
       } else if (snake[0][0] > food[0]) {
+        console.log('571');
         if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
           dir = 'left';
         }
