@@ -34,6 +34,8 @@
 	var width = Math.max(body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth);
 	width -= 10; // Make the table a little smaller so there's a valid border.
 	height -= 10;
+	widht /= size; // Integer division to round down.
+	height /= size;
 	console.log("Width: "+width, " Height"+height);
 	table.setAttribute("height", height + "px");
 	table.setAttribute("width", width + "px");
