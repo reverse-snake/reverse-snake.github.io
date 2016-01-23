@@ -1,6 +1,6 @@
 var dir = 'right';
 var level = 0;
-var maxLevel = 2;
+var maxLevel = 4;
 var upButton = document.getElementsByClassName("upButton")[0];
 var levelGauge = document.getElementsByClassName("level")[0];
 var downButton = document.getElementsByClassName("downButton")[0];
