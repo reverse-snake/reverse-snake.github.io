@@ -9,6 +9,8 @@ var food = [-1, -1];
 // initialize board and snake, and start snake movement
 function initSnake() {
   console.log(width+" "+height);
+  width = 10;
+  height = 10;
   board.length = width; // board[x][y]
   for (var i = 0; i < width; i++) {
     board[i] = [];

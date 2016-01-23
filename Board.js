@@ -28,6 +28,7 @@ for (var i=0; i<height; i+=1) {
 }
 
 function updateBoard(snake) {
+  console.log(snake);
 	for (var r=0, row; r<table.rows.length; r++) {
 	  for (var c=0; c<table.rows[r].cells.length; c++) {
   	  var cell = table.rows[r].cells[c];
