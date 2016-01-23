@@ -33,8 +33,8 @@
 	// Credit to http://stackoverflow.com/questions/1145850/how-to-get-height-of-entire-document-with-javascript
 	var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
 	var width = Math.max(body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth);
-	width -= 10; // Make the table a little smaller so there's a valid border.
-	height -= 10;
+	width -= 100; // Make the table a little smaller so there's a valid border.
+	height -= 100;
 	width = size * Math.floor(width/size);
 	height = size * Math.floor(height/size);
 	console.log("Width: "+width, " Height: "+height);
