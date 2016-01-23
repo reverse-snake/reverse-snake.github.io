@@ -45,17 +45,7 @@ function moveHead(dir) {
   // move snake's head in given direction
   // 'right', 'left', 'up', and 'down'
   var newHead = snake[0];
-  if (dir == 'up') {  // add new head above current one
-    if (newHead[1] === 0) {
-      throw 'cannot move up from ' + newHead[0] + ', ' + newHead[1];
-    }
-    newHead[1]--;  // changes y-coordinate by -1 (going UP)
-  } else if (dir == 'down') {
-    if (newHead[1] == height - 1) {
-      throw 'cannot move down from ' + newHead[0] + ', ' + newHead[1];
-    }
-    newHead[1]++;
-  } else if (dir == 'right') {
+  if (dir == 'right') {
     if (newHead[0] == width - 1) {
       throw 'cannot move right from' + newHead[0] + ', ' + newHead[1];
     }
@@ -65,6 +55,16 @@ function moveHead(dir) {
       throw 'cannot move left from' + newHead[0] + ', ' + newHead[1];
     }
     newHead[0]--;
+  } else if (dir == 'up') {  // add new head above current one
+    if (newHead[1] === 0) {
+      throw 'cannot move up from ' + newHead[0] + ', ' + newHead[1];
+    }
+    newHead[1]--;  // changes y-coordinate by -1 (going UP)
+  } else if (dir == 'down') {
+    if (newHead[1] == height - 1) {
+      throw 'cannot move down from ' + newHead[0] + ', ' + newHead[1];
+    }
+    newHead[1]++;
   }
   snake.unshift(newHead); // add newHead to the beginning of the list
   console.log(snake);
@@ -85,15 +85,15 @@ function placeFood(x, y) {
   initSnake();
   if (inSnake(x+'_'+y)) {
     console.log('Invalid food placement: Food collides with snake');
-		return;
-	}
-	if (!(food[0] == -1 && food[1] == -1)) { // already food
-		console.log('Invalid food placement: There is already food');
-	} else if (x >= width || y >= height || x < 0 || y < 0) { // off of board
-		console.log('Invalid food placement: Food is off board');
-	} else {
-		food = [x, y];
-		console.log('Food placed at '+x+' '+y);
+    return;
+  }
+  if (!(food[0] == -1 && food[1] == -1)) { // already food
+    console.log('Invalid food placement: There is already food');
+  } else if (x >= width || y >= height || x < 0 || y < 0) { // off of board
+    console.log('Invalid food placement: Food is off board');
+  } else {
+    food = [x, y];
+    console.log('Food placed at '+x+' '+y);
     updateBoard();
-	}
+  }
 }
