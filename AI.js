@@ -12,11 +12,8 @@ function setLevel(_level) {
   if (level > maxLevel) {
     maxLevel = level;
   }
-  console.log(levelGauge);
-  console.log(levelGauge.value);
-  console.log(levelGauge.innerHTML);
   levelGauge.innerHTML = level;
-  downButton.disabled = (level === 0);
+  downButton.disabled = (level <= 0);
   upButton.disabled = (level == maxLevel);
   console.log("After setting level: ");
   console.log(level);
