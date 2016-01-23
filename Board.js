@@ -28,19 +28,24 @@ for (var i=0; i<height; i+=1) {
 }
 
 function updateBoard(snake) {
-  for (var i=0, cell; cell=table.cells[i]; i++) {
-    console.log(cell);
-	  var isSnakeCell = false;
-	  for (var s in snake) {
-  	  if (cell.name == s[0]+"_"+s[1]) {
-    	  isSnakeCell = true;
-    	  break;
-    	}
+	for (var r=0, row; r<table.rows.length; r++) {
+	  for (var c=0; c<table.rows[r].cells.length; c++) {
+  	  // console.log(table.rows[r].cells);
+  	  // console.log(table.rows[r].cells[c]);
+  	  var cell = table.rows[r].cells[c];
+  	  console.log(cell.innerHTML);
+	    var isSnakeCell = false;
+	    for (var s in snake) {
+  	    if (cell.name == s[0]+"_"+s[1]) {
+    	    isSnakeCell = true;
+    	    break;
+    	  }
+	    }
+	    if (isSnakeCell) {
+        cell.setAttribute("class", "snakecell");
+	    } else {
+  	    cell.setAttribute("class", "emptycell");
+  	  }
 	  }
-	  if (isSnakeCell) {
-      cell.setAttribute("class", "snakecell");
-	  } else {
-  	  cell.setAttribute("class", "emptycell");
-  	}
 	}
 }
