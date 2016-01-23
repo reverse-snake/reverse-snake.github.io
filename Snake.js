@@ -36,6 +36,8 @@ function startGame() {
   }
   gameIsStopped = false;
   console.log("Game started");
+  console.log(level);
+  console.log(refreshRate);
   console.log("Round ended! Advancing to AI level", level);
   intervalId = window.setInterval(ai, refreshRate, level); // calls ai(level) at refreshRate
   ai(level);
