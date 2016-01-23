@@ -1,5 +1,18 @@
 var dir = 'right';
 
+function ai(level) {
+  switch (level) {
+    case 0:
+      return aiLevel0();
+    case 1:
+      return aiLevel1();
+    case 2:
+      return aiLevel2();
+    case 3:
+      console.log('Victory!');
+  }
+}
+
 // Level 0 is dumb as a rock: It follows left-hand on the wall unless it sees food, and ignores its own tail
 function aiLevel0() {
   if (dir == 'right' || dir == 'left') {

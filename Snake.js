@@ -3,6 +3,7 @@ var board; // top left is 0, 0, bottom right is height-1, width-1
 var food = [-1, -1];
 var refreshRate; // How quickly the snake moves. (ms)
 var intervalId = null;
+var level = 0;
 
 // initialize board and snake, and start snake movement
 function initSnake() {
@@ -16,20 +17,26 @@ function initSnake() {
     board[i].length = height;
   }
   refreshRate = 250;
-  intervalId = window.setInterval(aiLevel0, refreshRate);
-  aiLevel0();
+  levelUp();
 }
 
-function debugSnake() {
-  for (var s=0; s<snake.length; s++) {
-    console.log(snake[s][0], snake[s][1]);
-  }
+// Snake collided with self, start next AI level
+function levelUp() {
+  window.clearInterval(intervalId);
+  intervalId = window.setInterval(ai(level), refreshRate);
+  ai(level);
 }
 
 function speedUp() {
   refreshRate /= 1.5; // 50% faster
   window.clearInterval(intervalId);
   intervalId = window.setInterval(aiLevel0, refreshRate);
+}
+
+function debugSnake() {
+  for (var s=0; s<snake.length; s++) {
+    console.log(snake[s][0], snake[s][1]);
+  }
 }
 
 // String is of form x_y to allow compatibility with Board.js
@@ -49,21 +56,29 @@ function moveHead(dir) {
   if (dir == 'right') {
     if (newHead[0] == width - 1) {
       throw 'cannot move right from' + newHead[0] + ', ' + newHead[1];
+    } else if (inSnake((newHead[0]+1)+'_'+newHead[1])) {
+      levelUp();
     }
     newHead[0]++;
   } else if (dir == 'left') {
     if (newHead[0] === 0) {
       throw 'cannot move left from' + newHead[0] + ', ' + newHead[1];
+    } else if (inSnake((newHead[0]-1)+'_'+newHead[1])) {
+      levelUp();
     }
     newHead[0]--;
   } else if (dir == 'up') {  // add new head above current one
     if (newHead[1] === 0) {
       throw 'cannot move up from ' + newHead[0] + ', ' + newHead[1];
+    } else if (inSnake(newHead[0]+'_'+(newHead[1]-1))) {
+      levelUp();
     }
     newHead[1]--;  // changes y-coordinate by -1 (going UP)
   } else if (dir == 'down') {
     if (newHead[1] == height - 1) {
       throw 'cannot move down from ' + newHead[0] + ', ' + newHead[1];
+    } else if (inSnake(newHead[0]+'_'+(newHead[1]+1))) {
+      levelUp();
     }
     newHead[1]++;
   }
