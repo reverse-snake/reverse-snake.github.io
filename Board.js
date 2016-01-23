@@ -13,7 +13,6 @@ if (isMobile) {
 	refreshRate = 350;
 	table.setAttribute('cellspacing', '2px');
 }
-console.log('Width: '+width, ' Height: '+height);
 table.setAttribute('height', height*size + 'px');
 table.setAttribute('width', width*size + 'px');
 table.setAttribute('cellspacing', '1px');
@@ -26,6 +25,8 @@ for (var i=0; i<height; i+=1) {
 		var btn = document.createElement('button');
 		btn.setAttribute('class', 'invisible');
 		btn.setAttribute('onclick', 'placeFood('+j+','+i+')');
+		btn.setAttribute('height', size+'px');
+		btn.setAttribute('width', size+'px');
 		cell.appendChild(btn);
 	}
 }

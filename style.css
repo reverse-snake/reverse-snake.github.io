@@ -19,8 +19,6 @@ table.snaketable {
 button.invisible {
   background: transparent;
   border: none;
-  height: 20px;
-  width: 20px;
 }
 
 button:focus {
