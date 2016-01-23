@@ -1,7 +1,5 @@
 var body = document.body;
 var html = document.documentElement;
-console.log(document.getElementsByClassName('snaketable'));
-console.log(document.getElementsByClassName('snaketable')[0]);
 var table = document.getElementsByClassName('snaketable')[0];
 
 var size = 30; // Size of cell
