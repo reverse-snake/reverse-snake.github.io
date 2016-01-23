@@ -1,18 +1,19 @@
 // board is double array
 // snake is a list w/head and tail
 
+snake = [[0, 0]]; // x, y
+dir = 'right';
+var board = [];     // top left is 0, 0, bottom right is length-1, width-1
+var food = [-1, -1];
+
 // initialize board and snake, and start snake movement
 function init(height, width) {
-  var board = [];     // top left is 0, 0, bottom right is length-1, width-1
+
   board.length = height;
   for (var i = 0; i < height; i++) {
     board[i] = [];
     board[i].length = width;
   }
-  // initial values for snake
-  var snake = [[0, 0]]; // x, y
-  var dir = 'right';
-  var food = [-1, -1];
   window.setInterval(aiLevel0, 500);
   aiLevel0();
 }
