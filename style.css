@@ -48,3 +48,7 @@ button.downButton {
   height: 70px;
   width: 70px;
 }
+
+img {
+  outline: none;
+}
