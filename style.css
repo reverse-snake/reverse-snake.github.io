@@ -12,12 +12,12 @@ td.foodcell {
 
 table.snaketable {
   border: 1px solid black;
-  background-color: gray;
+  background-color: black;
   margin: auto;
 }
 
 table {
-  background-color: black;
+  background-color: #A9B0B7;
 }
 
 button.invisible {
