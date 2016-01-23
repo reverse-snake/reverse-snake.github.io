@@ -3,21 +3,20 @@ var html = document.documentElement;
 var body = html.getElementsByTagName("body")[0];
 var table = body.getElementsByTagName("table")[0];
 var size = 20; // Size of cell
-size += 2; // Add border
 
 // Credit to http://stackoverflow.com/questions/1145850/how-to-get-height-of-entire-document-with-javascript
 var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
 var width = Math.max(body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth);
-width -= 100; // Make the table a little smaller so there's a valid border.
-height -= 100;
-width = size * Math.floor(width/size);
-height = size * Math.floor(height/size);
+width -= 10; // Make the table a little smaller so there's a valid border.
+height -= 10;
+width = Math.floor(width/size);
+height = Math.floor(height/size);
 console.log("Width: "+width, " Height: "+height);
 table.setAttribute("height", height + "px");
 table.setAttribute("width", width + "px");
-for (var i=0; i<height; i+=size) {
+for (var i=0; i<height; i+=1) {
 	var row = document.createElement("tr");
-	for (var j=0; j<width; j+=size) {
+	for (var j=0; j<width; j+=1) {
 	  var cell = document.createElement("td");
 	  cell.setAttribute("class", "emptycell");
 	  cell.setAttribute("name", i+"_"+j);
