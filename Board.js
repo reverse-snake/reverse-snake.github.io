@@ -4,8 +4,8 @@ var body = html.getElementsByTagName('body')[0];
 var table = body.getElementsByTagName('table')[0];
 var size = 20; // Size of cell
 
-var height = window.innerWidth;
-var width = window.innerHeight;
+var height = window.innerHeight;
+var width = window.innerWidth;
 width -= 10; // Make the table a little smaller so there's a valid border.
 height -= 10;
 width = Math.floor(width/size);
