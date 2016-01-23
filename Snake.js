@@ -77,7 +77,7 @@ function moveHead(dir) {
   snake.unshift(newHead); // add newHead to the beginning of the list
   console.log(snake);
   updateBoard();
-  if (snake[0] == food) { // if snake's head is on the food
+  if (snake[0][0] == food[0] && snake[0][1] == food[1]) { // if snake's head is on the food
     food = [-1, -1];
   } else {
     delTail();
@@ -98,7 +98,7 @@ function placeFood(x, y) {
 			return;
 		}
 	}
-	if (food != [-1, -1]) { // already food
+	if (!(food[0] == -1 && food[1] == -1)) { // already food
 		console.log("Invalid food placement: There is already food");
 	} else if (x >= width || y >= height || x < 0 || y < 0) { // off of board
 		console.log("Invalid food placement: Food is off board");
