@@ -1,20 +1,23 @@
 // board is double array
 // snake is a list w/head and tail
 
-// initialize board
-var board = [];     // top left is 0, 0, bottom right is max, max
 var height = 10;  // height is y-coords (also length of board var)
 var width = 10;   // width is x-coords
-board.length = height;
-for (var i = 0; i < height; i++) {
-  board[i] = [];
-  board[i].length = width;
-}
 
-// initial values for snake
-var snake = [[0, 0]]; // x, y
-var dir = 'right';
-var food = [-1, -1];
+// initialize board and snake, and start snake movement
+function init(height, width) {
+  var board = [];     // top left is 0, 0, bottom right is max, max
+  board.length = height;
+  for (var i = 0; i < height; i++) {
+    board[i] = [];
+    board[i].length = width;
+  }
+  // initial values for snake
+  var snake = [[0, 0]]; // x, y
+  var dir = 'right';
+  var food = [-1, -1];
+  idleRight();
+}
 
 // idle functions - snake goes clockwise by default
 // go right, checking for food along the way
@@ -95,17 +98,18 @@ function delTail() {  // simple function to remove the tail
 }
 
 function placeFood(x, y) {
+  newFood = [x, y];
   if (food != [-1, -1]) { // already food
     console.log("Invalid food placement: There is already food");
     return false;
   } else if (x >= width || y >= height || x < 0 || y < 0) { // off of board
     console.log("Invalid food placement: Food is off board");
     return false;
-  } else if (false) {   // collides with snake
+  } else if (snake.includes(newFood)) {   // new food collides with snake
     console.log("Invalid food placement: Food collides with snake");
     return false;
   } else {
-    food = [x, y];
+    food = newFood;
     return true;
   }
 }
