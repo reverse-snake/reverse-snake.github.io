@@ -31,13 +31,26 @@
 				<div align="right" style="vertical-align:top">Version 2.12</div>
 				<!-- Speed Slider -->
 				<table>
-					<tr>
-						<div class="range-slider vertical-range" align="right" style="vertical-align: top" data-slider data-options="start: 100; end: 500; vertical: true;" >
-							<span class="range-slider-handle" role="slider" tabindex="25"></span>
-							<span class="range-slider-active-segment"></span>
-							<input type="hidden">
-						</div>
-					</tr>
+					<form name = "weight1" id = "weight1" >
+						<!-- http://webtutsdepot.com/2010/04/24/html-5-slider-input-tutorial/ -->
+						<text><b> weight1 </b></text> <input id="weight1" input type="range" name="weight1" min="0" max="100" value="0" step="1" onchange="showValue(this)" />
+						<span id="range">0</span>
+						<script type="text/javascript">
+						function get_nextsibling(n)
+						{
+							x=n.nextSibling;
+							while (x.nodeType!=1)
+							{
+								x=x.nextSibling;
+							}
+							return x;
+						}
+						function showValue(self)
+						{
+							get_nextsibling(self).innerHTML=self.value;
+						}
+						</script>
+					</form>
 				</table>
 				<table>
 					<tr>
