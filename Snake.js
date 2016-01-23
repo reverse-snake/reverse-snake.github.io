@@ -91,6 +91,7 @@ function delTail() {  // simple function to remove the tail
 
 function placeFood(x, y) {
   initSnake();
+  console.log(food);
   for (var s=0; s<snake.length; s++) {
 		if (x == snake[s][0] && y == snake[s][1]) {
       console.log("Invalid food placement: Food collides with snake");
