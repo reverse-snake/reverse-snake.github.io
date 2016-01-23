@@ -45,6 +45,9 @@ function getLoopDirection() {
   var turns = 0;
   // We count squares in 3s.
   for (var s = 0; s < snake.length - 2; s++) {
+    if (s > 1 && (Math.abs(snake[s+1][0]-snake[0][0]) + Math.abs(snake[s+1][1]-snake[0][1]) == 1)) {
+      break; // Found the node that touches the head node and creates the loop, so we exit.
+    }
     if (snake[s][0] < snake[s + 1][0]) {
       if (snake[s + 1][1] < snake[s + 2][1]) {
         // 12
@@ -518,6 +521,7 @@ function aiLevel3() {
         dir = 'left';
       // If near the left side of the board, go right
       } else if (snake[0][0] <= 1) {
+        console.log('524');
         dir = 'right';
       } else {
         for (var i = snake[0][0] + 1; i < width; i++) { // Check along top edge for our own tail (loop)
