@@ -31,6 +31,7 @@ function stopGame() {
 
 // Snake collided with self, start next AI level
 function startGame() {
+  document.cookie="speed=refreshRate; highest=maxLevel;";
   if (!gameIsStopped) {
     return;
   }
