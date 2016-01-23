@@ -234,7 +234,7 @@ function aiLevel2() {
           }
         }
         dir = 'down'; // There is a loop above us or not, regardless we go down.
-      }/*
+      /*}
       // Blocked by tail
     } else if (inSnake((snake[0][0] + 1) + '_' + snake[0][1])) {
       var turns = getLoopDirection();
@@ -271,7 +271,7 @@ function aiLevel2() {
           }
         }
         dir = 'up'; // There is a loop below us or not, regardless we go up.
-      }/*
+      /*}
       // Blocked by tail
     } else if (inSnake((snake[0][0] - 1) + '_' + snake[0][1])) {
       var turns = getLoopDirection();
@@ -308,7 +308,7 @@ function aiLevel2() {
           }
         }
         dir = 'right'; // There is a loop to the left of us or not, regardless we go right.
-      }/*
+      /*}
       // Blocked by tail
     } else if (inSnake(snake[0][0] + '_' + (snake[0][1] - 1))) {
       var turns = getLoopDirection();
@@ -344,7 +344,7 @@ function aiLevel2() {
           }
         }
         dir = 'left'; // There is a loop to the right of us or not, regardless we go left.
-      }/*
+      /*}
       // Blocked by tail
     } else if (inSnake(snake[0][0] + '_' + (snake[0][1] - 1))) {
       var turns = getLoopDirection();
