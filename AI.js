@@ -16,23 +16,23 @@ function setLevel(_level) {
 }
 
 function upLevel() {
-  setLevel(level+1);
+  setLevel(level + 1);
 }
 
 function downLevel() {
-  setLevel(level-1);
+  setLevel(level - 1);
 }
 
 function ai(level) {
   switch (level) {
     case 0:
-    return aiLevel0();
+      return aiLevel0();
     case 1:
-    return aiLevel1();
+      return aiLevel1();
     case 2:
-    return aiLevel2();
+      return aiLevel2();
     case 3:
-    console.log('Victory!');
+      console.log('Victory!');
   }
 }
 
@@ -234,15 +234,7 @@ function aiLevel2() {
           }
         }
         dir = 'down'; // There is a loop above us or not, regardless we go down.
-      /*}
-      // Blocked by tail
-    } else if (inSnake((snake[0][0] + 1) + '_' + snake[0][1])) {
-      var turns = getLoopDirection();
-      if (turns < 0) { // Loop direction Counter-clockwise
-        dir = 'up';
-      } else {
-        dir = 'down';
-      */}
+      }
       // Snake above/below food
     } else if (snake[0][0] == food[0]) {
       if (snake[0][1] < food[1]) {
@@ -271,15 +263,7 @@ function aiLevel2() {
           }
         }
         dir = 'up'; // There is a loop below us or not, regardless we go up.
-      /*}
-      // Blocked by tail
-    } else if (inSnake((snake[0][0] - 1) + '_' + snake[0][1])) {
-      var turns = getLoopDirection();
-      if (turns < 0) { // Loop direction Counter-clockwise
-        dir = 'down';
-      } else {
-        dir = 'up';
-      */}
+      }
       // Snake above/below food
     } else if (snake[0][0] == food[0]) {
       if (snake[0][1] < food[1]) {
@@ -308,15 +292,7 @@ function aiLevel2() {
           }
         }
         dir = 'right'; // There is a loop to the left of us or not, regardless we go right.
-      /*}
-      // Blocked by tail
-    } else if (inSnake(snake[0][0] + '_' + (snake[0][1] - 1))) {
-      var turns = getLoopDirection();
-      if (turns < 0) { // Loop direction Counter-clockwise
-        dir = 'left';
-      } else {
-        dir = 'right';
-      */}
+      }
     } else if (snake[0][1] == food[1]) { // Snake left/right of food
       if (snake[0][0] < food[0]) {
         dir = 'right';
@@ -344,15 +320,7 @@ function aiLevel2() {
           }
         }
         dir = 'left'; // There is a loop to the right of us or not, regardless we go left.
-      /*}
-      // Blocked by tail
-    } else if (inSnake(snake[0][0] + '_' + (snake[0][1] - 1))) {
-      var turns = getLoopDirection();
-      if (turns < 0) { // Loop direction Counter-clockwise
-        dir = 'right';
-      } else {
-        dir = 'left';
-      */}
+      }
     } else if (snake[0][1] == food[1]) { // Snake left/right of food
       if (snake[0][0] < food[0]) {
         dir = 'right';
