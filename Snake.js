@@ -1,5 +1,5 @@
-var snake = [[1, 0], [0, 0]]; // x, y
-var board = [];     // top left is 0, 0, bottom right is height-1, width-1
+var snake; // An array of [x, y] pairs. The head is at [0], tail is at [-1].
+var board; // top left is 0, 0, bottom right is height-1, width-1
 var food = [-1, -1];
 var refreshRate = 300; // How quickly the snake moves. (ms)
 var intervalId = null;
@@ -9,6 +9,7 @@ function initSnake() {
   if (intervalId !== null) {
     return;
   }
+  snake = [[1, 0], [0, 0]];
   debugSnake();
   board.length = width; // board[x][y]
   for (var i = 0; i < width; i++) {
