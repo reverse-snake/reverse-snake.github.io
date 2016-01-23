@@ -19,7 +19,6 @@ function stopGame() {
   for (var i=0; i<level+2; i++) {
     snake.unshift([i, 0]);
   }
-  window.clearInterval(intervalId);
   updateBoard();
 }
 
@@ -66,28 +65,32 @@ function moveHead(dir) {
     if (newHead[0] == width - 1) {
       throw 'cannot move right from' + newHead[0] + ', ' + newHead[1];
     } else if (inSnake((newHead[0]+1)+'_'+newHead[1])) {
-      stopGame();
+      window.clearInterval(intervalId);
+      window.setTimeout(stopGame, refreshRate);
     }
     newHead[0]++;
   } else if (dir == 'left') {
     if (newHead[0] === 0) {
       throw 'cannot move left from' + newHead[0] + ', ' + newHead[1];
     } else if (inSnake((newHead[0]-1)+'_'+newHead[1])) {
-      stopGame();
+      window.clearInterval(intervalId);
+      window.setTimeout(stopGame, refreshRate);
     }
     newHead[0]--;
   } else if (dir == 'up') {  // add new head above current one
     if (newHead[1] === 0) {
       throw 'cannot move up from ' + newHead[0] + ', ' + newHead[1];
     } else if (inSnake(newHead[0]+'_'+(newHead[1]-1))) {
-      stopGame();
+      window.clearInterval(intervalId);
+      window.setTimeout(stopGame, refreshRate);
     }
     newHead[1]--;  // changes y-coordinate by -1 (going UP)
   } else if (dir == 'down') {
     if (newHead[1] == height - 1) {
       throw 'cannot move down from ' + newHead[0] + ', ' + newHead[1];
     } else if (inSnake(newHead[0]+'_'+(newHead[1]+1))) {
-      stopGame();
+      window.clearInterval(intervalId);
+      window.setTimeout(stopGame, refreshRate);
     }
     newHead[1]++;
   }
