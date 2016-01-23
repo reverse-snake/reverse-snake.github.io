@@ -9,8 +9,6 @@ function initSnake() {
   if (intervalId !== null) {
     return;
   }
-  console.log("Initialization");
-  debugSnake();
   board = [];
   board.length = width; // board[x][y]
   for (var i = 0; i < width; i++) {
@@ -19,8 +17,6 @@ function initSnake() {
   }
   refreshRate = 300;
   intervalId = window.setInterval(aiLevel0, refreshRate);
-  console.log("22");
-  debugSnake();
   aiLevel0();
 }
 
@@ -49,8 +45,6 @@ function inSnake(string) {
 function moveHead(dir) {
   // move snake's head in given direction
   // 'right', 'left', 'up', and 'down'
-  console.log("L53:");
-  debugSnake();
   var newHead = snake[0].slice(0); // Clone so we don't move the head by accident.
   if (dir == 'right') {
     if (newHead[0] == width - 1) {
@@ -73,8 +67,6 @@ function moveHead(dir) {
     }
     newHead[1]++;
   }
-  console.log("Before unshift:");
-  debugSnake();
   snake.unshift(newHead); // add newHead to the beginning of the list
   if (snake[0][0] == food[0] && snake[0][1] == food[1]) { // if snake's head is on the food
     food = [-1, -1];
