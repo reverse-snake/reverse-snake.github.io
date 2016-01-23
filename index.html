@@ -8,15 +8,18 @@
 	<script src="detectmobilebrowser.js"></script>
 </head>
 <body>
-	<div>
-		<h2>Level</h2>
-		<button class="upButton" onclick="upLevel()">^</button>
-		<p>3</p>
-		<button class="downButton" onclick="downLevel()">v</button>
-	</div>
-	<div>
-		<table class="snaketable"></table>
-	</div>
+	<table>
+		<tr>
+			<td rowspan="3">Level</td>
+			<td><button class="upButton" onclick="upLevel()">^</button></td>
+		</tr><tr align="center">
+			<td class="level">3</td>
+		</tr><tr>
+			<td><button class="downButton" onclick="downLevel()">v</button></td>
+		</tr>
+	</table>
+	<table class="snaketable" cellspacing="1px" cellpadding="0px"></table>
+	<table class="snaketable" cellspacing="1px" cellpadding="0px"></table>
 </body>
 <script src="Board.js"></script>
 </html>
