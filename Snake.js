@@ -8,7 +8,6 @@ var food = [-1, -1];
 
 // initialize board and snake, and start snake movement
 function initSnake() {
-  console.log(width+" "+height);
   board.length = width; // board[x][y]
   for (var i = 0; i < width; i++) {
     board[i] = [];
@@ -29,7 +28,7 @@ function aiLevel0() {
       }
     } else if ((snake[0][0] == width - 1) && dir == 'right') { // is the snake at the right wall
 		dir = 'down';
-	} else if ((snake[0][0] == 0) && dir == 'left') {  // is the snake at the left wall?
+	} else if ((snake[0][0] === 0) && dir == 'left') {  // is the snake at the left wall?
 		dir = 'up';
 	}
   } else if (dir == 'up' || dir == 'down') {
@@ -39,9 +38,9 @@ function aiLevel0() {
       } else {
         dir = 'left';
       }
-    } else if ((snake[0][1] == 0) && dir == 'up') { // is the snake at the top wall
-		dir = 'right'; 
-	} else if (snake[0][1] == height - 1 && dir == 'down') {  // is the snake at the bottom wall?
+    } else if ((snake[0][1] === 0) && dir == 'up') { // is the snake at the top wall
+		dir = 'right';
+  } else if (snake[0][1] == height - 1 && dir == 'down') {  // is the snake at the bottom wall?
 		dir = 'left';
 	} // else dir is unchanged
   }
@@ -79,6 +78,11 @@ function delTail() {  // simple function to remove the tail
 }
 
 function placeFood(x, y) {
+  for (var s=0; s<snake.length; s++) {
+		if (x == snake[s][0] && y == snake[s][1]) {
+			isSnakeCell = true;
+			break;
+		}
 	if (food != [-1, -1]) { // already food
 		console.log("Invalid food placement: There is already food");
 		return false;
