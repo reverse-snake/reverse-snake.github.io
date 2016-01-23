@@ -210,8 +210,6 @@ function aiLevel1() {
 }
 // Same as level 1, but will decide to turn left or right on obstruction based on loop formation.
 function aiLevel2() {
-  console.log(dir);
-  debugSnake();
   if (dir == 'right') {
     // Blocked by wall
     if (snake[0][0] == width - 1) {
@@ -346,12 +344,12 @@ function aiLevel2() {
         dir = 'left';
       } else {
         for (var i = snake[0][0] - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
-          if (inSnake(i + '_' + height - 1)) {
+          if (inSnake(i + '_' + (height-1))) {
             dir = 'right';
             return moveHead(dir);
           }
         }
-        for (var j = height - 1; j < 0; j--) { // Check along left edge for our own tail (loop)
+        for (var j = height - 1; j >= 0; j--) { // Check along left edge for our own tail (loop)
           if (inSnake(0 + '_' + j)) {
             dir = 'right';
             return moveHead(dir);
@@ -360,7 +358,7 @@ function aiLevel2() {
         dir = 'left';
       }
     // Blocked by tail
-    } else if (inSnake(snake[0][0] + '_' + (snake[0][1] - 1))) {
+    } else if (inSnake(snake[0][0] + '_' + (snake[0][1] + 1))) {
       var turns = getLoopDirection();
       if (turns < 0) { // Loop direction Counter-clockwise
         dir = 'right';
