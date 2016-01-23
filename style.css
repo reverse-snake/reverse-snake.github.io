@@ -1,15 +1,15 @@
 /* colors from https://www.wpi.edu/Images/CMS/Marketing/WPILogoUsage_QuickReferenceGuide.pdf */
 
 td.snakecell {
-  background-color: #CF0808;
+  background-color: #FF1111;
 }
 
 td.emptycell {
-  background-color: #A9B0B7;
+  background-color: #A2AAAA;
 }
 
 td.foodcell {
-  background-color:#009292;
+  background-color:#036EB2;
 }
 
 table.snaketable {
