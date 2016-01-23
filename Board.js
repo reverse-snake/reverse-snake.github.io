@@ -38,7 +38,7 @@ function updateBoard(snake) {
 	}
 	console.log(snake);
 	for (s in snake) {
-	  var cell = table.getElementsByName(s[0]+"_"+s[1])[0];
+	  var cell = document.getElementsByName(s[0]+"_"+s[1])[0];
 	  console.log(cell);
 	  cell.setAttribute("class", "snakecell");
 	}
