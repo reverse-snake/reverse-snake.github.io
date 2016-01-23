@@ -102,7 +102,7 @@ function moveHead(dir) {
   }
   snake.unshift(newHead); // add newHead to the beginning of the list
   if (snake[0][0] == food[0] && snake[0][1] == food[1]) { // if snake's head is on the food
-  stopGame();
+  food = [-1, -1];
 } else {
   delTail();
 }
