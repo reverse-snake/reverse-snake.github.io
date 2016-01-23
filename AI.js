@@ -213,30 +213,39 @@ function aiLevel1() {
 
 // Same as level 1, but will decide to turn left or right on obstruction based on loop formation.
 function aiLevel2() {
+  console.log(dir);
   debugSnake();
   if (dir == 'right') {
     // Blocked by wall
     if (snake[0][0] == width - 1) {
+      console.log('221');
       // If at bottom of board, go up
       if (snake[0][1] == height - 1) {
+        console.log('224');
         dir = 'up';
       } else {
+        console.log('227');
         for (var j = snake[0][1] + 1; j++; j < height) { // Check along right edge for our own tail (loop)
           if (inSnake((width - 1) + '_' + j)) {
             dir = 'up';
+            console.log('231');
             return moveHead(dir);
           }
         }
+        console.log('235');
         for (var i = width - 1; i--; i >= 0) { // Check along bottom edge for our own tail (loop)
           if (inSnake(i + '_' + (width - 1))) {
             dir = 'up';
+            console.log('239');
             return moveHead(dir);
           }
         }
         dir = 'down'; // There is a loop above us or not, regardless we go down.
+        console.log('244');
       }
       // Snake above/below food
     } else if (snake[0][0] == food[0]) {
+      console.log('248');
       if (snake[0][1] < food[1]) {
         dir = 'down';
       } else {
@@ -301,25 +310,33 @@ function aiLevel2() {
       }
     }
   } else if (dir == 'down') {
+    console.log('313');
     // Blocked by wall
     if (snake[0][1] == height - 1) {
+      console.log('316');
       // If at left side of board, go right
       if (snake[0][0] === 0) {
+        console.log('319');
         dir = 'right';
       } else {
+        console.log('322');
         for (var i = snake[0][0] - 1; i--; i >= 0) { // Check along bottom edge for our own tail (loop)
           if (inSnake(i + '_' + height - 1)) {
             dir = 'right';
+            console.log('326');
             return moveHead(dir);
           }
         }
+        console.log('330');
         for (var j = height - 1; j--; j < 0) { // Check along left edge for our own tail (loop)
           if (inSnake(0 + '_' + j)) {
             dir = 'right';
+            console.log('334');
             return moveHead(dir);
           }
         }
         dir = 'left'; // There is a loop to the right of us or not, regardless we go left.
+        console.log('339');
       }
     } else if (snake[0][1] == food[1]) { // Snake left/right of food
       if (snake[0][0] < food[0]) {
