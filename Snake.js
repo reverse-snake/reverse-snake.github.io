@@ -81,6 +81,7 @@ function moveHead(dir) {
       //var cell = table.rows[r].cells[c];
       var collisionCell = table.rows[snake[0][0]].cells[snake[0][1]];
       collisionCell.setAttribute('class', 'impactcell');
+      console.log(collisionCell);
       window.setTimeout(stopGame, 3*refreshRate);
     }
     newHead[0]++;
@@ -91,6 +92,7 @@ function moveHead(dir) {
       window.clearInterval(intervalId);
       var collisionCell = table.rows[snake[0][0]].cells[snake[0][1]];
       collisionCell.setAttribute('class', 'impactcell');
+      console.log(collisionCell);
       window.setTimeout(stopGame, 3*refreshRate);
     }
     newHead[0]--;
@@ -101,6 +103,7 @@ function moveHead(dir) {
       window.clearInterval(intervalId);
       var collisionCell = table.rows[snake[0][0]].cells[snake[0][1]];
       collisionCell.setAttribute('class', 'impactcell');
+      console.log(collisionCell);
       window.setTimeout(stopGame, 3*refreshRate);
     }
     newHead[1]--;  // changes y-coordinate by -1 (going UP)
@@ -111,6 +114,7 @@ function moveHead(dir) {
       window.clearInterval(intervalId);
       var collisionCell = table.rows[snake[0][0]].cells[snake[0][1]];
       collisionCell.setAttribute('class', 'impactcell');
+      console.log(collisionCell);
       window.setTimeout(stopGame, 3*refreshRate);
     }
     newHead[1]++;
