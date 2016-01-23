@@ -42,8 +42,9 @@
 						<td class="emptycell" width="30px" height="30px"></td>
 						<td>Empty Cell</td>
 					</tr><tr>
-						<div align="center">Snake Speed: <span name="speed">5</span></div>
-						<input min="1" max="10" value="5" step="1" onchange="showValue(this)" type="range">
+						<td colspan="2">
+							<div align="center">Snake Speed: <span name="speed">5</span></div>
+							<input min="1" max="10" value="5" step="1" onchange="showValue(this)" type="range">
 						<script type="text/javascript">
 						function showValue(self) {
 							changeSpeed(1000/self.value);
@@ -51,6 +52,8 @@
 							document.getElementsByName("speed")[0].innerHTML = self.value;
 						}
 						</script>
+					</td>
+				</tr>
 				</table>
 				<script src="Snake.js"></script>
 				<script src="AI.js"></script>
