@@ -25,6 +25,9 @@ for (var i=0; i<height; i+=1) {
 	table.appendChild(row);
 }
 
+function getHeight() {return height;}
+function getWidth() {return width;}
+
 function updateBoard(snake) {
   console.log(snake);
 	for (var row in (table.getElementsByTagName("tr"))) {
