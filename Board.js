@@ -5,7 +5,7 @@ var table = body.getElementsByTagName('table')[0];
 var size = 20; // Size of cell
 
 // Make the table a little smaller so there's a valid border.
-var height = window.innerHeight-70;
+var height = window.innerHeight-40;
 var width = window.innerWidth-20;
 width = Math.floor(width/size);
 height = Math.floor(height/size);
