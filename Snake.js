@@ -9,6 +9,7 @@ function initSnake() {
   if (intervalId !== null) {
     return;
   }
+  debugSnake();
   board.length = width; // board[x][y]
   for (var i = 0; i < width; i++) {
     board[i] = [];
@@ -17,6 +18,12 @@ function initSnake() {
   intervalId = window.setInterval(aiLevel0, refreshRate);
   aiLevel0();
   updateBoard();
+}
+
+function debugSnake() {
+  for (var s=0; s<snake.length; s++) {
+    console.log(s[0], s[1]);
+  }
 }
 
 function speedUp() {
@@ -61,14 +68,10 @@ function moveHead(dir) {
     newHead[1]++;
   }
   console.log("Before unshift:");
-  for (var s=0; s<snake.length; s++) {
-    console.log(s[0], s[1]);
-  }
+  debugSnake();
   snake.unshift(newHead); // add newHead to the beginning of the list
   console.log("After unshift:");
-  for (var s=0; s<snake.length; s++) {
-    console.log(s[0], s[1]);
-  }
+  debugSnake();
   if (snake[0][0] == food[0] && snake[0][1] == food[1]) { // if snake's head is on the food
     food = [-1, -1];
   } else {
@@ -83,6 +86,7 @@ function delTail() {  // simple function to remove the tail
 
 function placeFood(x, y) {
   initSnake();
+  debugSnake();
   if (inSnake(x+'_'+y)) {
     console.log('Invalid food placement: Food collides with snake');
     return;
