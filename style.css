@@ -56,3 +56,11 @@ button.downButton {
 a, a:active, a:focus, table.td {
   outline: none;
 }
+
+input::-moz-focus-inner {
+  border: 0;
+}
+
+img::-moz-focus-inner {
+  border: 0;
+}
