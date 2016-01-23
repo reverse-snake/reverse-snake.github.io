@@ -308,7 +308,7 @@ function aiLevel2() {
           }
         }
         dir = 'right'; // There is a loop to the left of us or not, regardless we go right.
-      */}
+      }
       // Blocked by tail
     } else if (inSnake(snake[0][0] + '_' + (snake[0][1] - 1))) {
       var turns = getLoopDirection();
@@ -316,7 +316,7 @@ function aiLevel2() {
         dir = 'left';
       } else {
         dir = 'right';
-      }
+      */}
     } else if (snake[0][1] == food[1]) { // Snake left/right of food
       if (snake[0][0] < food[0]) {
         dir = 'right';
@@ -344,7 +344,7 @@ function aiLevel2() {
           }
         }
         dir = 'left'; // There is a loop to the right of us or not, regardless we go left.
-      */}
+      }
       // Blocked by tail
     } else if (inSnake(snake[0][0] + '_' + (snake[0][1] - 1))) {
       var turns = getLoopDirection();
@@ -352,7 +352,7 @@ function aiLevel2() {
         dir = 'right';
       } else {
         dir = 'left';
-      }
+      */}
     } else if (snake[0][1] == food[1]) { // Snake left/right of food
       if (snake[0][0] < food[0]) {
         dir = 'right';
