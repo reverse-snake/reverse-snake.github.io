@@ -1,23 +1,16 @@
 var snake = [[1, 0], [0, 0]]; // An array of [x, y] pairs. The head is at [0], tail is at [-1].
 var board; // top left is 0, 0, bottom right is height-1, width-1
 var food = [-1, -1];
-var refreshRate; // How quickly the snake moves. (ms)
-var intervalId = null;
-var level = 0;
+var refreshRate = 250; // How quickly the snake moves. (ms)
+var intervalId;
+var level = -1; // Since startGame() increases level, and our first AI is 0, we start at -1.
 
-// initialize board and snake, and start snake movement
-function initSnake() {
-  if (intervalId !== null) {
-    return;
-  }
   board = [];
   board.length = width; // board[x][y]
   for (var i = 0; i < width; i++) {
     board[i] = [];
     board[i].length = height;
   }
-  refreshRate = 250;
-  levelUp();
 }
 
 // Snake collided with self, start next AI level
