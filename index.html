@@ -39,25 +39,22 @@
 					<tr><td class="foodcell" width="30px" height="30px"></td><td>Food</td></tr>
 					<tr><td class="emptycell" width="30px" height="30px"></td><td>Empty Cell</td></tr>
 				</table>
+<!--
+
+    <text><b> weight2 </b></text> <input id="weight2" input="" name="weight2" min="0" max="100" value="0" step="1" onchange="showValue(this)" type="range">
+    <span id="range" name="ajdh">80</span>
+
+-->
+
 				<!-- Speed Slider -->
 				<table>
-					<form name = "speedSlider" id = "speedSlider" >
+					<form name = "weight2" id = "weight2" >
 						<!-- http://webtutsdepot.com/2010/04/24/html-5-slider-input-tutorial/ -->
-						<text><b>Snake Speed</b></text> <input id="speedSlider" input type="range" name="speed" min="100" max="500" value="250" step="25" onchange="showValue(this)"/>
-						<span id="range">250</span>
+						<text><b> weight2 </b></text> <input id="weight2" input="" name="weight2" min="0" max="100" value="0" step="1" onchange="showValue(this)" type="range">
+				    <span id="range" name="ajdh">80</span>
 						<script type="text/javascript">
-						function get_nextsibling(n)
-						{
-							x=n.nextSibling;
-							while (x.nodeType!=1)
-							{
-								x=x.nextSibling;
-							}
-							return x;
-						}
-						function showValue(self)
-						{
-							get_nextsibling(self).innerHTML=self.value;
+						function showValue(self) {
+							console.log(self.value);
 						}
 						</script>
 					</form>
