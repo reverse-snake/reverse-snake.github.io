@@ -220,7 +220,7 @@ function aiLevel2() {
       // If at bottom of board, go up
       if (snake[0][1] == height - 1) {
         dir = 'up';
-/*      } else {
+      } else {
         for (var j = snake[0][1] + 1; j++; j < height) { // Check along right edge for our own tail (loop)
           if (inSnake((width - 1) + '_' + j)) {
             dir = 'up';
@@ -234,7 +234,7 @@ function aiLevel2() {
           }
         }
         dir = 'down'; // There is a loop above us or not, regardless we go down.
-      }
+      }/*
       // Blocked by tail
     } else if (inSnake((snake[0][0] + 1) + '_' + snake[0][1])) {
       var turns = getLoopDirection();
@@ -257,7 +257,7 @@ function aiLevel2() {
       // If at top of board, go down
       if (snake[0][1] === 0) {
         dir = 'down';
-/*      } else {
+      } else {
         for (var j = snake[0][1] - 1; j--; j >= 0) { // Check along left edge for our own tail (loop)
           if (inSnake(0 + '_' + j)) {
             dir = 'down';
@@ -271,7 +271,7 @@ function aiLevel2() {
           }
         }
         dir = 'up'; // There is a loop below us or not, regardless we go up.
-      }
+      }/*
       // Blocked by tail
     } else if (inSnake((snake[0][0] - 1) + '_' + snake[0][1])) {
       var turns = getLoopDirection();
@@ -294,7 +294,7 @@ function aiLevel2() {
       // If at right side of board, go left
       if (snake[0][0] == width - 1) {
         dir = 'left';
-/*      } else {
+      } else {
         for (var i = snake[0][0] + 1; i++; i < width) { // Check along top edge for our own tail (loop)
           if (inSnake(i + '_' + 0)) {
             dir = 'left';
@@ -308,7 +308,7 @@ function aiLevel2() {
           }
         }
         dir = 'right'; // There is a loop to the left of us or not, regardless we go right.
-      }
+      }/*
       // Blocked by tail
     } else if (inSnake(snake[0][0] + '_' + (snake[0][1] - 1))) {
       var turns = getLoopDirection();
@@ -330,7 +330,7 @@ function aiLevel2() {
       // If at left side of board, go right
       if (snake[0][0] === 0) {
         dir = 'right';
-/*      } else {
+      } else {
         for (var i = snake[0][0] - 1; i--; i >= 0) { // Check along bottom edge for our own tail (loop)
           if (inSnake(i + '_' + height - 1)) {
             dir = 'right';
@@ -344,7 +344,7 @@ function aiLevel2() {
           }
         }
         dir = 'left'; // There is a loop to the right of us or not, regardless we go left.
-      }
+      }/*
       // Blocked by tail
     } else if (inSnake(snake[0][0] + '_' + (snake[0][1] - 1))) {
       var turns = getLoopDirection();
