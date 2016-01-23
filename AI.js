@@ -226,7 +226,15 @@ function aiLevel2() {
             return moveHead(dir);
           }
         }
-        dir = 'down'; // There is a loop above us or not, regardless we go down.
+        if (snake[0][0] == food[0]) {
+          if (snake[0][1] < food[1]) {
+            dir = 'down';
+          } else {
+            dir = 'up';
+          }
+        } else {
+          dir = 'down';
+        }
       }
     // Blocked by tail
     } else if (inSnake((snake[0][0] + 1) + '_' + snake[0][1])) {
@@ -237,13 +245,6 @@ function aiLevel2() {
         dir = 'up';
       } else {
         dir = 'down';
-      }
-      // Snake above/below food
-    } else if (snake[0][0] == food[0]) {
-      if (snake[0][1] < food[1]) {
-        dir = 'down';
-      } else {
-        dir = 'up';
       }
     }
   } else if (dir == 'left') {
@@ -265,14 +266,16 @@ function aiLevel2() {
             return moveHead(dir);
           }
         }
-        dir = 'up'; // There is a loop below us or not, regardless we go up.
-      }
-      // Snake above/below food
-    } else if (snake[0][0] == food[0]) {
-      if (snake[0][1] < food[1]) {
-        dir = 'down';
-      } else {
-        dir = 'up';
+        // Snake above/below food
+        if (snake[0][0] == food[0]) {
+          if (snake[0][1] < food[1]) {
+            dir = 'down';
+          } else {
+            dir = 'up';
+          }
+        } else {
+          dir = 'up';
+        }
       }
     }
   } else if (dir == 'up') {
@@ -294,13 +297,15 @@ function aiLevel2() {
             return moveHead(dir);
           }
         }
-        dir = 'right'; // There is a loop to the left of us or not, regardless we go right.
-      }
-    } else if (snake[0][1] == food[1]) { // Snake left/right of food
-      if (snake[0][0] < food[0]) {
-        dir = 'right';
-      } else {
-        dir = 'left';
+        if (snake[0][1] == food[1]) { // Snake left/right of food
+          if (snake[0][0] < food[0]) {
+            dir = 'right';
+          } else {
+            dir = 'left';
+          }
+        } else {
+          dir = 'right';
+        }
       }
     }
   } else if (dir == 'down') {
@@ -322,13 +327,15 @@ function aiLevel2() {
             return moveHead(dir);
           }
         }
-        dir = 'left'; // There is a loop to the right of us or not, regardless we go left.
-      }
-    } else if (snake[0][1] == food[1]) { // Snake left/right of food
-      if (snake[0][0] < food[0]) {
-        dir = 'right';
-      } else {
-        dir = 'left';
+        if (snake[0][1] == food[1]) { // Snake left/right of food
+          if (snake[0][0] < food[0]) {
+            dir = 'right';
+          } else {
+            dir = 'left';
+          }
+        } else {
+          dir = 'left';
+        }
       }
     }
   }
