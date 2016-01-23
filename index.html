@@ -54,8 +54,14 @@
 	}
 
 	function updateBoard(snake) {
-		for (var row in table.getElementsByTagName("tr")) {
-			for (var cell in row.getElementsByTagName("td")) {
+		rows = table.getElementsByTagName("tr");
+		for (var r=0; r<rows.length; r++) {
+			var row = rows[r];
+			console.log(row);
+			cells = row.getElementsByTagName("td");
+			for (var c=0; c<cells.length; c++) {
+				var cell = cells[c];
+				console.log(cell);
 				cell.setAttribute("class", "emptycell");
 			}
 		}
