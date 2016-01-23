@@ -79,6 +79,7 @@ function moveHead(dir) {
 }
 
 function delTail() {	// simple function to remove the tail
+  snake.pop();
 	updateBoard(snake);
 }
 
