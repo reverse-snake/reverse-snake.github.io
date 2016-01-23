@@ -15,37 +15,37 @@ console.log("Width: "+width, " Height: "+height);
 table.setAttribute("height", height*size + "px");
 table.setAttribute("width", width*size + "px");
 for (var i=0; i<height; i+=1) {
-  var row = table.insertRow(i);
-  for (var j=0; j<width; j+=1) {
-  	var cell = row.insertCell(j);
-  	cell.setAttribute("class", "emptycell");
-  	cell.setAttribute("name", i+"_"+j);
-    var btn = document.createElement("button");
-    btn.setAttribute("class", "invisible");
-  	btn.setAttribute("onclick", "placeFood("+i+","+j+")");
-  	cell.appendChild(btn);
-  }
+	var row = table.insertRow(i);
+	for (var j=0; j<width; j+=1) {
+		var cell = row.insertCell(j);
+		cell.setAttribute("class", "emptycell");
+		cell.setAttribute("name", i+"_"+j);
+		var btn = document.createElement("button");
+		btn.setAttribute("class", "invisible");
+		btn.setAttribute("onclick", "placeFood("+i+","+j+")");
+		cell.appendChild(btn);
+	}
 }
 
 function updateBoard(snake) {
-  for (var s=0; s<snake.length; s++) {
-    console.log(snake[s]);
+	for (var s=0; s<snake.length; s++) {
+		console.log(snake[s]);
 	}
 	for (var r=0, row; r<table.rows.length; r++) {
-	  for (var c=0; c<table.rows[r].cells.length; c++) {
-  	  var cell = table.rows[r].cells[c];
-	    var isSnakeCell = false;
-	    for (var s=0; s<snake.length; s++) {
-  	    if (cell.getAttribute("name") == snake[s][0]+"_"+snake[s][1]) {
-    	    isSnakeCell = true;
-    	    break;
-    	  }
-	    }
-	    if (isSnakeCell) {
-        cell.setAttribute("class", "snakecell");
-	    } else {
-  	    cell.setAttribute("class", "emptycell");
-  	  }
-	  }
+		for (var c=0; c<table.rows[r].cells.length; c++) {
+			var cell = table.rows[r].cells[c];
+			var isSnakeCell = false;
+			for (var s=0; s<snake.length; s++) {
+				if (cell.getAttribute("name") == snake[s][0]+"_"+snake[s][1]) {
+					isSnakeCell = true;
+					break;
+				}
+			}
+			if (isSnakeCell) {
+				cell.setAttribute("class", "snakecell");
+			} else {
+				cell.setAttribute("class", "emptycell");
+			}
+		}
 	}
 }
