@@ -213,6 +213,9 @@ function aiLevel2() {
       // If at bottom of board, go up
       if (snake[0][1] == height - 1) {
         dir = 'up';
+      // If at top of board, go down
+      } else if (snake[0][1] === 0) {
+        dir = 'down';
       } else {
         for (var j = snake[0][1] + 1; j < height; j++) { // Check along right edge for our own tail (loop)
           if (inSnake((width - 1) + '_' + j)) {
@@ -254,6 +257,9 @@ function aiLevel2() {
       // If at top of board, go down
       if (snake[0][1] === 0) {
         dir = 'down';
+      // If at bottom of board, go up
+      } else if (snake[0][1] == height-1) {
+        dir = 'up';
       } else {
         for (var j = snake[0][1] - 1; j >= 0; j--) { // Check along left edge for our own tail (loop)
           if (inSnake(0 + '_' + j)) {
@@ -284,6 +290,9 @@ function aiLevel2() {
       // If at right side of board, go left
       if (snake[0][0] == width - 1) {
         dir = 'left';
+      // If at left side of board, go right
+      } else if (snake[0][0] === 0) {
+        dir = 'right';
       } else {
         for (var i = snake[0][0] + 1; i < width; i++) { // Check along top edge for our own tail (loop)
           if (inSnake(i + '_' + 0)) {
@@ -313,6 +322,9 @@ function aiLevel2() {
       // If at left side of board, go right
       if (snake[0][0] === 0) {
         dir = 'right';
+      // If at right side of board, go left
+      } else if (snake[0][0] == width - 1) {
+        dir = 'left';
       } else {
         for (var i = snake[0][0] - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
           if (inSnake(i + '_' + height - 1)) {
