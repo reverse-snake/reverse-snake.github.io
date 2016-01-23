@@ -9,9 +9,10 @@ function setLevel(_level) {
   if (level > maxLevel) {
     maxLevel = level;
   }
-  if (gameIsStopped) {
-    stopGame(); // Game has not started but level was changed, redraw snake.
-  }
+  //if (gameIsStopped) {
+  //  stopGame(); // Game has not started but level was changed, redraw snake.
+  //}
+  // NOTE: Code commented out because it creates an infinite loop
   levelGauge.innerHTML = level;
   downButton.disabled = (level === 0);
   upButton.disabled = (level == maxLevel);
