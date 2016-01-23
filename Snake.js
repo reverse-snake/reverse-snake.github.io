@@ -8,6 +8,7 @@ var gameIsStopped = true;
 
 // Clears board & stops AI
 function stopGame() {
+  console.log("Game stopped");
   board = [];
   board.length = width; // board[x][y]
   for (var i = 0; i < width; i++) {
@@ -24,6 +25,7 @@ function stopGame() {
 
 // Snake collided with self, start next AI level
 function startGame() {
+  console.log("Game started");
   if (!gameIsStopped) {
     return;
   }
