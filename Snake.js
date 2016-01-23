@@ -5,16 +5,28 @@ snake = [[0, 0]]; // x, y
 dir = 'right';
 var board = [];     // top left is 0, 0, bottom right is height-1, width-1
 var food = [-1, -1];
+var refreshRate = 500; // How quickly the snake moves. (ms)
+var intervalId;
 
 // initialize board and snake, and start snake movement
 function initSnake() {
+  if (intervalId !== null) {
+    return speedUp();
+  }
   board.length = width; // board[x][y]
   for (var i = 0; i < width; i++) {
     board[i] = [];
     board[i].length = height;
   }
-  window.setInterval(aiLevel0, 500);
+  intervalId = window.setInterval(aiLevel0, refreshRate);
   aiLevel0();
+  updateBoard();
+}
+
+function speedUp() {
+  refreshRate /= 1.5; // 50% faster
+  window.clearInterval(intervalId);
+  intervalId = window.setInterval(aiLevel0, refreshRate);
 }
 
 function aiLevel0() {
@@ -27,10 +39,10 @@ function aiLevel0() {
         dir = 'up';
       }
     } else if ((snake[0][0] == width - 1) && dir == 'right') { // is the snake at the right wall
-		dir = 'down';
-	} else if ((snake[0][0] === 0) && dir == 'left') {  // is the snake at the left wall?
-		dir = 'up';
-	}
+  		dir = 'down';
+  	} else if ((snake[0][0] === 0) && dir == 'left') {  // is the snake at the left wall?
+  		dir = 'up';
+  	}
   } else if (dir == 'up' || dir == 'down') {
     if (snake[0][1] == food[1]) {   // is the snake to the right or left of the food?
       if (snake[0][0] < food[0]) {
@@ -39,10 +51,10 @@ function aiLevel0() {
         dir = 'left';
       }
     } else if ((snake[0][1] === 0) && dir == 'up') { // is the snake at the top wall
-		dir = 'right';
-  } else if (snake[0][1] == height - 1 && dir == 'down') {  // is the snake at the bottom wall?
-		dir = 'left';
-	} // else dir is unchanged
+  		dir = 'right';
+    } else if (snake[0][1] == height - 1 && dir == 'down') {  // is the snake at the bottom wall?
+  		dir = 'left';
+  	} // else dir is unchanged
   }
 }
 
@@ -64,7 +76,7 @@ function moveHead(dir) {
 //  }
   snake.unshift(newHead); // add newHead to the beginning of the list
   console.log(snake);
-  updateBoard(snake);
+  updateBoard();
   if (snake[0] == food) { // if snake's head is on the food
     food = [-1, -1];
   } else {
@@ -74,7 +86,7 @@ function moveHead(dir) {
 
 function delTail() {  // simple function to remove the tail
   console.log(snake.pop());
-  updateBoard(snake);
+  updateBoard();
 }
 
 function placeFood(x, y) {
@@ -97,5 +109,6 @@ function placeFood(x, y) {
 		food = [x, y];
 		console.log("Food placed at "+x+" "+y);
 		return true;
+    updateBoard();
 	}
 }
