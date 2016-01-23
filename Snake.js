@@ -30,33 +30,14 @@ function speedUp() {
   intervalId = window.setInterval(aiLevel0, refreshRate);
 }
 
-function aiLevel0() {
-  moveHead(dir);
-  if (dir == 'right' || dir == 'left') {
-    if (snake[0][0] == food[0]) {   // is the snake above or below the food?
-      if (snake[0][1] < food[1]) {
-        dir = 'down';
-      } else {
-        dir = 'up';
-      }
-    } else if ((snake[0][0] == width - 1) && dir == 'right') { // is the snake at the right wall
-  		dir = 'down';
-  	} else if ((snake[0][0] === 0) && dir == 'left') {  // is the snake at the left wall?
-  		dir = 'up';
-  	}
-  } else if (dir == 'up' || dir == 'down') {
-    if (snake[0][1] == food[1]) {   // is the snake to the right or left of the food?
-      if (snake[0][0] < food[0]) {
-        dir = 'right';
-      } else {
-        dir = 'left';
-      }
-    } else if ((snake[0][1] === 0) && dir == 'up') { // is the snake at the top wall
-  		dir = 'right';
-    } else if (snake[0][1] == height - 1 && dir == 'down') {  // is the snake at the bottom wall?
-  		dir = 'left';
-  	} // else dir is unchanged
+// String is of form x_y to allow compatibility with Board.js
+function inSnake(string) {
+  for (var s=0; s<snake.length; s++) {
+    if (string == snake[s][0]+'_'+snake[s][1]) {
+      return true;
+    }
   }
+  return false;
 }
 
 function moveHead(dir) {
@@ -92,19 +73,17 @@ function delTail() {  // simple function to remove the tail
 
 function placeFood(x, y) {
   initSnake();
-  for (var s=0; s<snake.length; s++) {
-		if (x == snake[s][0] && y == snake[s][1]) {
-      console.log("Invalid food placement: Food collides with snake");
-			return;
-		}
+  if (inSnake(x+'_'+y)) {
+    console.log('Invalid food placement: Food collides with snake');
+		return;
 	}
 	if (!(food[0] == -1 && food[1] == -1)) { // already food
-		console.log("Invalid food placement: There is already food");
+		console.log('Invalid food placement: There is already food');
 	} else if (x >= width || y >= height || x < 0 || y < 0) { // off of board
-		console.log("Invalid food placement: Food is off board");
+		console.log('Invalid food placement: Food is off board');
 	} else {
 		food = [x, y];
-		console.log("Food placed at "+x+" "+y);
+		console.log('Food placed at '+x+' '+y);
     updateBoard();
 	}
 }
