@@ -21,7 +21,7 @@ for (var i=0; i<height; i+=1) {
 		cell.setAttribute("class", "emptycell");
 		cell.setAttribute("name", j+"_"+i);
 		var btn = document.createElement("button");
-		btn.setAttribute("class", "foodcell");
+		btn.setAttribute("class", "invisible");
 		btn.setAttribute("onclick", "placeFood("+j+","+i+")");
 		cell.appendChild(btn);
 	}
@@ -33,10 +33,10 @@ function updateBoard(snake) {
 			var cell = table.rows[r].cells[c];
 			var isSnakeCell = false;
 			for (var s=0; s<snake.length; s++) {
-				if (cell.getAttribute("name") == snake[s][0]+"_"+snake[s][1]) {
-					isSnakeCell = true;
-					break;
-				}
+    		if (cell.getAttribute("name") == snake[s][0]+"_"+snake[s][1]) {
+    			isSnakeCell = true;
+	      	break;
+	      }
 			}
 			if (isSnakeCell) {
 				cell.setAttribute("class", "snakecell");

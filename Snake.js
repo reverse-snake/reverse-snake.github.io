@@ -61,8 +61,8 @@ function moveHead(dir) {
     newHead[0]--;
   }
 //  if (newHead[0] < 0 || newHead[0] >= width || newHead[1] < 0 || newHead[1] >= height) {
-	  
-//  }  
+
+//  }
   snake.unshift(newHead); // add newHead to the beginning of the list
   console.log(snake);
   updateBoard(snake);
@@ -79,18 +79,18 @@ function delTail() {  // simple function to remove the tail
 }
 
 function placeFood(x, y) {
-  newFood = [x, y];
-  if (food != [-1, -1]) { // already food
-    console.log("Invalid food placement: There is already food");
-    return false;
-  } else if (x >= width || y >= height || x < 0 || y < 0) { // off of board
-    console.log("Invalid food placement: Food is off board");
-    return false;
-  } else if (snake.includes(newFood)) {   // new food collides with snake
-    console.log("Invalid food placement: Food collides with snake");
-    return false;
-  } else {
-    food = newFood;
-    return true;
-  }
+	if (food != [-1, -1]) { // already food
+		console.log("Invalid food placement: There is already food");
+		return false;
+	} else if (x >= width || y >= height || x < 0 || y < 0) { // off of board
+		console.log("Invalid food placement: Food is off board");
+		return false;
+	} else if (snake.includes([x, y])) {	 // new food collides with snake
+		console.log("Invalid food placement: Food collides with snake");
+		return false;
+	} else {
+		food = [x, y];
+		console.log("Food placed at "+x+" "+y);
+		return true;
+	}
 }
