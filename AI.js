@@ -250,9 +250,13 @@ function aiLevel2() {
     }
     if (snake[0][0] == food[0]) {
       if (snake[0][1] < food[1]) {
-        dir = 'down';
+        if (!inSnake((snake[0][0]+1)+'_'+snake[0][1])) {
+          dir = 'down';
+        }
       } else {
-        dir = 'up';
+        if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
+          dir = 'up';
+        }
       }
     }
   } else if (dir == 'left') {
@@ -291,9 +295,13 @@ function aiLevel2() {
     // Snake above/below food
     if (snake[0][0] == food[0]) {
       if (snake[0][1] < food[1]) {
-        dir = 'down';
+        if (!inSnake((snake[0][0]+1)+'_'+snake[0][1])) {
+          dir = 'down';
+        }
       } else {
-        dir = 'up';
+        if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
+          dir = 'up';
+        }
       }
     }
   } else if (dir == 'up') {
@@ -331,9 +339,13 @@ function aiLevel2() {
     }
     if (snake[0][1] == food[1]) { // Snake left/right of food
       if (snake[0][0] < food[0]) {
-        dir = 'right';
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) {
+          dir = 'right';
+        }
       } else {
-        dir = 'left';
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
+          dir = 'left';
+        }
       }
     }
   } else if (dir == 'down') {
@@ -371,9 +383,13 @@ function aiLevel2() {
     }
     if (snake[0][1] == food[1]) { // Snake left/right of food
       if (snake[0][0] < food[0]) {
-        dir = 'right';
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) {
+          dir = 'right';
+        }
       } else {
-        dir = 'left';
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
+          dir = 'left';
+        }
       }
     }
   }
@@ -425,9 +441,13 @@ function aiLevel3() {
 	  // Food is where we are | slightly ahead.
 	  if (snake[0][0] == food[0] || snake[0][0]+1 == food[0]) {
 	    if (snake[0][1] < food[1]) {
-	      dir = 'down';
+  	    if (!inSnake((snake[0][0]+1)+'_'+snake[0][1])) {
+  	      dir = 'down';
+  	    }
 	    } else if (snake[0][1] > food[1]) {
-	      dir = 'up';
+  	    if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
+  	      dir = 'up';
+  	    }
 	    }
 	  }
 	} else if (dir == 'left') {
@@ -473,9 +493,13 @@ function aiLevel3() {
     // Food is where we are | slightly ahead.
 	  if (snake[0][0] == food[0] || snake[0][0]-1 == food[0]) {
   	  if (snake[0][1] < food[1]) {
-        dir = 'down';
+    	  if (!inSnake((snake[0][0]+1)+'_'+snake[0][1])) {
+          dir = 'down';
+        }
       } else if (snake[0][1] > food[1]) {
-        dir = 'up';
+        if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
+          dir = 'up';
+        }
       }
     }
   } else if (dir == 'up') {
@@ -521,9 +545,13 @@ function aiLevel3() {
     // Food is where we are | slightly ahead.
     if (snake[0][1] == food[1] || snake[0][1]-1 == food[1]) {
       if (snake[0][0] < food[0]) {
-        dir = 'right';
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) {
+          dir = 'right';
+        }
       } else if (snake[0][0] > food[0]) {
-        dir = 'left';
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
+          dir = 'left';
+        }
       }
     }
   } else if (dir == 'down') {
@@ -569,9 +597,13 @@ function aiLevel3() {
     // Food is where we are | slightly ahead.
     if (snake[0][1] == food[1] || snake[0][1]+1 == food[1]) {
       if (snake[0][0] < food[0]) {
-        dir = 'right';
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) {
+          dir = 'right';
+        }
       } else if (snake[0][0] > food[0]) {
-        dir = 'left';
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
+          dir = 'left';
+        }
       }
     }
   }
