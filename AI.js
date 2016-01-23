@@ -460,7 +460,7 @@ function aiLevel3() {
       } else if (snake[0][1] >= height-2) {
         dir = 'up';
       } else {
-        for (var j = snake[0][1]; j >= 0; j--) { // Check along left edge for our own tail (loop)
+        for (var j = snake[0][1]-1; j >= 0; j--) { // Check along left edge for our own tail (loop)
           if (inSnake(0 + '_' + j)) {
             dir = 'down';
             return moveHead(dir);
