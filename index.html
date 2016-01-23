@@ -7,6 +7,9 @@
 				color:red;
 				text-align:center;
 			}
+			td.emptycell{
+				color:white;
+			}
 		</style>
 	</head>
 	<body>
@@ -16,7 +19,7 @@
 </html>
 
 <script>
-	var body = document.body,
+	var body = document.body;
   var html = document.documentElement;
 	var body = html.getElementsByTagName("body")[0];
 	var table = body.getElementsByTagName("table")[0];
@@ -30,8 +33,9 @@
 		var row = document.createElement("tr");
 		for (var j=0; j<width; j+=10) {
 			var cell = document.createElement("td");
-			cell.setAttribute("class", "snakecell");
-			cell.value = i+"_"+j;
+			cell.setAttribute("class", "emptycell");
+			cell.setAttribute("x", i);
+			cell.setAttribute("y", j);
 			row.appendChild(cell);
 		}
 		table.appendChild(row);
