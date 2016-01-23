@@ -31,13 +31,14 @@ function initBoard() {
 
 function updateBoard(snake) {
 	for (var r=0; r<table.rows.length; r++) {
+    console.log(table.rows);
+  	console.log(table.rows[r]);
 	  for (var c=0; c<table.rows[r].cells.length; c++) {
+  	  console.log(table.rows[r].cells);
+  	  console.log(table.rows[r].cells[c]);
   	  var cell = table.rows[r].cells[c];
 	    var isSnakeCell = false;
 	    for (var s in snake) {
-  	    console.log("Cell:");
-  	    console.log(cell);
-  	    console.log(cell.name);
   	    if (cell.name == s[0]+"_"+s[1]) {
     	    isSnakeCell = true;
     	    break;
