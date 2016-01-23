@@ -1,6 +1,6 @@
 var body = document.body;
 var html = document.documentElement;
-var table = document.getElementsByClassName('table')[0];
+var table = document.getElementsByClassName('snaketable')[0];
 
 var size = 30; // Size of cell
 var height = 10;
