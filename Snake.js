@@ -75,7 +75,7 @@ function moveHead(dir) {
   var newHead = snake[0].slice(0); // Clone so we don't move the head by accident.
   if (dir == 'right') {
     if (newHead[0] == width - 1) {
-      throw 'cannot move right from' + newHead[0] + ', ' + newHead[1];
+      throw 'cannot move right from ' + newHead[0] + ', ' + newHead[1];
     } else if (inSnake((newHead[0]+1)+'_'+newHead[1])) {
       window.clearInterval(intervalId);
       // turn head dark red here
@@ -88,7 +88,7 @@ function moveHead(dir) {
     newHead[0]++;
   } else if (dir == 'left') {
     if (newHead[0] === 0) {
-      throw 'cannot move left from' + newHead[0] + ', ' + newHead[1];
+      throw 'cannot move left from ' + newHead[0] + ', ' + newHead[1];
     } else if (inSnake((newHead[0]-1)+'_'+newHead[1])) {
       window.clearInterval(intervalId);
       var collisionCell = table.rows[snake[0][0]].cells[snake[0][1]];
