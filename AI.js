@@ -226,15 +226,7 @@ function aiLevel2() {
             return moveHead(dir);
           }
         }
-        if (snake[0][0] == food[0]) {
-          if (snake[0][1] < food[1]) {
-            dir = 'down';
-          } else {
-            dir = 'up';
-          }
-        } else {
-          dir = 'down';
-        }
+        dir = 'down';
       }
     // Blocked by tail
     } else if (inSnake((snake[0][0] + 1) + '_' + snake[0][1])) {
@@ -243,8 +235,17 @@ function aiLevel2() {
       console.log('235'+turns);
       if (turns < 0) { // Loop direction Counter-clockwise
         dir = 'up';
+        return moveHead(dir);
       } else {
         dir = 'down';
+        return moveHead(dir);
+      }
+    }
+    if (snake[0][0] == food[0]) {
+      if (snake[0][1] < food[1]) {
+        dir = 'down';
+      } else {
+        dir = 'up';
       }
     }
   } else if (dir == 'left') {
@@ -266,16 +267,15 @@ function aiLevel2() {
             return moveHead(dir);
           }
         }
-        // Snake above/below food
-        if (snake[0][0] == food[0]) {
-          if (snake[0][1] < food[1]) {
-            dir = 'down';
-          } else {
-            dir = 'up';
-          }
-        } else {
-          dir = 'up';
-        }
+        dir = 'up';
+      }
+    }
+    // Snake above/below food
+    if (snake[0][0] == food[0]) {
+      if (snake[0][1] < food[1]) {
+        dir = 'down';
+      } else {
+        dir = 'up';
       }
     }
   } else if (dir == 'up') {
@@ -297,15 +297,14 @@ function aiLevel2() {
             return moveHead(dir);
           }
         }
-        if (snake[0][1] == food[1]) { // Snake left/right of food
-          if (snake[0][0] < food[0]) {
-            dir = 'right';
-          } else {
-            dir = 'left';
-          }
-        } else {
-          dir = 'right';
-        }
+        dir = 'right';
+      }
+    }
+    if (snake[0][1] == food[1]) { // Snake left/right of food
+      if (snake[0][0] < food[0]) {
+        dir = 'right';
+      } else {
+        dir = 'left';
       }
     }
   } else if (dir == 'down') {
@@ -327,15 +326,14 @@ function aiLevel2() {
             return moveHead(dir);
           }
         }
-        if (snake[0][1] == food[1]) { // Snake left/right of food
-          if (snake[0][0] < food[0]) {
-            dir = 'right';
-          } else {
-            dir = 'left';
-          }
-        } else {
-          dir = 'left';
-        }
+        dir = 'left';
+      }
+    }
+    if (snake[0][1] == food[1]) { // Snake left/right of food
+      if (snake[0][0] < food[0]) {
+        dir = 'right';
+      } else {
+        dir = 'left';
       }
     }
   }
