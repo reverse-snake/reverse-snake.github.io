@@ -1,3 +1,5 @@
+var dir = 'right';
+
 // Level 0 is dumb as a rock: It follows left-hand on the wall unless it sees food, and ignores its own tail
 function aiLevel0() {
   if (dir == 'right' || dir == 'left') {
