@@ -4,7 +4,6 @@ var maxLevel = 2;
 var upButton = document.getElementsByClassName("upButton")[0];
 var levelGauge = document.getElementsByClassName("level")[0];
 var downButton = document.getElementsByClassName("downButton")[0];
-
 function setLevel(_level) {
   level = _level;
   if (level > maxLevel) {
@@ -14,15 +13,12 @@ function setLevel(_level) {
   downButton.disabled = (level === 0);
   upButton.disabled = (level == maxLevel);
 }
-
 function upLevel() {
   setLevel(level + 1);
 }
-
 function downLevel() {
   setLevel(level - 1);
 }
-
 function ai(level) {
   switch (level) {
     case 0:
@@ -35,7 +31,6 @@ function ai(level) {
       console.log('Victory!');
   }
 }
-
 function getLoopDirection() {
   // Detect which way the loop goes...
   var turns = 0;
@@ -101,7 +96,6 @@ function getLoopDirection() {
   }
   return turns;
 }
-
 // Level 0 is dumb as a rock: It follows left-hand on the wall unless it sees food, and ignores its own tail
 function aiLevel0() {
   if (dir == 'right' || dir == 'left') {
@@ -156,7 +150,6 @@ function aiLevel0() {
   }
   moveHead(dir);
 }
-
 // Same as level 0, but aware of its tail
 function aiLevel1() {
   if (dir == 'right' || dir == 'left') {
@@ -210,7 +203,6 @@ function aiLevel1() {
   }
   moveHead(dir);
 }
-
 // Same as level 1, but will decide to turn left or right on obstruction based on loop formation.
 function aiLevel2() {
   console.log(dir);
@@ -218,34 +210,36 @@ function aiLevel2() {
   if (dir == 'right') {
     // Blocked by wall
     if (snake[0][0] == width - 1) {
-      console.log('221');
       // If at bottom of board, go up
       if (snake[0][1] == height - 1) {
-        console.log('224');
         dir = 'up';
       } else {
-        console.log('227');
         for (var j = snake[0][1] + 1; j < height; j++) { // Check along right edge for our own tail (loop)
           if (inSnake((width - 1) + '_' + j)) {
             dir = 'up';
-            console.log('231');
             return moveHead(dir);
           }
         }
-        console.log('235');
         for (var i = width - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
           if (inSnake(i + '_' + (width - 1))) {
             dir = 'up';
-            console.log('239');
             return moveHead(dir);
           }
         }
         dir = 'down'; // There is a loop above us or not, regardless we go down.
-        console.log('244');
+      }
+    // Blocked by tail
+    } else if (inSnake((snake[0][0] + 1) + '_' + snake[0][1])) {
+      console.log('233');
+      var turns = getLoopDirection();
+      console.log('235'+turns);
+      if (turns < 0) { // Loop direction Counter-clockwise
+        dir = 'up';
+      } else {
+        dir = 'down';
       }
       // Snake above/below food
     } else if (snake[0][0] == food[0]) {
-      console.log('248');
       if (snake[0][1] < food[1]) {
         dir = 'down';
       } else {
@@ -310,33 +304,25 @@ function aiLevel2() {
       }
     }
   } else if (dir == 'down') {
-    console.log('313');
     // Blocked by wall
     if (snake[0][1] == height - 1) {
-      console.log('316');
       // If at left side of board, go right
       if (snake[0][0] === 0) {
-        console.log('319');
         dir = 'right';
       } else {
-        console.log('322');
         for (var i = snake[0][0] - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
           if (inSnake(i + '_' + height - 1)) {
             dir = 'right';
-            console.log('326');
             return moveHead(dir);
           }
         }
-        console.log('330');
         for (var j = height - 1; j < 0; j--) { // Check along left edge for our own tail (loop)
           if (inSnake(0 + '_' + j)) {
             dir = 'right';
-            console.log('334');
             return moveHead(dir);
           }
         }
         dir = 'left'; // There is a loop to the right of us or not, regardless we go left.
-        console.log('339');
       }
     } else if (snake[0][1] == food[1]) { // Snake left/right of food
       if (snake[0][0] < food[0]) {
@@ -348,13 +334,9 @@ function aiLevel2() {
   }
   moveHead(dir);
 }
-
 // Same as level 2 but will intentionally leave a 1-wide gap until edge before turning to avoid getting trapped.
 function aiLevel3() {
-
 }
-
 // Perfect play (or at least very close to it)
 function aiLevel4() {
-
 }
