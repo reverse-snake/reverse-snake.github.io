@@ -22,11 +22,6 @@ function initSnake() {
   console.log("22");
   debugSnake();
   aiLevel0();
-  console.log("25");
-  debugSnake();
-  updateBoard();
-  console.log("28");
-  debugSnake();
 }
 
 function debugSnake() {
@@ -56,7 +51,7 @@ function moveHead(dir) {
   // 'right', 'left', 'up', and 'down'
   console.log("L53:");
   debugSnake();
-  var newHead = snake[0];
+  var newHead = snake[0].slice(0); // Clone so we don't move the head by accident.
   if (dir == 'right') {
     if (newHead[0] == width - 1) {
       throw 'cannot move right from' + newHead[0] + ', ' + newHead[1];
