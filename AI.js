@@ -122,8 +122,17 @@ function aiLevel1() {
   moveHead(dir);
 }
 
-// Prioritizes survival over efficient food grabs. Is careful not to form loops with its own tail.
+// Same as level 1, but will decide to turn left or right on obstruction based on loop formation.
 function aiLevel2() {
 
 }
 
+// Same as level 2 but will intentionally leave a 1-wide gap until edge before turning to avoid getting trapped.
+function aiLevel3() {
+
+}
+
+// Perfect play (or at least very close to it)
+function aiLevel4() {
+
+}
