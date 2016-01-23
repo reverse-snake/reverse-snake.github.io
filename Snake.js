@@ -6,7 +6,7 @@ dir = 'right';
 var board = [];     // top left is 0, 0, bottom right is height-1, width-1
 var food = [-1, -1];
 var refreshRate = 500; // How quickly the snake moves. (ms)
-var intervalId;
+var intervalId = null;
 
 // initialize board and snake, and start snake movement
 function initSnake() {
