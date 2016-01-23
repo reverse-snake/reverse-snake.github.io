@@ -5,11 +5,11 @@ td.snakecell {
 }
 
 td.emptycell {
-  background-color: #A2AAAA;
+  background-color: #CCCCCC;
 }
 
 td.foodcell {
-  background-color:#036EB2;
+  background-color:#1111FF;
 }
 
 table.snaketable {
