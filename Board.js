@@ -51,3 +51,5 @@ function updateBoard() {
 		}
 	}
 }
+
+updateBoard();
