@@ -15,17 +15,21 @@ console.log("Width: "+width, " Height: "+height);
 table.setAttribute("height", height*size + "px");
 table.setAttribute("width", width*size + "px");
 for (var i=0; i<height; i+=1) {
-	var row = document.createElement("tr");
+	// var row = document.createElement("tr");
 	for (var j=0; j<width; j+=1) {
-	  var cell = document.createElement("td");
-	  cell.setAttribute("class", "emptycell");
-	  cell.setAttribute("name", i+"_"+j);
+	  // var cell = document.createElement("td");
+	  // cell.setAttribute("class", "emptycell");
+	  // cell.setAttribute("name", i+"_"+j);
+	  var cell = table.insertCell(j);
+	  cell.innerHTML = "emptycell";
     var btn = document.createElement("button");
 	  btn.setAttribute("onclick", "placeFood("+i+","+j+")");
-	  cell.appendChild(btn);
-	  row.appendChild(cell);
+	  //cell.appendChild(btn);
+	  //row.appendChild(cell);
+	  cell.innerHTML = "btn";
 	}
-	table.appendChild(row);
+	// table.appendChild(row);
+	table.insertRow(i);
 }
 
 function updateBoard(snake) {
