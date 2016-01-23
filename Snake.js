@@ -23,7 +23,7 @@ function levelUp() {
 function speedUp() {
   refreshRate /= 1.5; // 50% faster
   window.clearInterval(intervalId);
-  intervalId = window.setInterval(aiLevel0, refreshRate);
+  intervalId = window.setInterval(ai(level), refreshRate);
 }
 
 function debugSnake() {
