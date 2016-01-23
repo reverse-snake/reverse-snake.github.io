@@ -1,5 +1,9 @@
 /* colors from https://www.wpi.edu/Images/CMS/Marketing/WPILogoUsage_QuickReferenceGuide.pdf */
 
+td.impactcell {
+  background-color: #FFAAAA;
+}
+
 td.snakecell {
   background-color: #FF1111;
 }
