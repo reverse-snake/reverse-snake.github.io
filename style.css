@@ -52,20 +52,3 @@ button.downButton {
   height: 70px;
   width: 70px;
 }
-
-a, a:active, a:focus, table.td {
-  outline: none;
-}
-
-input::-moz-focus-inner {
-  border: 0;
-}
-
-img::-moz-focus-inner {
-  border: 0;
-}
-
-select {
-  color: rgba(0,0,0,0);
-  text-shadow: 0 0 0 #000;
-}
