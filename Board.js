@@ -30,7 +30,9 @@ for (var i=0; i<height; i+=1) {
 function updateBoard(snake) {
   console.log(snake);
 	for (var row in table.rows) {
+  	console.log(row);
 	  for (var cell in row.cells) {
+  	  console.log(cell);
 	    var isSnakeCell = false;
 	    for (var s in snake) {
   	    if (cell.name == s[0]+"_"+s[1]) {
