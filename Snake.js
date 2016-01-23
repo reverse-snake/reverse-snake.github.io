@@ -46,8 +46,10 @@ function startGame() {
 function changeSpeed(rate) {
   refreshRate = rate; // set to new value
   window.clearInterval(intervalId);
-  intervalId = window.setInterval(ai, refreshRate, level); // calls ai(level) at refreshRate
-  ai(level);
+  if (!gameIsStopped) { // ensures only one interval going on at once
+    intervalId = window.setInterval(ai, refreshRate, level); // calls ai(level) at refreshRate
+    ai(level);
+  }
 }
 
 function debugSnake() {

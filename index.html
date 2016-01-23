@@ -51,12 +51,12 @@
 					<form id = "speedSlider" >
 						<!-- http://webtutsdepot.com/2010/04/24/html-5-slider-input-tutorial/ -->
 						<text><b> Snake Speed </b></text> <input id="speedSlider" input="" min="1" max="10" value="5" step="1" onchange="showValue(this)" type="range">
-				    <span id="range" name="speed">250</span>
+				    <span id="range" name="speed">5</span>
 						<script type="text/javascript">
 						function showValue(self) {
 							changeSpeed(1000/self.value);
 							console.log(1000/self.value);
-							document.getElementsByName("speed")[0].innerHTML = 1000/self.value;
+							document.getElementsByName("speed")[0].innerHTML = self.value;
 						}
 						</script>
 					</form>
