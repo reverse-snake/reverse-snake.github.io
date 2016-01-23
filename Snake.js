@@ -41,7 +41,7 @@ function aiLevel0() {
       }
     } else if ((snake[0][1] == 0) && dir == 'up') { // is the snake at the top wall
 		dir = 'right'; 
-	} else if (snake[0][0] == height - 1 && dir == 'down') {  // is the snake at the bottom wall?
+	} else if (snake[0][1] == height - 1 && dir == 'down') {  // is the snake at the bottom wall?
 		dir = 'left';
 	} // else dir is unchanged
   }
