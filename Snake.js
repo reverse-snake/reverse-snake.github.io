@@ -82,7 +82,7 @@ function moveHead(dir) {
       var collisionCell = table.rows[snake[0][0]].cells[snake[0][1]];
       collisionCell.setAttribute('class', 'impactcell');
       console.log(collisionCell);
-      window.setTimeout(stopGame, 3*refreshRate);
+      window.setTimeout(stopGame, 5*refreshRate);
     }
     newHead[0]++;
   } else if (dir == 'left') {
@@ -93,7 +93,7 @@ function moveHead(dir) {
       var collisionCell = table.rows[snake[0][0]].cells[snake[0][1]];
       collisionCell.setAttribute('class', 'impactcell');
       console.log(collisionCell);
-      window.setTimeout(stopGame, 3*refreshRate);
+      window.setTimeout(stopGame, 5*refreshRate);
     }
     newHead[0]--;
   } else if (dir == 'up') {  // add new head above current one
@@ -104,7 +104,7 @@ function moveHead(dir) {
       var collisionCell = table.rows[snake[0][0]].cells[snake[0][1]];
       collisionCell.setAttribute('class', 'impactcell');
       console.log(collisionCell);
-      window.setTimeout(stopGame, 3*refreshRate);
+      window.setTimeout(stopGame, 5*refreshRate);
     }
     newHead[1]--;  // changes y-coordinate by -1 (going UP)
   } else if (dir == 'down') {
@@ -115,7 +115,7 @@ function moveHead(dir) {
       var collisionCell = table.rows[snake[0][0]].cells[snake[0][1]];
       collisionCell.setAttribute('class', 'impactcell');
       console.log(collisionCell);
-      window.setTimeout(stopGame, 3*refreshRate);
+      window.setTimeout(stopGame, 5*refreshRate);
     }
     newHead[1]++;
   }
