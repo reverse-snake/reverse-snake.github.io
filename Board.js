@@ -33,10 +33,10 @@ function updateBoard(snake) {
 			var cell = table.rows[r].cells[c];
 			var isSnakeCell = false;
 			for (var s=0; s<snake.length; s++) {
-    		if (cell.getAttribute("name") == snake[s][0]+"_"+snake[s][1]) {
-    			isSnakeCell = true;
-	      	break;
-	      }
+				if (cell.getAttribute("name") == snake[s][0]+"_"+snake[s][1]) {
+					isSnakeCell = true;
+					break;
+				}
 			}
 			if (isSnakeCell) {
 				cell.setAttribute("class", "snakecell");
