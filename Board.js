@@ -4,9 +4,8 @@ var body = html.getElementsByTagName('body')[0];
 var table = body.getElementsByTagName('table')[0];
 var size = 20; // Size of cell
 
-// Credit to http://stackoverflow.com/questions/1145850/how-to-get-height-of-entire-document-with-javascript
-var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-var width = Math.max(body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth);
+var height = window.innerWidth;
+var width = window.innerHeight;
 width -= 10; // Make the table a little smaller so there's a valid border.
 height -= 10;
 width = Math.floor(width/size);
