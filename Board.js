@@ -11,10 +11,13 @@ if (isMobile) {
 	height = 15;
 	width = 10;
 	refreshRate = 350;
+	table.setAttribute('cellspacing', '2px');
 }
 console.log('Width: '+width, ' Height: '+height);
 table.setAttribute('height', height*size + 'px');
 table.setAttribute('width', width*size + 'px');
+table.setAttribute('cellspacing', '1px');
+table.setAttribute('cellpadding', '0px');
 for (var i=0; i<height; i+=1) {
 	var row = table.insertRow(i);
 	for (var j=0; j<width; j+=1) {
