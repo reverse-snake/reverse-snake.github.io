@@ -2,11 +2,17 @@ var body = document.body;
 var html = document.documentElement;
 var body = html.getElementsByTagName('body')[0];
 var table = body.getElementsByTagName('table')[0];
-var size = 20; // Size of cell
 
-// Make the table a little smaller so there's a valid border.
-var height = 15;
-var width = 10;
+var size = 30; // Size of cell
+var height = 10;
+var width = 15;
+
+if (isMobile) {
+	size = 25;
+	height = 15;
+	width = 10;
+	refreshRate = 350;
+}
 console.log('Width: '+width, ' Height: '+height);
 table.setAttribute('height', height*size + 'px');
 table.setAttribute('width', width*size + 'px');
