@@ -54,7 +54,7 @@
 				    <span id="range" name="speed">250</span>
 						<script type="text/javascript">
 						function showValue(self) {
-							refreshRate = self.value;
+							changeSpeed(self.value);
 							console.log(self.value);
 							console.log(refreshRate);
 							document.getElementsByName("speed")[0].innerHTML = self.value;

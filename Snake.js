@@ -43,10 +43,11 @@ function startGame() {
   ai(level);
 }
 
-function speedUp() {
-  refreshRate /= 1.5; // 50% faster
+function changeSpeed(rate) {
+  refreshRate = rate; // set to new value
   window.clearInterval(intervalId);
   intervalId = window.setInterval(ai, refreshRate, level); // calls ai(level) at refreshRate
+  ai(level);
 }
 
 function debugSnake() {
