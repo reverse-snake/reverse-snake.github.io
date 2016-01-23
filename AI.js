@@ -573,6 +573,7 @@ function aiLevel3() {
         }
       }
     }
+    console.log('576', dir)
   } else if (dir == 'down') {
     // Near a wall
     if (snake[0][1] >= height - 2) {
@@ -630,6 +631,7 @@ function aiLevel3() {
       }
     }
   }
+  console.log('634', dir);
   moveHead(dir);
 }
 
