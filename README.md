@@ -5,3 +5,4 @@ Team members:
 - Joseph Blackman (jbzdarkid)
 - Maddy Longo (Maddy42)
 - Hung Hong (hphong)
+- Quyen Hoang (qthoang)
