@@ -28,7 +28,9 @@ for (var i=0; i<height; i+=1) {
 function updateBoard(snake) {
   console.log(snake);
   var rows = table.getElementsByTagName("tr"); // Syntax says so.
+  console.log(rows);
 	for (var row in rows) {
+  	console.log(row);
   	var cells = row.getElementsByTagName("td");
 	  for (var cell in cells) {
 	    var isSnakeCell = false;
