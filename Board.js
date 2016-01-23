@@ -8,7 +8,7 @@ var height = 10;
 var width = 15;
 
 if (isMobile) {
-	size = 25;
+	size = 75;
 	height = 15;
 	width = 10;
 	refreshRate = 350;
