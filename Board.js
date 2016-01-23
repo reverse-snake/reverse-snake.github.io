@@ -32,7 +32,8 @@ function updateBoard(snake) {
   var rows = table.getElementsByTagName("tr"); // Syntax says so.
   console.log("Rows");
   console.log(rows);
-	for (var row in rows) {
+  console.log(rows.childNodes);
+	for (var row in rows.childNodes) {
   	console.log("Row:");
   	console.log(row);
   	var cells = row.getElementsByTagName("td");
