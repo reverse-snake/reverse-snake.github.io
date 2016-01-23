@@ -208,6 +208,7 @@ function aiLevel1() {
   }
   moveHead(dir);
 }
+
 // Same as level 1, but will decide to turn left or right on obstruction based on loop formation.
 function aiLevel2() {
   if (dir == 'right') {
@@ -239,11 +240,10 @@ function aiLevel2() {
       var turns = getLoopDirection();
       if (turns < 0) { // Loop direction Counter-clockwise
         dir = 'up';
-        return moveHead(dir);
       } else {
         dir = 'down';
-        return moveHead(dir);
       }
+      return moveHead(dir);
     }
     if (snake[0][0] == food[0]) {
       if (snake[0][1] < food[1]) {
@@ -284,6 +284,7 @@ function aiLevel2() {
       } else {
         dir = 'up';
       }
+      return moveHead(dir);
     }
     // Snake above/below food
     if (snake[0][0] == food[0]) {
@@ -325,6 +326,7 @@ function aiLevel2() {
       } else {
         dir = 'right';
       }
+      return moveHead(dir);
     }
     if (snake[0][1] == food[1]) { // Snake left/right of food
       if (snake[0][0] < food[0]) {
@@ -365,6 +367,7 @@ function aiLevel2() {
       } else {
         dir = 'left';
       }
+      return moveHead(dir);
     }
     if (snake[0][1] == food[1]) { // Snake left/right of food
       if (snake[0][0] < food[0]) {
@@ -376,6 +379,7 @@ function aiLevel2() {
   }
   moveHead(dir);
 }
+
 // Same as level 2 but will intentionally leave a 1-wide gap until edge before turning to avoid getting trapped.
 function aiLevel3() {
 }
