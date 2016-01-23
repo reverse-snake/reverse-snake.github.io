@@ -1,4 +1,5 @@
 var snake = [[1, 0], [0, 0]]; // An array of [x, y] pairs. The head is at [0], tail is at [-1].
+console.log("Initializtion");
 debugSnake();
 var board; // top left is 0, 0, bottom right is height-1, width-1
 var food = [-1, -1];
@@ -10,6 +11,7 @@ function initSnake() {
   if (intervalId !== null) {
     return;
   }
+  console.log("L14");
   debugSnake();
   board = [];
   board.length = width; // board[x][y]
@@ -48,6 +50,8 @@ function inSnake(string) {
 function moveHead(dir) {
   // move snake's head in given direction
   // 'right', 'left', 'up', and 'down'
+  console.log("L53:");
+  debugSnake();
   var newHead = snake[0];
   if (dir == 'right') {
     if (newHead[0] == width - 1) {
@@ -73,8 +77,6 @@ function moveHead(dir) {
   console.log("Before unshift:");
   debugSnake();
   snake.unshift(newHead); // add newHead to the beginning of the list
-  console.log("After unshift:");
-  debugSnake();
   if (snake[0][0] == food[0] && snake[0][1] == food[1]) { // if snake's head is on the food
     food = [-1, -1];
   } else {
@@ -84,7 +86,7 @@ function moveHead(dir) {
 }
 
 function delTail() {  // simple function to remove the tail
-  console.log(snake.pop());
+  snake.pop();
 }
 
 function placeFood(x, y) {
