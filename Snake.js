@@ -25,7 +25,7 @@ function initSnake() {
 
 function debugSnake() {
   for (var s=0; s<snake.length; s++) {
-    console.log(s[0], s[1]);
+    console.log(snake[s][0], snake[s][1]);
   }
 }
 
