@@ -33,6 +33,9 @@ function updateBoard(snake) {
   	  var cell = table.rows[r].cells[c];
 	    var isSnakeCell = false;
 	    for (var s in snake) {
+  	    console.log("Cell:");
+  	    console.log(cell);
+  	    console.log(cell.name);
   	    if (cell.name == s[0]+"_"+s[1]) {
     	    isSnakeCell = true;
     	    break;
