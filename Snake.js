@@ -82,7 +82,11 @@ function moveHead(dir) {
   }
   snake.unshift(newHead); // add newHead to the beginning of the list
   updateBoard(snake);
-  // don't remove tail here, because sometimes you may not want to (handled elsewhere)
+  if (snake[0] == food) { // if snake's head is on the food
+    food = [-1, -1];
+  } else {
+    delTail();
+  }
 }
 
 function delTail() {  // simple function to remove the tail
