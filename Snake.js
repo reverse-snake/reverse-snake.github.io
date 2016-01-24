@@ -14,7 +14,7 @@ var currentTimeScore = 0;
 //console.log(document.getElementsByClass("score"));
 //console.log(document.getElementsByClass("score")[0]);
 var score = document.getElementsByClassName("score")[0]
-score.innerHTML = (snake.length - level);
+score.innerHTML = (snake.length - level - 2);
 
 if (document.cookie !== null) {
   cookies = document.cookie.split(';');
