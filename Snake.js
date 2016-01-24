@@ -3,6 +3,7 @@ var snake = [[1, 0], [0, 0]]; // An array of [x, y] pairs. The head is at [0], t
 var board; // top left is 0, 0, bottom right is height-1, width-1
 var food = [-10, -10];  // if there is no food, use this to avoid null pointers
 var refreshRate = 250; // How quickly the snake moves. (ms)
+var refreshButton = document.getElementsByClassName("refresh")[0];
 var intervalId;
 var gameIsStopped = true;
 // high scores (both time- and food-based) for each level
@@ -34,6 +35,7 @@ function stopGame() {
   if ((snake.length - snake.level) > pelletHighScores[level]) {
     pelletHighScores[level] = snake.length - snake.level;
   }
+  refreshButton.disabled = true;
   console.log("Game stopped");
   gameIsStopped = true;
   upLevel();
@@ -57,6 +59,7 @@ function startGame() {
   if (!gameIsStopped) {
     return;
   }
+  refreshButton.disabled = false;
   document.cookie = 'speed='+refreshRate+'; maxLevel='+maxLevel;
   gameIsStopped = false;
   console.log("Game started");
