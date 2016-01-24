@@ -3,6 +3,7 @@ var moves = [];
 
 // Find a safe route to target using at least numMoves
 function monteCarlo(numMoves, target) {
+  console.log('Started monte carlo challenge w/', numMoves, 'moves');
   var snake_cpy = snake.slice(0); // Copy the snake so we can restore it
   moves = [];
   while (true) {
@@ -38,6 +39,7 @@ function monteCarlo(numMoves, target) {
       }
       if (snake.length - snake_cpy.length >= numMoves) { // We got out, with enough moves!
         snake = snake_cpy.slice(0); // Restore original snake
+        console.log('Finished monte carlo challenge.');
         return; // Movements are stored in var moves.
       }
     } catch (collisionError) {} // If we collide, just try again.
@@ -814,9 +816,10 @@ function aiLevel4() {
         } else {
           dir = 'down';
         }
-        if (goUp < 0 && goDown < 0) {
-          // Not enough valid moves, so look for some!
-          moves = monteCarlo(-Math.max(goUp, goDown));
+        if (goDown < goUp && goUp < 0) {
+          monteCarlo(-goUp, snake[segmentUp]);
+        } else if (goUp < goDown && goDown < 0) {
+          monteCarlo(-goDown, snake[segmentDown]);
         }
         return moveHead(dir);
       }
@@ -927,9 +930,10 @@ function aiLevel4() {
         } else {
           dir = 'down';
         }
-        if (goUp < 0 && goDown < 0) {
-          // Not enough valid moves, so look for some!
-          moves = monteCarlo(-Math.max(goUp, goDown));
+        if (goDown < goUp && goUp < 0) {
+          monteCarlo(-goUp, snake[segmentUp]);
+        } else if (goUp < goDown && goDown < 0) {
+          monteCarlo(-goDown, snake[segmentDown]);
         }
         return moveHead(dir);
       }
@@ -1038,9 +1042,10 @@ function aiLevel4() {
         } else {
           dir = 'left';
         }
-        if (goRight < 0 && goLeft < 0) {
-          // Not enough valid moves, so look for some!
-          moves = monteCarlo(-Math.max(goRight, goLeft));
+        if (goRight < goLeft && goLeft < 0) {
+          monteCarlo(-goLeft, snake[segmentLeft]);
+        } else if (goLeft < goRight && goRight < 0) {
+          monteCarlo(-goRight, snake[segmentRight]);
         }
         return moveHead(dir);
       }
@@ -1149,9 +1154,10 @@ function aiLevel4() {
         } else {
           dir = 'left';
         }
-        if (goRight < 0 && goLeft < 0) {
-          // Not enough valid moves, so look for some!
-          moves = monteCarlo(-Math.max(goRight, goLeft));
+        if (goRight < goLeft && goLeft < 0) {
+          monteCarlo(-goLeft, snake[segmentLeft]);
+        } else if (goLeft < goRight && goRight < 0) {
+          monteCarlo(-goRight, snake[segmentRight]);
         }
         return moveHead(dir);
       }
