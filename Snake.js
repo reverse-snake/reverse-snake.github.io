@@ -1,7 +1,7 @@
 var isMobile = false;
 var snake = [[1, 0], [0, 0]]; // An array of [x, y] pairs. The head is at [0], tail is at [-1].
 var board; // top left is 0, 0, bottom right is height-1, width-1
-var food = [-1, -1];  // if there is no food, use this to avoid null pointers
+var food = [-10, -10];  // if there is no food, use this to avoid null pointers
 var refreshRate = 250; // How quickly the snake moves. (ms)
 var intervalId;
 var gameIsStopped = true;
@@ -18,7 +18,7 @@ function stopGame() {
     board[i] = [];
     board[i].length = height;
   }
-  food = [-1, -1];
+  food = [-10, -10];
   snake = [];
   for (var i=0; i<level+3; i++) {
     snake.unshift([i, 0]);
@@ -122,7 +122,7 @@ function moveHead(dir) {
   }
   snake.unshift(newHead); // add newHead to the beginning of the list
   if (snake[0][0] == food[0] && snake[0][1] == food[1]) { // if snake's head is on the food
-  food = [-1, -1];
+  food = [-10, -10];
 } else {
   delTail();
 }
