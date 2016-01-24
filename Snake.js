@@ -10,6 +10,7 @@ var timeHighScores = [];
 var pelletHighScores = [];
 var currentTimeScore = 0;
 
+document.cookie = null;
 if (document.cookie !== null) {
   console.log(document.cookie);
   cookies = document.cookie.split(';');
@@ -18,6 +19,7 @@ if (document.cookie !== null) {
     console.log(cookie);
     if (cookie[0] == 'speed') {
       var speed = parseInt(cookie[1]);
+      console.log(speed);
       document.getElementById('speedSlider').setAttribute('value', speed);
       showValue(speed);
     } else if (cookie[0] == 'highest') {
