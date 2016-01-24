@@ -1,6 +1,6 @@
 var dir = 'right';
 var level = 0;
-var maxLevel = 2;
+var maxLevel = 5;
 var upButton = document.getElementsByClassName("upButton")[0];
 var levelGauge = document.getElementsByClassName("level")[0];
 var downButton = document.getElementsByClassName("downButton")[0];
@@ -631,6 +631,198 @@ function aiLevel3() {
   moveHead(dir);
 }
 
-// Perfect play (or at least very close to it)
+// Same as level 2 but more conservative
 function aiLevel4() {
+  if (dir == 'right') {
+    // Blocked by wall
+    if (snake[0][0] == width - 1) {
+      // If at bottom of board, go up
+      if (snake[0][1] == height - 1) {
+        dir = 'up';
+        return moveHead(dir);
+      // If at top of board, go down
+      } else if (snake[0][1] === 0) {
+        dir = 'down';
+        return moveHead(dir);
+      } else {
+        for (var j = snake[0][1] + 1; j < height; j++) { // Check along right edge for our own tail (loop)
+          if (inSnake((width - 1) + '_' + j)) {
+            dir = 'up';
+            return moveHead(dir);
+          }
+        }
+        for (var i = width - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
+          if (inSnake(i + '_' + (width - 1))) {
+            dir = 'up';
+            return moveHead(dir);
+          }
+        }
+        dir = 'down';
+        return moveHead(dir);
+      }
+    // Blocked by tail
+    } else if (inSnake((snake[0][0] + 1) + '_' + snake[0][1])) {
+      if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
+        dir = 'up';
+      } else {
+        dir = 'down';
+      }
+      return moveHead(dir);
+    }
+    if (snake[0][0] == food[0]) {
+      if (snake[0][1] < food[1]) {
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) {
+          dir = 'down';
+        }
+      } else {
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
+          dir = 'up';
+        }
+      }
+    }
+  } else if (dir == 'left') {
+    // Blocked by wall
+    if (snake[0][0] === 0) {
+      // If at top of board, go down
+      if (snake[0][1] === 0) {
+        dir = 'down';
+        return moveHead(dir);
+      // If at bottom of board, go up
+      } else if (snake[0][1] == height-1) {
+        dir = 'up';
+        return moveHead(dir);
+      } else {
+        for (var j = snake[0][1] - 1; j >= 0; j--) { // Check along left edge for our own tail (loop)
+          if (inSnake(0 + '_' + j)) {
+            dir = 'down';
+            return moveHead(dir);
+          }
+        }
+        for (var i = 0; i < width; i++) { // Check along top edge for our own tail (loop)
+          if (inSnake(i + '_' + 0)) {
+            dir = 'down';
+            return moveHead(dir);
+          }
+        }
+        dir = 'up';
+        return moveHead(dir);
+      }
+    // Blocked by tail
+    } else if (inSnake((snake[0][0] - 1) + '_' + snake[0][1])) {
+      if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
+        dir = 'down';
+      } else {
+        dir = 'up';
+      }
+      return moveHead(dir);
+    }
+    // Snake above/below food
+    if (snake[0][0] == food[0]) {
+      if (snake[0][1] < food[1]) {
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) {
+          dir = 'down';
+        }
+      } else {
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
+          dir = 'up';
+        }
+      }
+    }
+  } else if (dir == 'up') {
+    // Blocked by wall
+    if (snake[0][1] === 0) {
+      // If at right side of board, go left
+      if (snake[0][0] == width - 1) {
+        dir = 'left';
+        return moveHead(dir);
+      // If at left side of board, go right
+      } else if (snake[0][0] === 0) {
+        dir = 'right';
+        return moveHead(dir);
+      } else {
+        for (var i = snake[0][0] + 1; i < width; i++) { // Check along top edge for our own tail (loop)
+          if (inSnake(i + '_' + 0)) {
+            dir = 'left';
+            return moveHead(dir);
+          }
+        }
+        for (var j = 0; j < height; j++) { // Check along right edge for our own tail (loop)
+          if (inSnake((width - 1) + '_' + j)) {
+            dir = 'left';
+            return moveHead(dir);
+          }
+        }
+        dir = 'right';
+      }
+    // Blocked by tail
+    } else if (inSnake(snake[0][0] + '_' + (snake[0][1] - 1))) {
+      if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
+        dir = 'left';
+        return moveHead(dir);
+      } else {
+        dir = 'right';
+        return moveHead(dir);
+      }
+      return moveHead(dir);
+    }
+    if (snake[0][1] == food[1]) { // Snake left/right of food
+      if (snake[0][0] < food[0]) {
+        if (!inSnake((snake[0][0]+1)+'_'+snake[0][1])) {
+          dir = 'right';
+        }
+      } else {
+        if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
+          dir = 'left';
+        }
+      }
+    }
+  } else if (dir == 'down') {
+    // Blocked by wall
+    if (snake[0][1] == height - 1) {
+      // If at left side of board, go right
+      if (snake[0][0] === 0) {
+        dir = 'right';
+        return moveHead(dir);
+      // If at right side of board, go left
+      } else if (snake[0][0] == width - 1) {
+        dir = 'left';
+        return moveHead(dir);
+      } else {
+        for (var i = snake[0][0] - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
+          if (inSnake(i + '_' + (height-1))) {
+            dir = 'right';
+            return moveHead(dir);
+          }
+        }
+        for (var j = height - 1; j >= 0; j--) { // Check along left edge for our own tail (loop)
+          if (inSnake(0 + '_' + j)) {
+            dir = 'right';
+            return moveHead(dir);
+          }
+        }
+        dir = 'left';
+        return moveHead(dir);
+      }
+    // Blocked by tail
+    } else if (inSnake(snake[0][0] + '_' + (snake[0][1] + 1))) {
+      if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
+        dir = 'right';
+      } else {
+        dir = 'left';
+      }
+      return moveHead(dir);
+    }
+    if (snake[0][1] == food[1]) { // Snake left/right of food
+      if (snake[0][0] < food[0]) {
+        if (!inSnake((snake[0][0]+1)+'_'+snake[0][1])) {
+          dir = 'right';
+        }
+      } else {
+        if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
+          dir = 'left';
+        }
+      }
+    }
+  }
+  moveHead(dir);
 }
