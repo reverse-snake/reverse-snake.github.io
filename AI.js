@@ -698,7 +698,7 @@ function aiLevel4() {
           // No conflicting segments
         } else {
           // goUp should now contain the number of needed steps in that direction
-          goUp = snake.length-segmentUp-goUp;
+          goUp = -(snake.length-segmentUp-goUp);
         }
         if (goUp > goDown) {
           dir = 'up';
@@ -795,7 +795,7 @@ function aiLevel4() {
           // No conflicting segments
         } else {
           // goUp should now contain the number of needed steps in that direction
-          goUp = snake.length-segmentUp-goUp;
+          goUp = -(snake.length-segmentUp-goUp);
         }
         if (goUp > goDown) {
           dir = 'up';
@@ -891,7 +891,7 @@ function aiLevel4() {
           // No conflicting segments
         } else {
           // goLeft should now contain the number of needed steps in that direction
-          goLeft = snake.length-segmentLeft-goLeft;
+          goLeft = -(snake.length-segmentLeft-goLeft);
         }
         if (goRight > goLeft) {
           dir = 'right';
@@ -988,7 +988,7 @@ function aiLevel4() {
           // No conflicting segments
         } else {
           // goLeft should now contain the number of needed steps in that direction
-          goLeft = snake.length-segmentLeft-goLeft;
+          goLeft = -(snake.length-segmentLeft-goLeft);
         }
         if (goRight > goLeft) {
           dir = 'right';
