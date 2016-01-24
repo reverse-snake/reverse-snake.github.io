@@ -17,7 +17,7 @@ td.foodcell {
 }
 
 td.level {
-  font-size: 4em;
+  font-size: 2em;
 }
 
 table.snaketable {
@@ -42,13 +42,13 @@ button:focus {
 }
 
 button.upButton {
-  font-size: 1em;
+  font-size: 0.5em;
   height: 30px;
   width: 30px;
 }
 
 button.downButton {
-  font-size: 1em;
+  font-size: 0.5em;
   height: 30px;
   width: 30px;
 }

@@ -7,17 +7,17 @@
 	<title>Reverse Snake</title>
 </head>
 <body>
-	<table width="75%" align="center">
+	<table width="100%" align="center">
 		<tr>
 			<td width="30%">
-				<table>
+				<table style="border: 1px solid black">
 					<!-- change Level -->
 					<tr>
-						<td rowspan="3"><span style="font-size: 1em">Level</span></td>
+						<td width="50%" rowspan="3" style="text-align: right"><span style="font-size: 1.5em">Level</span></td>
 						<td><button class="upButton" onclick="upLevel()">▲</button></td>
 					</tr>
-					<tr align="center">
-						<td class="level" style="font-size: 1em"><span style="font-size: 1em; background-color: #CCCCCC;">0</span></td>
+					<tr align="center" style="text-align: left">
+						<td class="level" style="padding-left: 10px; font-size: 1.5em">0</td>
 					</tr>
 					<tr>
 						<td><button class="downButton" disabled onclick="downLevel()">▼</button></td>
@@ -36,21 +36,21 @@
 				<table class="snaketable"></table>
 			</td>
 			<td width="30%">
-				<div align="right">Version 2.19</div>
-				<table>
+				<div align="right">Version 2.20</div>
+				<table style="font-size: 1em">
 					<tr>
-						<td><b>Legend</b></td>
+						<td colspan="2"><div style="font-size: 1.5em">Legend</div></td>
 					</tr><tr>
-						<td class="snakecell" width="30px" height="30px"></td>
+						<td style="border: 1px solid black" class="snakecell" width="26px" height="26px"></td>
 						<td>Snake</td>
 					</tr><tr>
-						<td class="impactcell" width="30px" height="30px"></td>
+						<td style="border: 1px solid black" class="impactcell" width="26px" height="26px"></td>
 						<td>Collision</td>
 					</tr><tr>
-						<td class="foodcell" width="30px" height="30px"></td>
+						<td style="border: 1px solid black" class="foodcell" width="26px" height="26px"></td>
 						<td>Food</td>
 					</tr><tr>
-						<td class="emptycell" width="30px" height="30px"></td>
+						<td style="border: 1px solid black" class="emptycell" width="26px" height="26px"></td>
 						<td>Empty Cell</td>
 					</tr><tr></tr><tr>
 						<td colspan="2">
