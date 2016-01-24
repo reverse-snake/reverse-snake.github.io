@@ -18,10 +18,11 @@ var refreshButton = document.getElementsByClassName("refresh")[0];
 var upButton = document.getElementsByClassName("upButton")[0];
 var levelGauge = document.getElementsByClassName("level")[0];
 var downButton = document.getElementsByClassName("downButton")[0];
-
-// random garbage
-var score = document.getElementsByClassName("score")[0]
-score.innerHTML = (snake.length - level - 2);
+var score = document.getElementsByClassName("score")[0];
+var time = document.getElementsByClassName("time")[0];
+var startTime = null;
+var stopTime = null;
+// score.innerHTML = (snake.length - level - 2);
 
 if (document.cookie !== null) {
   cookies = document.cookie.split(';');
@@ -41,6 +42,7 @@ function stopGame() {
   if ((snake.length - snake.level) > pelletHighScores[level]) {
     pelletHighScores[level] = snake.length - snake.level;
   }
+  stopTime = Date.now();
   console.log("Round ended! Advancing AI to level", level);
   upLevel();
   refreshButton.disabled = true;
@@ -70,6 +72,7 @@ function startGame() {
   if (!gameIsStopped) {
     return;
   }
+  startTime = Date.now();
   refreshButton.disabled = false;
   upButton.disabled = true;
   downButton.disabled = true;

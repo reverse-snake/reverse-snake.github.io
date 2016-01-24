@@ -42,6 +42,17 @@ function updateBoard() {
 		}
 	}
 	score.innerHTML = (snake.length - level - 3);
+	var minutes, seconds;
+	if (startTime !== null) { // Before stage start
+		time.innerHTML = '0:00.00';
+	} else if (stopTime !== null) { // After stage end
+		minutes = (stopTime.getMinutes() - startTime.getMinutes() + 60) % 60;
+		seconds = (stopTime.getSeconds() - startTime.getSeconds() + 60) % 60;
+	} else { // Stage in progress
+		var minutes = (Date.now().getMinutes() - startTime.getMinutes() + 60) % 60;
+		var seconds = (Date.now().getSeconds() - startTime.getSeconds() + 60) % 60;
+	}
+	time.innerHTML = minutes + ':' + (seconds<10?'0':'')+seconds;
 }
 
 updateBoard();
