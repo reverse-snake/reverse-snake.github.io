@@ -85,8 +85,7 @@ function upLevel() {
     level = maxLevel;
   }
   console.log(level);
-  console.log(levelGuage.innerHTML);
-  //levelGuage.innerHTML = level;
+  levelGauge.innerHTML = level;
   upButton.disabled = (level == maxLevel);
   resetGame();
 }
@@ -98,7 +97,7 @@ function downLevel() {
     level = 0;
   }
   console.log(level);
-  //levelGuage.innerHTML = level;
+  levelGauge.innerHTML = level;
   downButton.disabled = (level === 0);
   resetGame();
 }
