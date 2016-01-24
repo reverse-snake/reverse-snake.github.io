@@ -10,9 +10,9 @@ var gameIsStopped = true;
 var level = 0;
 var maxLevel = 4;
 // high scores (both time- and food-based) for each level
-var timeHighScores = [];
-var pelletHighScores = [0, 0, 0, 0, 0];
-var currentTimeScore = 0;
+//var timeHighScores = [];
+//var pelletHighScores = [0, 0, 0, 0, 0];
+//var currentTimeScore = 0;
 // HTML elements
 var refreshButton = document.getElementsByClassName("refresh")[0];
 var upButton = document.getElementsByClassName("upButton")[0];
@@ -43,15 +43,15 @@ function stopGame() {
     console.log("Victory!");
   }
   startTime = [];
-  if (pelletHighScores[level] == 0 || ((snake.length - snake.level) < pelletHighScores[level])) {
+  /*if (pelletHighScores[level] == 0 || ((snake.length - snake.level) < pelletHighScores[level])) {
+    console.log(snake.length);
     console.log(pelletHighScores[level]);
-    pelletHighScores[level] = snake.length - snake.level - 2;
     document.getElementsByClassName("highScore0")[0].innerHTML = pelletHighScores[0];
     document.getElementsByClassName("highScore1")[1].innerHTML = pelletHighScores[1];
     document.getElementsByClassName("highScore2")[2].innerHTML = pelletHighScores[2];
     document.getElementsByClassName("highScore3")[3].innerHTML = pelletHighScores[3];
     document.getElementsByClassName("highScore4")[4].innerHTML = pelletHighScores[4];
-  }
+  }*/
   stopTime = new Date();
   console.log("Round ended! Advancing AI to level", level);
   upLevel();
@@ -153,6 +153,7 @@ function getSnakeIndex(string) {
 }
 
 function moveHead(dir) {
+  //pelletHighScores[level] = snake.length - snake.level - 2;
   // move snake's head in given direction
   // 'right', 'left', 'up', and 'down'
   var newHead = snake[0].slice(0); // Clone so we don't move the head by accident.

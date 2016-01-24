@@ -41,6 +41,7 @@ function updateBoard() {
 			cell.setAttribute('width', size+'px');
 		}
 	}
+	score.innerHTML = (snake.length - level - 3);
 	var minutes, seconds;
 	//console.log("Before minutes and seconds are calculated");
 	if (startTime == []) { // Before stage start
