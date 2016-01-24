@@ -78,10 +78,6 @@ function monteCarlo(numMoves, target) {
 // increases level by one; replaces setLevel(level + 1)
 function upLevel() {
   level = level + 1;
-  if (level > 4) { // Actual hard limit for levels
-    level = 4;
-    showVictory();
-  }
   if (level > maxLevel) {
     level = maxLevel;
   }
