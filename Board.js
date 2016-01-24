@@ -33,8 +33,8 @@ function updateBoard() {
 			} else if (inSnake(cell.getAttribute('name'))) {
 				cell.setAttribute('class', 'snakecell');
 			} else if (cell.getAttribute('name') == food[0]+'_'+food[1]) {
-        cell.setAttribute('class', 'foodcell');
-      } else {
+				cell.setAttribute('class', 'foodcell');
+			} else {
 				cell.setAttribute('class', 'emptycell');
 			}
 			cell.setAttribute('height', size+'px');
@@ -54,6 +54,11 @@ function updateBoard() {
 		var seconds = (Date.now().getSeconds() - startTime.getSeconds() + 60) % 60;
 	}
 	console.log(minutes + ':' + (seconds<10?'0':'')+seconds);
+	console.log(Date.now());
+	console.log(Date.now().getMinutes());
+	console.log("Other method of getting date");
+	var dt= new Date();
+	console.log(dt.getMinutes());
 	console.log("Minutes and seconds");
 	time.innerHTML = minutes + ':' + (seconds<10?'0':'')+seconds;
 }
