@@ -86,6 +86,7 @@ function startGame() {
   console.log(startTime);
   //console.log(startTime.getMinutes());
   //console.log(startTime.getSeconds());
+  console.log("startTime is defined");
   intervalId = window.setInterval(ai, refreshRate, level); // calls ai(level) at refreshRate
   ai(level);
 }

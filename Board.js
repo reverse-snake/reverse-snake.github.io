@@ -43,6 +43,7 @@ function updateBoard() {
 	}
 	score.innerHTML = (snake.length - level - 3);
 	var minutes, seconds;
+	console.log("Before minutes and seconds are calculated");
 	if (startTime !== null) { // Before stage start
 		time.innerHTML = '0:00.00';
 	} else if (stopTime !== null) { // After stage end
@@ -53,6 +54,7 @@ function updateBoard() {
 		var seconds = (Date.now().getSeconds() - startTime.getSeconds() + 60) % 60;
 	}
 	console.log(minutes + ':' + (seconds<10?'0':'')+seconds);
+	console.log("Minutes and seconds");
 	time.innerHTML = minutes + ':' + (seconds<10?'0':'')+seconds;
 }
 
