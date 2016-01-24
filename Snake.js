@@ -23,6 +23,8 @@ if (document.cookie !== null) {
       console.log(document.getElementById('speedSlider'));
       console.log(document.getElementById('speedSlider').value);
       document.getElementById('speedSlider').value = speed;
+      console.log(document.getElementById('speedSlider').value);
+      console.log(document.getElementById('speedSlider'));
       showValue(speed);
     } else if (cookie[0] == 'highest') {
       maxLevel = cookie[1];
