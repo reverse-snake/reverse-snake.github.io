@@ -12,8 +12,6 @@ var pelletHighScores = [];
 var currentTimeScore = 0;
 
 // random garbage
-//console.log(document.getElementsByClass("score"));
-//console.log(document.getElementsByClass("score")[0]);
 var score = document.getElementsByClassName("score")[0]
 score.innerHTML = (snake.length - level - 2);
 
@@ -83,6 +81,7 @@ function debugSnake() {
   }
 }
 
+// String is of form x_y to allow compatibility with Board.js
 function inSnakeTwice(string) {
   var count = 0;
   for (var s=0; s<snake.length; s++) {
@@ -152,15 +151,11 @@ function moveHead(dir) {
   }
   snake.unshift(newHead); // add newHead to the beginning of the list
   if (snake[0][0] == food[0] && snake[0][1] == food[1]) { // if snake's head is on the food
-  food = [-10, -10];
-} else {
-  delTail();
-}
-updateBoard();
-}
-
-function delTail() {  // simple function to remove the tail
-  snake.pop();
+    food = [-10, -10];
+  } else {
+    snake.pop(); // Remove the tail
+  }
+  updateBoard();
 }
 
 function placeFood(x, y) {
