@@ -723,7 +723,6 @@ function aiLevel4() {
       return moveHead(dir);
     }
     if (snake[0][0] == food[0]) { // Snake above/below food
-      console.log("723");
       if (snake[0][1] < food[1]) {
         for (var j=snake[0][1]+1; j<food[1]; j++) {
           if (inSnake(snake[0][0]+'_'+j)) {
@@ -828,7 +827,6 @@ function aiLevel4() {
       return moveHead(dir);
     }
     if (snake[0][0] == food[0]) { // Snake above/below food
-      console.log("828");
       if (snake[0][1] < food[1]) {
         for (var j=snake[0][1]+1; j<food[1]; j++) {
           if (inSnake(snake[0][0]+'_'+j)) {
@@ -845,7 +843,6 @@ function aiLevel4() {
         dir = 'up';
       }
     }
-    console.log("845");
     return moveHead(dir);
   } else if (dir == 'up') {
     // Blocked by wall
@@ -934,7 +931,6 @@ function aiLevel4() {
       return moveHead(dir);
     }
     if (snake[0][1] == food[1]) { // Snake left/right of food
-      console.log("934");
       if (snake[0][0] < food[0]) {
         for (var i=snake[0][0]+1; i<food[0]; i++) {
           if (inSnake(i+'_'+snake[0][1])) {
@@ -951,10 +947,8 @@ function aiLevel4() {
         dir = 'left';
       }
     }
-    console.log("951");
     return moveHead(dir);
   } else if (dir == 'down') {
-    console.log("954");
     // Blocked by wall
     if (snake[0][1] == height - 1) {
       // If at left side of board, go right
@@ -1039,7 +1033,6 @@ function aiLevel4() {
       return moveHead(dir);
     }
     if (snake[0][1] == food[1]) { // Snake left/right of food
-      console.log("1039");
       if (snake[0][0] < food[0]) {
         for (var i=snake[0][0]+1; i<food[0]; i++) {
           if (inSnake(i+'_'+snake[0][1])) {
@@ -1057,6 +1050,5 @@ function aiLevel4() {
       }
     }
   }
-  console.log("1057");
   moveHead(dir);
 }
