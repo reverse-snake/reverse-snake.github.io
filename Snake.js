@@ -56,7 +56,7 @@ function startGame() {
   if (!gameIsStopped) {
     return;
   }
-  document.cookie = 'speed='+refreshRate+'; highest='+maxLevel;
+  document.cookie = 'speed='+refreshRate+'; highest='+maxLevel+';';
   console.log('speed='+refreshRate+'; highest='+maxLevel);
   console.log(document.cookie);
   gameIsStopped = false;
