@@ -43,7 +43,7 @@ function stopGame() {
     console.log("Victory!");
   }
   startTime = [];
-  if ((snake.length - snake.level) > pelletHighScores[level]) {
+  if (pelletHighScores[level] == 0 || ((snake.length - snake.level) < pelletHighScores[level])) {
     pelletHighScores[level] = snake.length - snake.level;
     document.getElementsByClassName("highScore0")[0].innerHTML = pelletHighScores[0];
     document.getElementsByClassName("highScore1")[1].innerHTML = pelletHighScores[1];
@@ -56,7 +56,6 @@ function stopGame() {
   upLevel();
   refreshButton.disabled = true;
   console.log("Game stopped");
-  console.log(stopTime);
   resetGame();
 }
 
