@@ -32,9 +32,6 @@ for (var i=0; i<height; i+=1) {
 }
 
 function updateBoard() {
-	console.log(document.getElementsByClass("score"));
-	console.log(document.getElementsByClass("score")[0]);
-	//document.getElementsByName("score")[0].innerHTML = (snake.length - level);
 	for (var r=0; r<table.rows.length; r++) {
 		for (var c=0; c<table.rows[r].cells.length; c++) {
 			var cell = table.rows[r].cells[c];

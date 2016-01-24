@@ -10,6 +10,11 @@ var timeHighScores = [];
 var pelletHighScores = [];
 var currentTimeScore = 0;
 
+// random garbage
+console.log(document.getElementsByClass("score"));
+console.log(document.getElementsByClass("score")[0]);
+//document.getElementsByName("score")[0].innerHTML = (snake.length - level);
+
 if (document.cookie !== null) {
   cookies = document.cookie.split(';');
   for (var c=0; c<cookies.length; c++) {
