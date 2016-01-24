@@ -722,14 +722,14 @@ function aiLevel4() {
     if (snake[0][0] == food[0]) { // Snake above/below food
       console.log("723");
       if (snake[0][1] < food[1]) {
-        for (var j=snake[0][1]+1; j++; j<food[1]) {
+        for (var j=snake[0][1]+1; j<food[1]; j++) {
           if (inSnake(snake[0][0]+'_'+j)) {
             return moveHead(dir);
           }
         }
         dir = 'down';
       } else {
-        for (var j=food[1]+1; j++; j<snake[0][1]) {
+        for (var j=food[1]+1; j<snake[0][1]; j++) {
           if (inSnake(snake[0][0]+'_'+j)) {
             return moveHead(dir);
           }
@@ -827,14 +827,14 @@ function aiLevel4() {
     if (snake[0][0] == food[0]) { // Snake above/below food
       console.log("828");
       if (snake[0][1] < food[1]) {
-        for (var j=snake[0][1]+1; j++; j<food[1]) {
+        for (var j=snake[0][1]+1; j<food[1]; j++) {
           if (inSnake(snake[0][0]+'_'+j)) {
             return moveHead(dir);
           }
         }
         dir = 'up';
       } else {
-        for (var j=food[1]+1; j++; j<snake[0][1]) {
+        for (var j=food[1]+1; j<snake[0][1]; j++) {
           if (inSnake(snake[0][0]+'_'+j)) {
             return moveHead(dir);
           }
@@ -933,14 +933,14 @@ function aiLevel4() {
     if (snake[0][1] == food[1]) { // Snake left/right of food
       console.log("934");
       if (snake[0][0] < food[0]) {
-        for (var i=snake[0][0]+1; i++; i<food[0]) {
+        for (var i=snake[0][0]+1; i<food[0]; i++) {
           if (inSnake(i+'_'+snake[0][1])) {
             return moveHead(dir);
           }
         }
         dir = 'right';
       } else {
-        for (var i=food[0]+1; i++; i<snake[0][0]) {
+        for (var i=food[0]+1; i<snake[0][0]; i++) {
           if (inSnake(i+'_'+snake[0][1])) {
             return moveHead(dir);
           }
@@ -1038,14 +1038,14 @@ function aiLevel4() {
     if (snake[0][1] == food[1]) { // Snake left/right of food
       console.log("1039");
       if (snake[0][0] < food[0]) {
-        for (var i=snake[0][0]+1; i++; i<food[0]) {
+        for (var i=snake[0][0]+1; i<food[0]; i++) {
           if (inSnake(i+'_'+snake[0][1])) {
             return moveHead(dir);
           }
         }
         dir = 'right';
       } else {
-        for (var i=food[0]+1; i++; i<snake[0][0]) {
+        for (var i=food[0]+1; i<snake[0][0]; i++) {
           if (inSnake(i+'_'+snake[0][1])) {
             return moveHead(dir);
           }
