@@ -55,7 +55,6 @@ function updateBoard() {
 	}
 	console.log(minutes + ':' + (seconds<10?'0':'')+seconds);
 	console.log(Date.now());
-	console.log(Date.now().getMinutes());
 	console.log("Other method of getting date");
 	var dt= new Date();
 	console.log(dt.getMinutes());
