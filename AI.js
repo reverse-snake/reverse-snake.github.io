@@ -248,9 +248,17 @@ function aiLevel2() {
       // Blocked by tail
     } else if (inSnake((snake[0][0] + 1) + '_' + snake[0][1])) {
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
-        dir = 'up';
+        if (snake[0][1] != height-1) {
+          dir = 'up';
+        } else {
+          dir = 'down';
+        }
       } else {
-        dir = 'down';
+        if (snake[0][1] != 0) {
+          dir = 'down';
+        } else {
+          dir = 'up';
+        }
       }
       return moveHead(dir);
     }
@@ -292,9 +300,17 @@ function aiLevel2() {
       // Blocked by tail
     } else if (inSnake((snake[0][0] - 1) + '_' + snake[0][1])) {
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
-        dir = 'down';
+        if (snake[0][1] != 0) {
+          dir = 'down';
+        } else {
+          dir = 'up';
+        }
       } else {
-        dir = 'up';
+        if (snake[0][1] != height-1) {
+          dir = 'up';
+        } else {
+          dir = 'down';
+        }
       }
       return moveHead(dir);
     }
@@ -337,9 +353,17 @@ function aiLevel2() {
       // Blocked by tail
     } else if (inSnake(snake[0][0] + '_' + (snake[0][1] - 1))) {
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
-        dir = 'left';
+        if (snake[0][0] != 0) {
+          dir = 'left';
+        } else {
+          dir = 'right';
+        }
       } else {
-        dir = 'right';
+        if (snake[0][0] != width-1) {
+          dir = 'right';
+        } else {
+          dir = 'left';
+        }
       }
       return moveHead(dir);
     }
@@ -381,9 +405,17 @@ function aiLevel2() {
       // Blocked by tail
     } else if (inSnake(snake[0][0] + '_' + (snake[0][1] + 1))) {
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
-        dir = 'right';
+        if (snake[0][0] != 0) {
+          dir = 'right';
+        } else {
+          dir = 'left';
+        }
       } else {
-        dir = 'left';
+        if (snake[0][0] != width-1) {
+          dir = 'left';
+        } else {
+          dir = 'right';
+        }
       }
       return moveHead(dir);
     }
@@ -415,14 +447,12 @@ function aiLevel3() {
         dir = 'down';
       } else { // In the middle of the wall
         for (var j = snake[0][1] + 1; j < height; j++) { // Check along right edge for our own tail (loop)
-          // why not use getLoopDirection here?
           if (inSnake((width - 1) + '_' + j)) {
             dir = 'up';
             return moveHead(dir);
           }
         }
         for (var i = width - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
-          // why not use getLoopDirection here?
           if (inSnake(i + '_' + (width - 1))) {
             dir = 'up';
             return moveHead(dir);
@@ -440,9 +470,17 @@ function aiLevel3() {
     // Blocked by tail
     if (inSnake((snake[0][0] + 1) + '_' + snake[0][1])) {
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
-        dir = 'up';
+        if (snake[0][1] != 0) {
+          dir = 'up';
+        } else {
+          dir = 'down';
+        }
       } else {
-        dir = 'down';
+        if (snake[0][1] != height-1) {
+          dir = 'down';
+        } else {
+          dir = 'up';
+        }
       }
       return moveHead(dir);
     }
@@ -496,9 +534,17 @@ function aiLevel3() {
     // Blocked by tail
     if (inSnake((snake[0][0] - 1) + '_' + snake[0][1])) {
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
-        dir = 'down';
+        if (snake[0][1] != 0) {
+          dir = 'down';
+        } else {
+          dir = 'up';
+        }
       } else {
-        dir = 'up';
+        if (snake[0][1] != height-1) {
+          dir = 'up';
+        } else {
+          dir = 'down';
+        }
       }
       return moveHead(dir);
     }
@@ -552,9 +598,17 @@ function aiLevel3() {
     // Blocked by tail
     if (inSnake(snake[0][0] + '_' + (snake[0][1] - 1))) {
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
-        dir = 'left';
+        if (snake[0][0] != 0) {
+          dir = 'left';
+        } else {
+          dir = 'right';
+        }
       } else {
-        dir = 'right';
+        if (snake[0][0] != width-1) {
+          dir = 'right';
+        } else {
+          dir = 'left';
+        }
       }
       return moveHead(dir);
     }
@@ -608,9 +662,17 @@ function aiLevel3() {
     // Blocked by tail
     if (inSnake(snake[0][0] + '_' + (snake[0][1] + 1))) {
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
-        dir = 'right';
+        if (snake[0][0] != 0) {
+          dir = 'right';
+        } else {
+          dir = 'left';
+        }
       } else {
-        dir = 'left';
+        if (snake[0][0] != width-1) {
+          dir = 'left';
+        } else {
+          dir = 'right';
+        }
       }
       return moveHead(dir);
     }
@@ -716,9 +778,17 @@ function aiLevel4() {
       // Blocked by tail
     } else if (inSnake((snake[0][0] + 1) + '_' + snake[0][1])) {
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
-        dir = 'up';
+        if (snake[0][1] != height-1) {
+          dir = 'up';
+        } else {
+          dir = 'down';
+        }
       } else {
-        dir = 'down';
+        if (snake[0][1] != 0) {
+          dir = 'down';
+        } else {
+          dir = 'up';
+        }
       }
       return moveHead(dir);
     }
@@ -820,9 +890,17 @@ function aiLevel4() {
       // Blocked by tail
     } else if (inSnake((snake[0][0] - 1) + '_' + snake[0][1])) {
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
-        dir = 'down';
+        if (snake[0][1] != 0) {
+          dir = 'down';
+        } else {
+          dir = 'up';
+        }
       } else {
-        dir = 'up';
+        if (snake[0][1] != height-1) {
+          dir = 'up';
+        } else {
+          dir = 'down';
+        }
       }
       return moveHead(dir);
     }
@@ -922,11 +1000,17 @@ function aiLevel4() {
       // Blocked by tail
     } else if (inSnake(snake[0][0] + '_' + (snake[0][1] - 1))) {
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
-        dir = 'left';
-        return moveHead(dir);
+        if (snake[0][0] != 0) {
+          dir = 'left';
+        } else {
+          dir = 'right';
+        }
       } else {
-        dir = 'right';
-        return moveHead(dir);
+        if (snake[0][0] != width-1) {
+          dir = 'right';
+        } else {
+          dir = 'left';
+        }
       }
       return moveHead(dir);
     }
@@ -1026,9 +1110,17 @@ function aiLevel4() {
       // Blocked by tail
     } else if (inSnake(snake[0][0] + '_' + (snake[0][1] + 1))) {
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
-        dir = 'right';
+        if (snake[0][0] != 0) {
+          dir = 'right';
+        } else {
+          dir = 'left';
+        }
       } else {
-        dir = 'left';
+        if (snake[0][0] != width-1) {
+          dir = 'left';
+        } else {
+          dir = 'right';
+        }
       }
       return moveHead(dir);
     }
