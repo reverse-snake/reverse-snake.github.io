@@ -7,7 +7,9 @@ var intervalId;
 var gameIsStopped = true;
 if (document.cookie === null) {
   document.cookie = 'speed='+refreshRate+'; highest='+maxLevel;
+  console.log(document.cookie);
 } else {
+  console.log(document.cookie);
   cookies = document.cookie.split(';');
   for (var c=0; c<cookies.length; c++) {
     var cookie = cookies[c].split('=');
@@ -19,6 +21,8 @@ if (document.cookie === null) {
     }
   }
 }
+document.cookie = null;
+
 
 // Clears board & stops AI
 function stopGame() {
