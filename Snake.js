@@ -19,13 +19,9 @@ if (document.cookie !== null) {
     console.log(cookie);
     if (cookie[0] == 'speed') {
       var speed = parseInt(cookie[1]);
-      console.log(speed);
-      console.log(document.getElementById('speedSlider'));
-      console.log(document.getElementById('speedSlider').value);
-      document.getElementById('speedSlider').value = speed;
-      console.log(document.getElementById('speedSlider').value);
-      console.log(document.getElementById('speedSlider'));
-      showValue(speed);
+      var speedSlider = document.getElementById('speedSlider');
+      speedSlider.value = speed;
+      showValue(speedSlider);
     } else if (cookie[0] == 'highest') {
       maxLevel = cookie[1];
     }
