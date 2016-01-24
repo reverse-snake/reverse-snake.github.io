@@ -78,7 +78,6 @@ function monteCarlo(numMoves, target) {
 
 // increases level by one; replaces setLevel(level + 1)
 function upLevel() {
-  console.log("Up one level");
   level = level + 1;
   if (level > 4) { // Actual hard limit for levels
     level = 4;
@@ -94,7 +93,6 @@ function upLevel() {
 
 // decreases level by one; replaces setLevel(level - 1)
 function downLevel() {
-  console.log("Down one level");
   level = level - 1;
   if (level < 0) {
     level = 0;
