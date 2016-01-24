@@ -31,7 +31,19 @@ function stopGame() {
 
 // Snake collided with self, start next AI level
 function startGame() {
-  document.cookie="speed=refreshRate; highest=maxLevel;";
+  if (document.cookie === null) {
+    document.cookie = 'speed='+refreshRate+'; highest='+maxLevel;
+  } else {
+    cookies = document.cookie.split(';');
+    for (var c=0; c<cookies.length; c++) {
+      var cookie = cookies[c].split('=');
+      if (cookie[0] == 'speed') {
+        changeSpeed(cookie[1]);
+      } else if (cookie[0] == 'highest') {
+        maxLevel = cookie[1];
+      }
+    }
+  }
   if (!gameIsStopped) {
     return;
   }
