@@ -680,7 +680,7 @@ function aiLevel4() {
         }
         if (segmentDown == -1 || goDown + segmentDown > snake.length) {
           for (var i = width - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
-            if ((segmentDown = getSnakeIndex(i + '_' + (width - 1))) != -1) {
+            if ((segmentDown = getSnakeIndex(i + '_' + (height - 1))) != -1) {
               if (goDown + segmentDown <= snake.length) { // this segment will not disappear before we reach it
                 break;
               }
