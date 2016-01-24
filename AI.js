@@ -719,15 +719,21 @@ function aiLevel4() {
       }
       return moveHead(dir);
     }
-    if (snake[0][0] == food[0]) {
+    if (snake[0][0] == food[0]) { // Snake above/below food
       if (snake[0][1] < food[1]) {
-        if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) {
-          dir = 'down';
+        for (var j=snake[0][1]+1; j++; j<food[1]) {
+          if (inSnake(snake[0][0]+'_'+j)) {
+            moveHead(dir);
+          }
         }
+        dir = 'right';
       } else {
-        if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
-          dir = 'up';
+        for (var j=food[1]+1; j++; j<snake[0][1]) {
+          if (inSnake(snake[0][0]+'_'+j)) {
+            moveHead(dir);
+          }
         }
+        dir = 'left';
       }
     }
   } else if (dir == 'left') {
@@ -816,16 +822,21 @@ function aiLevel4() {
       }
       return moveHead(dir);
     }
-    // Snake above/below food
-    if (snake[0][0] == food[0]) {
+    if (snake[0][0] == food[0]) { // Snake above/below food
       if (snake[0][1] < food[1]) {
-        if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) {
-          dir = 'down';
+        for (var j=snake[0][1]+1; j++; j<food[1]) {
+          if (inSnake(snake[0][0]+'_'+j)) {
+            moveHead(dir);
+          }
         }
+        dir = 'right';
       } else {
-        if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
-          dir = 'up';
+        for (var j=food[1]+1; j++; j<snake[0][1]) {
+          if (inSnake(snake[0][0]+'_'+j)) {
+            moveHead(dir);
+          }
         }
+        dir = 'left';
       }
     }
   } else if (dir == 'up') {
@@ -916,13 +927,19 @@ function aiLevel4() {
     }
     if (snake[0][1] == food[1]) { // Snake left/right of food
       if (snake[0][0] < food[0]) {
-        if (!inSnake((snake[0][0]+1)+'_'+snake[0][1])) {
-          dir = 'right';
+        for (var i=snake[0][0]+1; i++; i<food[0]) {
+          if (inSnake(i+'_'+snake[0][1])) {
+            moveHead(dir);
+          }
         }
+        dir = 'right';
       } else {
-        if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
-          dir = 'left';
+        for (var i=food[0]+1; i++; i<snake[0][0]) {
+          if (inSnake(i+'_'+snake[0][1])) {
+            moveHead(dir);
+          }
         }
+        dir = 'left';
       }
     }
   } else if (dir == 'down') {
@@ -1011,13 +1028,19 @@ function aiLevel4() {
     }
     if (snake[0][1] == food[1]) { // Snake left/right of food
       if (snake[0][0] < food[0]) {
-        if (!inSnake((snake[0][0]+1)+'_'+snake[0][1])) {
-          dir = 'right';
+        for (var i=snake[0][0]+1; i++; i<food[0]) {
+          if (inSnake(i+'_'+snake[0][1])) {
+            moveHead(dir);
+          }
         }
+        dir = 'right';
       } else {
-        if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
-          dir = 'left';
+        for (var i=food[0]+1; i++; i<snake[0][0]) {
+          if (inSnake(i+'_'+snake[0][1])) {
+            moveHead(dir);
+          }
         }
+        dir = 'left';
       }
     }
   }
