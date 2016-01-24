@@ -43,18 +43,17 @@ function updateBoard() {
 	}
 	score.innerHTML = (snake.length - level - 3);
 	var minutes, seconds;
-	//console.log("Before minutes and seconds are calculated");
-	if (startTime == []) { // Before stage start
-		time.innerHTML = '0:00.00';
+	if (startTime.length == []) { // Before stage start
+		time.innerHTML = '0:00';
 	} else if (stopTime == []) { // After stage end
 		minutes = (stopTime[0] - startTime[0] + 60) % 60;
 		seconds = (stopTime[1] - startTime[1] + 60) % 60;
+		time.innerHTML = minutes + ':' + (seconds<10?'0':'')+seconds;
 	} else { // Stage in progress
 		var minutes = (new Date().getMinutes() - startTime[0] + 60) % 60;
 		var seconds = (new Date().getSeconds() - startTime[1] + 60) % 60;
+		time.innerHTML = minutes + ':' + (seconds<10?'0':'')+seconds;
 	}
-	//console.log("Minutes and seconds");
-	time.innerHTML = minutes + ':' + (seconds<10?'0':'')+seconds;
 }
 
 updateBoard();
