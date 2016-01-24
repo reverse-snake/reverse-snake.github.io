@@ -76,6 +76,7 @@ function setLevel(_level) {
 }
 
 function upLevel() {
+  console.log("Up one level");
   level = level + 1;
   if (level > 4) { // Actual hard limit for levels
     level = 4;
@@ -83,16 +84,19 @@ function upLevel() {
   if (level > maxLevel) {
     level = maxLevel;
   }
+  console.log(level);
   levelGuage.innerHTML = level;
   upButton.disabled = (level == maxLevel);
   resetGame();
 }
 
 function downLevel() {
+  console.log("Down one level");
   level = level - 1;
   if (level < 0) {
     level = 0;
   }
+  console.log(level);
   levelGuage.innerHTML = level;
   downButton.disabled = (level === 0);
   resetGame();
