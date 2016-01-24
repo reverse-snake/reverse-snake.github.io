@@ -6,13 +6,6 @@ var size = 30; // Size of cell
 var height = 10;
 var width = 15;
 
-if (isMobile) {
-	size = 75;
-	height = 15;
-	width = 10;
-	refreshRate = 350;
-	table.setAttribute('cellspacing', '2px');
-}
 table.setAttribute('height', height*size + 'px');
 table.setAttribute('width', width*size + 'px');
 table.setAttribute('cellspacing', '1px');

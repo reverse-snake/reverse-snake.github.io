@@ -1,10 +1,5 @@
 var dir = 'right';
-var level = 0;
-var maxLevel = 0;
-var upButton = document.getElementsByClassName("upButton")[0];
-var levelGauge = document.getElementsByClassName("level")[0];
-var downButton = document.getElementsByClassName("downButton")[0];
-var moves;
+var moves = [];
 
 // Find a safe route to target using at least numMoves
 function monteCarlo(numMoves, target) {

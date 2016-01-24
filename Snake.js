@@ -1,15 +1,23 @@
-var isMobile = false;
-var snake = [[1, 0], [0, 0]]; // An array of [x, y] pairs. The head is at [0], tail is at [-1].
+// Variables
+var snake = [[2, 0], [1, 0], [0, 0]]; // An array of [x, y] pairs. The head is at [0], tail is at [-1].
+// At level 0, the snake has 3 elements. Each level, it gains 1 starting element.
 var board; // top left is 0, 0, bottom right is height-1, width-1
 var food = [-10, -10];  // if there is no food, use this to avoid null pointers
+// Settings
 var refreshRate = 250; // How quickly the snake moves. (ms)
-var refreshButton = document.getElementsByClassName("refresh")[0];
 var intervalId;
 var gameIsStopped = true;
+var level = 0;
+var maxLevel = 0;
 // high scores (both time- and food-based) for each level
 var timeHighScores = [];
 var pelletHighScores = [];
 var currentTimeScore = 0;
+// HTML elements
+var refreshButton = document.getElementsByClassName("refresh")[0];
+var upButton = document.getElementsByClassName("upButton")[0];
+var levelGauge = document.getElementsByClassName("level")[0];
+var downButton = document.getElementsByClassName("downButton")[0];
 
 // random garbage
 var score = document.getElementsByClassName("score")[0]
