@@ -660,7 +660,7 @@ function aiLevel4() {
         if (segmentUp == -1 || goUp + segmentUp > snake.length) {
           for (var i = width - 1; i >= 0; i--) { // Check along top edge for our own tail (loop up)
             if ((segmentUp = getSnakeIndex(i + '_' + 0)) != -1) {
-              if (goUp + segmentUp <= snake.length) { // this segment will disappear before we reach it
+              if (goUp + segmentUp <= snake.length) { // this segment will not disappear before we reach it
                 break;
               }
             }
@@ -678,7 +678,7 @@ function aiLevel4() {
         if (segmentDown == -1 || goDown + segmentDown > snake.length) {
           for (var i = width - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
             if ((segmentDown = getSnakeIndex(i + '_' + (width - 1))) != -1) {
-              if (goDown + segmentDown <= snake.length) { // this segment will disappear before we reach it
+              if (goDown + segmentDown <= snake.length) { // this segment will not disappear before we reach it
                 break;
               }
             }
@@ -686,8 +686,6 @@ function aiLevel4() {
           }
         }
         console.log('688', goUp, goDown, segmentUp, segmentDown);
-        // CASES: both unblocked, both blocked, down blocked, or up blocked
-
         if (segmentDown == -1 || goDown + segmentDown > snake.length) {
           // No conflicting segments
         } else {
@@ -702,7 +700,6 @@ function aiLevel4() {
           // goUp should now contain the number of needed steps in that direction
           goUp = snake.length-segmentUp-goUp;
         }
-
         if (goUp > goDown) {
           dir = 'up';
         } else {
@@ -746,48 +743,67 @@ function aiLevel4() {
         return moveHead(dir);
       } else {
         var goUp = 0;
+        var segmentUp = -1;
         var goDown = 0;
-        for (var j = snake[0][1] - 1; j >= 0; j--) { // Check along left edge for our own tail (loop)
-          if (!inSnake(0 + '_' + j)) {
-            goUp++;
-          } else {
-            goUp *= -1;
-            break;
+        var segmentown = -1;
+        for (var j = snake[0][1] - 1; j >= 1; j--) { // Check along left edge for our own tail (loop)
+          if ((segmentUp = getSnakeIndex(0 + '_' + j)) != -1) {
+            if (goUp + segmentUp <= snake.length) { // This segment will not disappear before we reach it.
+              break;
+            }
           }
+          goUp++;
         }
-        if (goUp > 0) {
+        if (segmentUp == -1 || goUp + segmentUp > snake.length) {
           for (var i = 0; i < width; i++) { // Check along top edge for our own tail (loop)
-            if (!inSnake(i + '_' + 0)) {
-              goUp++;
-            } else {
+            if ((segmentUp = getSnakeIndex(i + '_' + 0)) != -1) {
+              if (goUp + segmentUp <= snake.length) { // This segment will not disappear before we reach it.
+                break;
+              }
+            }
+            goUp++;
+          }
+        }
+        for (var j = snake[0][1] + 1; j < height-1; j++) { // Check along left edge for our own tail (loop)
+          if ((segmentDown = getSnakeIndex(0 + '_' + j)) != -1) {
+            if (goDown + segmentDown <= snake.length) { // This segment will not disappear before we reach it.
               break;
             }
           }
+          goDown++;
         }
-        for (var j = snake[0][1] + 1; j < height; j++) { // Check along left edge for our own tail (loop)
-          if (!inSnake(0 + '_' + j)) {
-            goDown++;
-          } else {
-            goDown *= -1;
-            break;
-          }
-        }
-        if (goDown > 0) {
+        if (segmentDown == -1 || goDown + segmentDown > snake.length) {
           for (var i = 0; i < width; i++) { // Check along bottom edge for our own tail (loop)
-            if (!inSnake(i + '_' + height-1)) {
-              goDown++;
-            } else {
-              break;
+            if ((segmentDown = getSnakeIndex(i + '_' + height-1)) != -1) {
+              if (goDown + segmentDown <= snake.length) { // This segment will not disappear before we reach it.
+                break;
+              }
             }
+            goDown++;
           }
         }
-        goUp = Math.abs(goUp);
-        goDown = Math.abs(goDown);
-        console.log('764', goUp, goDown);
-        if (goDown > goUp) {
-          dir = 'down';
+        console.log('785', goUp, goDown, segmentUp, segmentDown);
+        if (segmentDown == -1 || goDown + segmentDown > snake.length) {
+          // No conflicting segments
         } else {
+          // goDown should now contain *negative* the number of needed steps in that direction
+          // goDown is 10 (free steps). segmentDown is 7, snake.length is 20.
+          // goDown = -(20 - 10 - 7)
+          goDown = -(snake.length-segmentDown-goDown);
+        }
+        if (segmentUp == -1 || goUp + segmentUp > snake.length) {
+          // No conflicting segments
+        } else {
+          // goUp should now contain the number of needed steps in that direction
+          goUp = snake.length-segmentUp-goUp;
+        }
+        if (goUp > goDown) {
           dir = 'up';
+        } else {
+          dir = 'down';
+        }
+        if (goUp < 0 && goDown < 0) {
+          // Desperation mode for # moves
         }
         return moveHead(dir);
       }
@@ -825,48 +841,65 @@ function aiLevel4() {
         return moveHead(dir);
       } else {
         var goRight = 0;
+        var segmentRight = -1;
         var goLeft = 0;
-        for (var i = snake[0][0] + 1; i < width; i++) { // Check along top edge for our own tail (loop)
-          if (!inSnake(i + '_' + 0)) {
-            goRight++;
-          } else {
-            goRight *= -1;
-            break;
+        var segmentLeft = -1;
+        for (var i = snake[0][0] + 1; i < width-1; i++) { // Check along top edge for our own tail (loop)
+          if ((segmentRight = getSnakeIndex(i + '_' + 0)) != -1) {
+            if (goRight + segmentRight <= snake.length) {
+              break;
+            }
           }
+          goRight++;
         }
-        if (goRight > 0) {
+        if (segmentRight == -1 || goRight + segmentRight > snake.length) {
           for (var j = 0; j < height; j++) { // Check along right edge for our own tail (loop)
-            if (!inSnake((width - 1) + '_' + j)) {
-              goRight++;
-            } else {
+            if ((segmentRight = getSnakeIndex((width - 1) + '_' + j)) != -1) {
+              if (goRight + segmentRight <= snake.length) {
+                break;
+              }
+            }
+            goRight++;
+          }
+        }
+        for (var i = snake[0][0] - 1; i >= 1; i--) { // Check along top edge for our own tail (loop)
+          if ((segmentLeft = getSnakeIndex(i + '_' + 0)) != -1) {
+            if (goLeft + segmentLeft <= snake.length) {
               break;
             }
           }
+          goLeft++;
         }
-        for (var i = snake[0][0] - 1; i >= 0; i--) { // Check along top edge for our own tail (loop)
-          if (!inSnake(i + '_' + 0)) {
-            goLeft++;
-          } else {
-            goLeft *= -1;
-            break;
-          }
-        }
-        if (goLeft > 0) {
+        if (segmentLeft == -1 || goLeft + segmentLeft > snake.length) {
           for (var j = 0; j < height; j++) { // Check along left edge for our own tail (loop)
-            if (!inSnake(0 + '_' + j)) {
-              goLeft++;
-            } else {
-              break;
+            if ((segmentLeft = getSnakeIndex(0 + '_' + j)) != -1) {
+              if (goLeft + segmentLeft <= snake.length) {
+                break;
+              }
             }
+            goLeft++;
           }
         }
-        goRight = Math.abs(goRight);
-        goLeft = Math.abs(goLeft);
-        console.log('845', goRight, goLeft);
-        if (goLeft > goRight) {
-          dir = 'left';
+        console.log('883', goRight, goLeft, segmentRight, segmentLeft);
+        if (segmentRight == -1 || goRight + segmentRight > snake.length) {
+          // No conflicting segments
         } else {
+          // goRight should now contain *negative* the number of needed steps in that direction
+          goRight = -(snake.length-segmentRight-goRight);
+        }
+        if (segmentLeft == -1 || goLeft + segmentLeft > snake.length) {
+          // No conflicting segments
+        } else {
+          // goLeft should now contain the number of needed steps in that direction
+          goLeft = snake.length-segmentLeft-goLeft;
+        }
+        if (goRight > goLeft) {
           dir = 'right';
+        } else {
+          dir = 'left';
+        }
+        if (goRight < 0 && goLeft < 0) {
+          // Desperation mode for Math.max(goRight, goLeft); moves
         }
         return moveHead(dir);
       }
@@ -905,48 +938,65 @@ function aiLevel4() {
         return moveHead(dir);
       } else {
         var goRight = 0;
+        var segmentRight = -1;
         var goLeft = 0;
-        for (var i = snake[0][0] + 1; i < width; i++) { // Check along bottom edge for our own tail (loop)
-          if (!inSnake(i + '_' + (height-1))) {
-            goRight++;
-          } else {
-            goRight *= -1;
-            break;
+        var segmentLeft = -1;
+        for (var i = snake[0][0] + 1; i < width-1; i++) { // Check along bottom edge for our own tail (loop)
+          if ((segmentRight = getSnakeIndex(i + '_' + (height-1))) != -1) {
+            if (goRight + segmentRight <= snake.length) {
+              break;
+            }
           }
+          goRight++;
         }
-        if (goRight > 0) {
+        if (segmentRight == -1 || goRight + segmentRight > snake.length) {
           for (var j = height - 1; j >= 0; j--) { // Check along right edge for our own tail (loop)
-            if (!inSnake((width-1) + '_' + j)) {
-              goRight++;
-            } else {
+            if ((segmentRight = getSnakeIndex((width-1) + '_' + j)) != -1) {
+              if (goRight + segmentRight <= snake.length) {
+                break;
+              }
+            }
+            goRight++;
+          }
+        }
+        for (var i = snake[0][0] - 1; i >= 1; i--) { // Check along bottom edge for our own tail (loop)
+          if ((segmentLeft = getSnakeIndex(i + '_' + (height-1))) != -1) {
+            if (goLeft + segmentLeft <= snake.length) {
               break;
             }
           }
+          goLeft++;
         }
-        for (var i = snake[0][0] - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
-          if (!inSnake(i + '_' + (height-1))) {
-            goLeft++;
-          } else {
-            goLeft *= -1;
-            break;
-          }
-        }
-        if (goLeft > 0) {
+        if (segmentLeft == -1 || goLeft + segmentLeft > snake.length) {
           for (var j = height - 1; j >= 0; j--) { // Check along left edge for our own tail (loop)
-            if (!inSnake(0 + '_' + j)) {
-              goLeft++;
-            } else {
-              break;
+            if ((segmentLeft = getSnakeIndex(0 + '_' + j)) != -1) {
+              if (goLeft + segmentLeft <= snake.length) {
+                break;
+              }
             }
+            goLeft++;
           }
         }
-        goRight = Math.abs(goRight);
-        goLeft = Math.abs(goLeft);
-        console.log('925', goRight, goLeft);
+        console.log('980', goRight, goLeft, segmentRight, segmentLeft);
+        if (segmentRight == -1 || goRight + segmentRight > snake.length) {
+          // No conflicting segments
+        } else {
+          // goRight should now contain *negative* the number of needed steps in that direction
+          goRight = -(snake.length-segmentRight-goRight);
+        }
+        if (segmentLeft == -1 || goLeft + segmentLeft > snake.length) {
+          // No conflicting segments
+        } else {
+          // goLeft should now contain the number of needed steps in that direction
+          goLeft = snake.length-segmentLeft-goLeft;
+        }
         if (goRight > goLeft) {
           dir = 'right';
         } else {
           dir = 'left';
+        }
+        if (goRight < 0 && goLeft < 0) {
+          // Desperation mode for Math.max(goRight, goLeft); moves
         }
         return moveHead(dir);
       }
