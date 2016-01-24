@@ -48,8 +48,6 @@ function stopGame() {
   refreshButton.disabled = true;
   console.log("Game stopped");
   console.log(stopTime);
-  console.log((stopTime.getMinutes() - startTime.getMinutes() + 60) % 60);
-  console.log((stopTime.getSeconds() - startTime.getSeconds() + 60) % 60);
   resetGame();
 }
 
@@ -84,9 +82,9 @@ function startGame() {
   // document.cookie = 'speed='+refreshRate+'; maxLevel='+maxLevel;
   gameIsStopped = false;
   console.log("Game started");
+  console.log(Date.getMinutes();
+  console.log(Date.getSeconds());
   console.log(startTime);
-  console.log((startTime.getMinutes() + 60) % 60);
-  console.log((startTime.getSeconds() + 60) % 60);
   intervalId = window.setInterval(ai, refreshRate, level); // calls ai(level) at refreshRate
   ai(level);
 }
