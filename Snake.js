@@ -39,9 +39,6 @@ if (document.cookie !== null) {
 
 // Clears board & stops AI
 function stopGame() {
-  if (level == 4) {
-    showVictory();
-  }
   startTime = [];
   /*if (pelletHighScores[level] == 0 || ((snake.length - snake.level) < pelletHighScores[level])) {
     console.log(snake.length);
@@ -56,6 +53,9 @@ function stopGame() {
   console.log("Round ended! Advancing AI to level", level);
   maxLevel++;
   upLevel();
+  if (level == 5) {
+    showVictory();
+  }
   refreshButton.disabled = true;
   console.log("Game stopped");
   resetGame();
