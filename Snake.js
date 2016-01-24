@@ -55,6 +55,10 @@ function stopGame() {
 function resetGame() {
   console.log("Resetting Game");
   window.clearInterval(intervalId);
+  stopTime = [];
+  startTime = [];
+  upButton.disabled = (level == maxLevel || level == 4);
+  downButton.disabled = (level === 0);
   gameIsStopped = true;
   board = [];
   board.length = width; // board[x][y]
