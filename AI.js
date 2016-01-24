@@ -663,13 +663,14 @@ function aiLevel4() {
               goUp *= -1;
               break;
             }
-        }
-        for (var j = snake[0][1] - 1; j >= 0; j--) { // Check along right edge for our own tail (loop)
-          if (!inSnake((width - 1) + '_' + j)) {
-            goDown++;
-          } else {
-            goDown *= -1;
-            break;
+          }
+          for (var j = snake[0][1] - 1; j >= 0; j--) { // Check along right edge for our own tail (loop)
+            if (!inSnake((width - 1) + '_' + j)) {
+              goDown++;
+            } else {
+              goDown *= -1;
+              break;
+            }
           }
         }
         if (goDown > 0) {
@@ -680,6 +681,7 @@ function aiLevel4() {
               goDown *= -1;
               break;
             }
+          }
         }
         goUp = Math.abs(goUp);
         goDown = Math.abs(goDown);
