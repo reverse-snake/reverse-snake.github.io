@@ -41,7 +41,7 @@ function updateBoard() {
 			cell.setAttribute('width', size+'px');
 		}
 	}
-	score.innerHTML = (snake.length - level - 2);
+	score.innerHTML = (snake.length - level - 3);
 }
 
 updateBoard();
