@@ -835,14 +835,14 @@ function aiLevel4() {
             return moveHead(dir);
           }
         }
-        dir = 'up';
+        dir = 'down';
       } else {
         for (var j=food[1]+1; j<snake[0][1]; j++) {
           if (inSnake(snake[0][0]+'_'+j)) {
             return moveHead(dir);
           }
         }
-        dir = 'down';
+        dir = 'up';
       }
     }
     console.log("845");
