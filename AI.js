@@ -58,16 +58,19 @@ function setLevel(_level) {
   if (level > 4) { // Actual hard limit for levels
     level = 4;
   }
-  if (level > maxLevel) { // User "levels up" to next difficulty.
-  maxLevel = level;
-}
-if (gameIsStopped) {
-  resetGame(); // Game has not started but level was changed, redraw snake.
-}
-levelGauge.innerHTML = level;
-downButton.disabled = (level === 0);
-upButton.disabled = (level == maxLevel);
-console.log("Level set to", level);
+  if (level > maxLevel) {
+    level = maxLevel;
+  }
+  if (level < 0) {
+    level = 0;
+  }
+  if (gameIsStopped) {
+    resetGame(); // Game has not started but level was changed, redraw snake.
+  }
+  levelGauge.innerHTML = level;
+  downButton.disabled = (level === 0);
+  upButton.disabled = (level == maxLevel);
+  console.log("Level set to", level);
 }
 
 function upLevel() {
