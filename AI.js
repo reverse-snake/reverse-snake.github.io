@@ -566,7 +566,7 @@ function aiLevel3() {
       } else if (snake[0][0] > food[0]) {
         if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
           console.log('571', dir);
-          snakeDebug();
+          debugSnake();
           dir = 'left';
         }
       }
