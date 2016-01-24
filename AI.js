@@ -45,6 +45,9 @@ function getLoopDirection() {
   var turns = 0;
   // We count squares in 3s.
   for (var s = 0; s < snake.length - 2; s++) {
+    if (s > 1 && (Math.abs(snake[s+1][0]-snake[0][0]) + Math.abs(snake[s+1][1]-snake[0][1]) == 1)) {
+      break; // Found the node that touches the head node and creates the loop, so we exit.
+    }
     if (snake[s][0] < snake[s + 1][0]) {
       if (snake[s + 1][1] < snake[s + 2][1]) {
         // 12
@@ -553,19 +556,22 @@ function aiLevel3() {
     // Food is where we are | slightly ahead.
     if (snake[0][1] == food[1] || snake[0][1]-1 == food[1]) {
       if (snake[0][0] < food[0]) {
-        if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) {
+        if (!inSnake((snake[0][0]+1)+'_'+snake[0][1])) {
           dir = 'right';
         }
       } else if (snake[0][0] == food[0]) {
-  	    if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
   	      dir = 'up';
   	    }
       } else if (snake[0][0] > food[0]) {
-        if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
+        if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
+          console.log('571', dir);
+          debugSnake();
           dir = 'left';
         }
       }
     }
+    console.log('576', dir)
   } else if (dir == 'down') {
     // Near a wall
     if (snake[0][1] >= height - 2) {
@@ -623,6 +629,7 @@ function aiLevel3() {
       }
     }
   }
+  console.log('634', dir);
   moveHead(dir);
 }
 
