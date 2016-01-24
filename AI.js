@@ -53,7 +53,8 @@ function monteCarlo(numMoves, target) {
   } // End while(true)
 }
 
-function setLevel(_level) {
+// obsolete function, but kept just in case
+/*function setLevel(_level) {
   level = _level;
   if (level > 4) { // Actual hard limit for levels
     level = 4;
@@ -73,8 +74,9 @@ function setLevel(_level) {
   downButton.disabled = (level === 0);
   upButton.disabled = (level == maxLevel);
   console.log("Level set to", level);
-}
+}*/
 
+// increases level by one; replaces setLevel(level + 1)
 function upLevel() {
   console.log("Up one level");
   level = level + 1;
@@ -90,6 +92,7 @@ function upLevel() {
   resetGame();
 }
 
+// decreases level by one; replaces setLevel(level - 1)
 function downLevel() {
   console.log("Down one level");
   level = level - 1;

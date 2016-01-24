@@ -47,6 +47,7 @@ function stopGame() {
   upLevel();
   refreshButton.disabled = true;
   console.log("Game stopped");
+  console.log(stopTime);
   resetGame();
 }
 
@@ -81,6 +82,7 @@ function startGame() {
   // document.cookie = 'speed='+refreshRate+'; maxLevel='+maxLevel;
   gameIsStopped = false;
   console.log("Game started");
+  console.log(startTime);
   intervalId = window.setInterval(ai, refreshRate, level); // calls ai(level) at refreshRate
   ai(level);
 }
