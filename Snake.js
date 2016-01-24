@@ -10,20 +10,15 @@ var timeHighScores = [];
 var pelletHighScores = [];
 var currentTimeScore = 0;
 
-document.cookie = null;
 if (document.cookie !== null) {
-  console.log(document.cookie);
   cookies = document.cookie.split(';');
   for (var c=0; c<cookies.length; c++) {
     var cookie = cookies[c].split('=');
-    console.log(cookie);
     if (cookie[0] == 'speed') {
       var speed = parseInt(cookie[1]);
       var speedSlider = document.getElementById('speedSlider');
       speedSlider.value = speed;
       showValue(speedSlider);
-    } else if (cookie[0] == 'highest') {
-      maxLevel = cookie[1];
     }
   }
 }
@@ -56,10 +51,7 @@ function startGame() {
   if (!gameIsStopped) {
     return;
   }
-  document.cookie = 'speed='+refreshRate+'; highest='+maxLevel+';';
-  console.log(document.cookie);
-  document.cookie += '; highest=5';
-  console.log(document.cookie);
+  document.cookie = 'speed='+refreshRate;
   gameIsStopped = false;
   console.log("Game started");
   console.log("Round ended! Advancing to AI level", level);
