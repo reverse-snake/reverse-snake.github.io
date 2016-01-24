@@ -16,7 +16,7 @@
 						<td colspan="4"><div style="font-size: 1.5em; text-align: center">Legend</div></td>
 					</tr><tr>
 						<td><div style="margin: 0 auto; background-color: #FF1111; border: 1px solid black; width: 30px; height: 30px;"></div></td>
-						<td><div style="margin: 0 auto; background-color: #CC3300; border: 1px solid black; width: 30px; height: 30px;"></div></td>
+						<td><div style="margin: 0 auto; background-color: #11FF11; border: 1px solid black; width: 30px; height: 30px;"></div></td>
 						<td><div style="margin: 0 auto; background-color: #1111FF; border: 1px solid black; width: 30px; height: 30px;"></div></td>
 						<td><div style="margin: 0 auto; background-color: #CCCCCC; border: 1px solid black; width: 30px; height: 30px;"></div></td>
 					</tr><tr style="text-align: center">
@@ -44,7 +44,7 @@
 					<tr>
 						<td><button class="refresh" onclick="stopGame()" style="height: 70px;
 						width: 70px; font-size: 3em" disabled>↻</button></td>
-						<td><button class="upButton" onclick="upLevel()">▲</button></td>
+						<td><button class="upButton" disabled onclick="upLevel()">▲</button></td>
 					</tr><tr>
 						<td width="50%" style="font-size: 3em; text-align: right">Level</td>
 						<td class="level" style="padding-left: 25px">0</td>
@@ -69,25 +69,12 @@
 						<td>Time: </td>
 						<td class="time">0:00.00</td>
 					</tr>
-
-						<!--
-
-					</tr>
-					<tr align="center" style="text-align: left">
-
-					<tr>
-
-						</td>
-					</tr>
-					<tr>
-					</tr>
-				-->
 				</table>
 			</td>
 		</tr>
 	</table>
-	<script src="Snake.js"></script>
 	<script src="AI.js"></script>
+	<script src="Snake.js"></script>
 	<script src="Board.js"></script>
 	<!-- script src="detectmobilebrowser.js"></script-->
 </body>
