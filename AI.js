@@ -723,19 +723,20 @@ function aiLevel4() {
       if (snake[0][1] < food[1]) {
         for (var j=snake[0][1]+1; j++; j<food[1]) {
           if (inSnake(snake[0][0]+'_'+j)) {
-            moveHead(dir);
+            return moveHead(dir);
           }
         }
         dir = 'down';
       } else {
         for (var j=food[1]+1; j++; j<snake[0][1]) {
           if (inSnake(snake[0][0]+'_'+j)) {
-            moveHead(dir);
+            return moveHead(dir);
           }
         }
         dir = 'up';
       }
     }
+    return moveHead(dir);
   } else if (dir == 'left') {
     // Blocked by wall
     if (snake[0][0] === 0) {
@@ -826,19 +827,20 @@ function aiLevel4() {
       if (snake[0][1] < food[1]) {
         for (var j=snake[0][1]+1; j++; j<food[1]) {
           if (inSnake(snake[0][0]+'_'+j)) {
-            moveHead(dir);
+            return moveHead(dir);
           }
         }
         dir = 'up';
       } else {
         for (var j=food[1]+1; j++; j<snake[0][1]) {
           if (inSnake(snake[0][0]+'_'+j)) {
-            moveHead(dir);
+            return moveHead(dir);
           }
         }
         dir = 'down';
       }
     }
+    return moveHead(dir);
   } else if (dir == 'up') {
     // Blocked by wall
     if (snake[0][1] === 0) {
@@ -929,19 +931,20 @@ function aiLevel4() {
       if (snake[0][0] < food[0]) {
         for (var i=snake[0][0]+1; i++; i<food[0]) {
           if (inSnake(i+'_'+snake[0][1])) {
-            moveHead(dir);
+            return moveHead(dir);
           }
         }
         dir = 'right';
       } else {
         for (var i=food[0]+1; i++; i<snake[0][0]) {
           if (inSnake(i+'_'+snake[0][1])) {
-            moveHead(dir);
+            return moveHead(dir);
           }
         }
         dir = 'left';
       }
     }
+    return moveHead(dir);
   } else if (dir == 'down') {
     // Blocked by wall
     if (snake[0][1] == height - 1) {
@@ -1030,19 +1033,19 @@ function aiLevel4() {
       if (snake[0][0] < food[0]) {
         for (var i=snake[0][0]+1; i++; i<food[0]) {
           if (inSnake(i+'_'+snake[0][1])) {
-            moveHead(dir);
+            return moveHead(dir);
           }
         }
         dir = 'right';
       } else {
         for (var i=food[0]+1; i++; i<snake[0][0]) {
           if (inSnake(i+'_'+snake[0][1])) {
-            moveHead(dir);
+            return moveHead(dir);
           }
         }
         dir = 'left';
       }
     }
   }
-  moveHead(dir);
+  return moveHead(dir);
 }
