@@ -59,23 +59,26 @@ function setLevel(_level) {
     level = 4;
   }
   if (level > maxLevel) { // User "levels up" to next difficulty.
-    maxLevel = level;
-  }
-  if (gameIsStopped) {
-    resetGame(); // Game has not started but level was changed, redraw snake.
-  }
-  levelGauge.innerHTML = level;
-  downButton.disabled = (level === 0);
-  upButton.disabled = (level == maxLevel);
-  console.log("Level set to", level);
+  maxLevel = level;
 }
+if (gameIsStopped) {
+  resetGame(); // Game has not started but level was changed, redraw snake.
+}
+levelGauge.innerHTML = level;
+downButton.disabled = (level === 0);
+upButton.disabled = (level == maxLevel);
+console.log("Level set to", level);
+}
+
 function upLevel() {
   levelGuage.innerHTML = level;
   setLevel(level + 1);
+  upButton.disabled = (level == maxLevel);
 }
 function downLevel() {
   levelGuage.innerHTML = level;
   setLevel(level - 1);
+  downButton.disabled = (level === 0);
 }
 
 function ai(level) {
@@ -94,6 +97,7 @@ function ai(level) {
     console.log('Victory!');
   }
 }
+
 function getLoopDirection() {
   // Detect which way the loop goes...
   var turns = 0;
