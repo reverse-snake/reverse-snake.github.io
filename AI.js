@@ -568,13 +568,10 @@ function aiLevel3() {
   	    }
       } else if (snake[0][0] > food[0]) {
         if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
-          console.log('571', dir);
-          debugSnake();
           dir = 'left';
         }
       }
     }
-    console.log('576', dir)
   } else if (dir == 'down') {
     // Near a wall
     if (snake[0][1] >= height - 2) {
@@ -632,7 +629,6 @@ function aiLevel3() {
       }
     }
   }
-  console.log('634', dir);
   moveHead(dir);
 }
 
