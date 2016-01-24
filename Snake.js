@@ -5,15 +5,21 @@ var food = [-10, -10];  // if there is no food, use this to avoid null pointers
 var refreshRate = 250; // How quickly the snake moves. (ms)
 var intervalId;
 var gameIsStopped = true;
+// high scores (both time- and food-based) for each level
+var timeHighScores = [];
+var pelletHighScores = [];
+var currentTimeScore = 0;
 
 // Clears board & stops AI
 function stopGame() {
+  if ((snake.length - snake.level) > pelletHighScores[level]) {
+    pelletHighScores[level] = snake.length - snake.level;
+  }
   console.log("Game stopped");
   gameIsStopped = true;
   upLevel();
   board = [];
   board.length = width; // board[x][y]
-  console.log("Board reset");
   for (var i = 0; i < width; i++) {
     board[i] = [];
     board[i].length = height;
@@ -26,7 +32,6 @@ function stopGame() {
   dir = 'right';
   debugSnake();
   updateBoard();
-  console.log("Game ready");
 }
 
 // Snake collided with self, start next AI level
