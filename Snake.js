@@ -20,7 +20,7 @@ if (document.cookie !== null) {
     if (cookie[0] == 'speed') {
       var speed = parseInt(cookie[1]);
       console.log(speed);
-      document.getElementById('speedSlider').setAttribute('value', speed);
+      document.getElementById('speedSlider').value = speed;
       showValue(speed);
     } else if (cookie[0] == 'highest') {
       maxLevel = cookie[1];
