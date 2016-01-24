@@ -44,6 +44,7 @@ function stopGame() {
   }
   startTime = [];
   if (pelletHighScores[level] == 0 || ((snake.length - snake.level) < pelletHighScores[level])) {
+    console.log(pelletHighScores[level]);
     pelletHighScores[level] = snake.length - snake.level - 2;
     document.getElementsByClassName("highScore0")[0].innerHTML = pelletHighScores[0];
     document.getElementsByClassName("highScore1")[1].innerHTML = pelletHighScores[1];
