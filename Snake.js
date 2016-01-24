@@ -10,6 +10,20 @@ var timeHighScores = [];
 var pelletHighScores = [];
 var currentTimeScore = 0;
 
+if (document.cookie !== null) {
+  console.log(document.cookie);
+  cookies = document.cookie.split(';');
+  for (var c=0; c<cookies.length; c++) {
+    var cookie = cookies[c].split('=');
+    console.log(cookie);
+    if (cookie[0] == 'speed') {
+      changeSpeed(cookie[1]);
+    } else if (cookie[0] == 'highest') {
+      maxLevel = cookie[1];
+    }
+  }
+}
+
 // Clears board & stops AI
 function stopGame() {
   if ((snake.length - snake.level) > pelletHighScores[level]) {
@@ -30,32 +44,18 @@ function stopGame() {
     snake.unshift([i, 0]);
   }
   dir = 'right';
-  debugSnake();
   updateBoard();
 }
 
 // Snake collided with self, start next AI level
 function startGame() {
-  if (document.cookie === null) {
-    document.cookie = 'speed='+refreshRate+'; highest='+maxLevel;
-  } else {
-    cookies = document.cookie.split(';');
-    for (var c=0; c<cookies.length; c++) {
-      var cookie = cookies[c].split('=');
-      if (cookie[0] == 'speed') {
-        changeSpeed(cookie[1]);
-      } else if (cookie[0] == 'highest') {
-        maxLevel = cookie[1];
-      }
-    }
-  }
   if (!gameIsStopped) {
     return;
   }
+  document.cookie = 'speed='+refreshRate+'; highest='+maxLevel;
+  console.log(document.cookie);
   gameIsStopped = false;
   console.log("Game started");
-  console.log(level);
-  console.log(refreshRate);
   console.log("Round ended! Advancing to AI level", level);
   intervalId = window.setInterval(ai, refreshRate, level); // calls ai(level) at refreshRate
   ai(level);
@@ -158,7 +158,6 @@ function placeFood(x, y) {
     console.log('Invalid food placement: Food is off board');
   } else {
     food = [x, y];
-    console.log('Food placed at '+x+' '+y);
     updateBoard();
   }
 }
