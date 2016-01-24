@@ -82,9 +82,10 @@ function startGame() {
   // document.cookie = 'speed='+refreshRate+'; maxLevel='+maxLevel;
   gameIsStopped = false;
   console.log("Game started");
-  console.log(Date.getMinutes());
-  console.log(Date.getSeconds());
+  // Date.getMinutes() does not work
   console.log(startTime);
+  console.log(startTime.getMinutes());
+  console.log(startTime.getSeconds());
   intervalId = window.setInterval(ai, refreshRate, level); // calls ai(level) at refreshRate
   ai(level);
 }
