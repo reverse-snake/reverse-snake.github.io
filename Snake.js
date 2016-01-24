@@ -58,6 +58,8 @@ function startGame() {
     return;
   }
   refreshButton.disabled = false;
+  downButton.disabled = true;
+  upButton.disabled = true;
   document.cookie = 'speed='+refreshRate+'; maxLevel='+maxLevel;
   gameIsStopped = false;
   console.log("Game started");
