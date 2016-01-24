@@ -39,8 +39,7 @@
 			<td width="40%"> <!-- Main scoreboard -->
 				<table class="snaketable"></table>
 				<!-- High Scores -->
-				<h3>Scoreboard</h3>
-				<table>
+				<table width="50%" align="center" text-align="center">
 					<tr>
 						<td>Level: </td>
 						<td>0</td>
@@ -57,44 +56,45 @@
 						<td class="highScore3">3</td>
 						<td class="highScore4">4</td>
 					</tr>
+				</table>
+			</td>
+			<td width="20%"> <!-- Controls and statistics -->
+				<table style="font-size: 1em">
+					<tr>
+						<td><button class="refresh" onclick="resetGame()" style="height: 70px;
+							width: 70px; font-size: 3em" disabled>↻</button></td>
+							<td><button class="upButton" onclick="upLevel()">▲</button></td>
+						</tr><tr>
+							<td width="50%" style="font-size: 3em; text-align: right">Level</td>
+							<td class="level" name="level" style="padding-left: 25px">0</td>
+						</tr><tr>
+							<td></td><td><button class="downButton" disabled onclick="downLevel()">▼</button></td>
+						</tr><tr>
+							<td colspan="2">
+								Snake Speed: <span name="speed">5</span><br>
+								<input id="speedSlider" min="1" max="10" value="5" step="1" onchange="showValue(this)" type="range">
+								<script type="text/javascript">
+								function showValue(self) {
+									changeSpeed(1000/self.value);
+									console.log('Changed speed to', 1000/self.value);
+									document.getElementsByName("speed")[0].innerHTML = self.value;
+								}
+								</script>
+							</td>
+						</tr><tr>
+							<td>Food Eaten: </td>
+							<td class="score">0</td>
+						</tr><tr>
+							<td>Time: </td>
+							<td class="time">0:00.00</td>
+						</tr>
+					</table>
 				</td>
-				<td width="20%"> <!-- Controls and statistics -->
-					<table style="font-size: 1em">
-						<tr>
-							<td><button class="refresh" onclick="resetGame()" style="height: 70px;
-								width: 70px; font-size: 3em" disabled>↻</button></td>
-								<td><button class="upButton" onclick="upLevel()">▲</button></td>
-							</tr><tr>
-								<td width="50%" style="font-size: 3em; text-align: right">Level</td>
-								<td class="level" name="level" style="padding-left: 25px">0</td>
-							</tr><tr>
-								<td></td><td><button class="downButton" disabled onclick="downLevel()">▼</button></td>
-							</tr><tr>
-								<td colspan="2">
-									Snake Speed: <span name="speed">5</span><br>
-									<input id="speedSlider" min="1" max="10" value="5" step="1" onchange="showValue(this)" type="range">
-									<script type="text/javascript">
-									function showValue(self) {
-										changeSpeed(1000/self.value);
-										console.log('Changed speed to', 1000/self.value);
-										document.getElementsByName("speed")[0].innerHTML = self.value;
-									}
-									</script>
-								</td>
-							</tr><tr>
-								<td>Food Eaten: </td>
-								<td class="score">0</td>
-							</tr><tr>
-								<td>Time: </td>
-								<td class="time">0:00.00</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-			</table>
-			<script src="AI.js"></script>
-			<script src="Snake.js"></script>
-			<script src="Board.js"></script>
-			<!-- script src="detectmobilebrowser.js"></script-->
-		</body>
-		</html>
+			</tr>
+		</table>
+		<script src="AI.js"></script>
+		<script src="Snake.js"></script>
+		<script src="Board.js"></script>
+		<!-- script src="detectmobilebrowser.js"></script-->
+	</body>
+	</html>
