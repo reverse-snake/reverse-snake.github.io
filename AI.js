@@ -4,11 +4,11 @@ var followLeftEdge = false;
 
 // Find a safe route to target using at least numMoves
 function monteCarlo(numMoves, target) {
-  var moveAttempts = 0;
+  followLeftEdge = false;
   console.log('Started monte carlo challenge w/', numMoves, 'moves');
   var snake_cpy = snake.slice(0); // Copy the snake so we can restore it
   moves = [];
-  while (true) {
+  for (var moveAttempts = 0; moveAttempts < 1024; moveAttempts++) {
     snake = snake_cpy.slice(0); // Reset array and try again!
     var x = snake[0][0];
     var y = snake[0][1];
@@ -42,7 +42,6 @@ function monteCarlo(numMoves, target) {
           throw collisionError;
         }
         snake.unshift([x, y]);
-        moveAttempts++;
       }
       console.log(moveAttempts);
       if (snake.length - snake_cpy.length >= numMoves) { // We got out, with enough moves!
@@ -50,13 +49,11 @@ function monteCarlo(numMoves, target) {
         console.log('Finished monte carlo challenge.');
         return; // Movements are stored in var moves.
       }
-      if (moveAttempts > 1023) {
-        moves = [];
-        followLeftEdge = true;
-        return;
-      }
     } catch (collisionError) {} // If we collide, just try again.
   } // End while(true)
+  followLeftEdge = true;
+  moves = [];
+  return;
 }
 
 // obsolete function, but kept just in case
