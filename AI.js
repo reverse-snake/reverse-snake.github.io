@@ -647,7 +647,7 @@ function aiLevel4() {
       } else {
         var goUp = 0;
         var goDown = 0;
-        for (var j = snake[0][1] + 1; j < height; j++) { // Check along right edge for our own tail (loop)
+        for (var j = snake[0][1] - 1; j >= 0; j--) { // Check along right edge for our own tail (loop)
           if (!inSnake((width - 1) + '_' + j)) {
             goUp++;
           } else {
@@ -656,39 +656,38 @@ function aiLevel4() {
           }
         }
         if (goUp > 0) {
-          for (var i = width - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
-            if (!inSnake(i + '_' + (width - 1))) {
+          for (var i = width - 1; i >= 0; i--) { // Check along top edge for our own tail (loop)
+            if (!inSnake(i + '_' + 0)) {
               goUp++;
             } else {
-              goUp *= -1;
-              break;
-            }
-          }
-          for (var j = snake[0][1] - 1; j >= 0; j--) { // Check along right edge for our own tail (loop)
-            if (!inSnake((width - 1) + '_' + j)) {
-              goDown++;
-            } else {
-              goDown *= -1;
               break;
             }
           }
         }
+        for (var j = snake[0][1] + 1; j < height; j++) { // Check along right edge for our own tail (loop)
+          if (!inSnake((width - 1) + '_' + j)) {
+            goDown++;
+          } else {
+            goDown *= -1;
+            break;
+          }
+        }
         if (goDown > 0) {
-          for (var i = width - 1; i >= 0; i--) { // Check along top edge for our own tail (loop)
-            if (!inSnake(i + '_' + 0)) {
+          for (var i = width - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
+            if (!inSnake(i + '_' + (width - 1))) {
               goDown++;
             } else {
-              goDown *= -1;
               break;
             }
           }
         }
         goUp = Math.abs(goUp);
         goDown = Math.abs(goDown);
-        if (goDown > goUp) {
-          dir = 'down';
-        } else {
+        console.log('688', goUp, goDown);
+        if (goUp > goDown) {
           dir = 'up';
+        } else {
+          dir = 'down';
         }
         return moveHead(dir);
       }
@@ -762,6 +761,7 @@ function aiLevel4() {
         }
         goUp = Math.abs(goUp);
         goDown = Math.abs(goDown);
+        console.log('764', goUp, goDown);
         if (goDown > goUp) {
           dir = 'down';
         } else {
@@ -840,6 +840,7 @@ function aiLevel4() {
         }
         goRight = Math.abs(goRight);
         goLeft = Math.abs(goLeft);
+        console.log('845', goRight, goLeft);
         if (goLeft > goRight) {
           dir = 'left';
         } else {
@@ -883,7 +884,7 @@ function aiLevel4() {
       } else {
         var goRight = 0;
         var goLeft = 0;
-        for (var i = snake[0][0] - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
+        for (var i = snake[0][0] + 1; i < width; i++) { // Check along bottom edge for our own tail (loop)
           if (!inSnake(i + '_' + (height-1))) {
             goRight++;
           } else {
@@ -892,15 +893,15 @@ function aiLevel4() {
           }
         }
         if (goRight > 0) {
-          for (var j = height - 1; j >= 0; j--) { // Check along left edge for our own tail (loop)
-            if (!inSnake(0 + '_' + j)) {
+          for (var j = height - 1; j >= 0; j--) { // Check along right edge for our own tail (loop)
+            if (!inSnake((width-1) + '_' + j)) {
               goRight++;
             } else {
               break;
             }
           }
         }
-        for (var i = snake[0][0] + 1; i < width; i++) { // Check along bottom edge for our own tail (loop)
+        for (var i = snake[0][0] - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
           if (!inSnake(i + '_' + (height-1))) {
             goLeft++;
           } else {
@@ -909,8 +910,8 @@ function aiLevel4() {
           }
         }
         if (goLeft > 0) {
-          for (var j = height - 1; j >= 0; j--) { // Check along right edge for our own tail (loop)
-            if (!inSnake((width-1) + '_' + j)) {
+          for (var j = height - 1; j >= 0; j--) { // Check along left edge for our own tail (loop)
+            if (!inSnake(0 + '_' + j)) {
               goLeft++;
             } else {
               break;
@@ -919,10 +920,11 @@ function aiLevel4() {
         }
         goRight = Math.abs(goRight);
         goLeft = Math.abs(goLeft);
-        if (goLeft > goRight) {
-          dir = 'left';
-        } else {
+        console.log('925', goRight, goLeft);
+        if (goRight > goLeft) {
           dir = 'right';
+        } else {
+          dir = 'left';
         }
         return moveHead(dir);
       }
