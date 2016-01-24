@@ -7,23 +7,27 @@
 	<title>Reverse Snake</title>
 </head>
 <body>
+	<div align="right">Version 3.0</div>
 	<table width="100%" align="center">
 		<tr>
-			<td width="30%">
+			<td width="30%"> <!-- Intro box & legend -->
 				<table style="border: 1px solid black">
-					<!-- change Level -->
 					<tr>
-						<td width="50%" rowspan="3" style="text-align: right"><span style="font-size: 1.5em">Level</span></td>
-						<td><button class="upButton" onclick="upLevel()">▲</button></td>
+						<td colspan="4"><div style="font-size: 1.5em; text-align: center">Legend</div></td>
+					</tr><tr>
+						<td><div style="margin: 0 auto; background-color: #FF1111; border: 1px solid black; width: 30px; height: 30px;"></div></td>
+						<td><div style="margin: 0 auto; background-color: #CC3300; border: 1px solid black; width: 30px; height: 30px;"></div></td>
+						<td><div style="margin: 0 auto; background-color: #1111FF; border: 1px solid black; width: 30px; height: 30px;"></div></td>
+						<td><div style="margin: 0 auto; background-color: #CCCCCC; border: 1px solid black; width: 30px; height: 30px;"></div></td>
+					</tr><tr style="text-align: center">
+						<td>Snake</td>
+						<td>Collision</td>
+						<td>Food</td>
+						<td>Empty Cell</td>
 					</tr>
-					<tr align="center" style="text-align: left">
-						<td class="level" style="padding-left: 10px; font-size: 1.5em">0</td>
-					</tr>
-					<tr>
-						<td><button class="downButton" disabled onclick="downLevel()">▼</button></td>
-					</tr>
+
 					<tr align="center">
-						<td colspan="3" width="40%">
+						<td colspan="4">
 							<h1>Welcome to Reverse Snake!</h1>
 							<p>Click on any square to place food and start the game.</p>
 							<p>Try to lead the snake into itself to make it crash.</p>
@@ -32,31 +36,23 @@
 					</tr>
 				</table>
 			</td>
-			<td width="40%">
+			<td width="40%"> <!-- Main scoreboard -->
 				<table class="snaketable"></table>
 			</td>
-			<td width="30%">
-				<div align="right">Version 3.0</div>
+			<td width="20%"> <!-- Controls and statistics -->
 				<table style="font-size: 1em">
 					<tr>
-						<td colspan="2"><div style="font-size: 1.5em">Legend</div></td>
+						<td><button class="refresh" style="height: 70px;
+						width: 70px; font-size: 3em" disabled onclick="stopBoard()">↻</button></td>
+						<td><button class="upButton" onclick="upLevel()">▲</button></td>
 					</tr><tr>
-						<td class="snakecell" style="border: 1px solid black; width: 26px; height: 26px;"></td>
-						<td>Snake</td>
+						<td width="50%" style="font-size: 3em; text-align: right">Level</td>
+						<td class="level" style="padding-left: 25px">0</td>
 					</tr><tr>
-						<td class="impactcell" style="border: 1px solid black; width: 26px; height: 26px;"></td>
-						<td>Collision</td>
+						<td></td><td><button class="downButton" disabled onclick="downLevel()">▼</button></td>
 					</tr><tr>
-						<td class="foodcell" style="border: 1px solid black; width: 26px; height: 26px;"></td>
-						<td>Food</td>
-					</tr><tr>
-						<td class="emptycell" style="border: 1px solid black; width: 26px; height: 26px;"></td>
-						<td>Empty Cell</td>
-					</tr>
-					<tr>
 						<td colspan="2">
-							<div align="center">Snake Speed: <span name="speed">5</span></div>
-							<button>↻</button>
+							Snake Speed: <span name="speed">5</span><br>
 							<input id="speedSlider" min="1" max="10" value="5" step="1" onchange="showValue(this)" type="range">
 							<script type="text/javascript">
 							function showValue(self) {
@@ -66,11 +62,26 @@
 							}
 							</script>
 						</td>
+					</tr><tr>
+						<td>Pellets Eaten: </td>
+						<td class="score">0</td>
+					</tr><tr>
+						<td>Time: </td>
+						<td class="time">0:00.00</td>
+					</tr>
+
+						<!--
+
+					</tr>
+					<tr align="center" style="text-align: left">
+
+					<tr>
+
+						</td>
 					</tr>
 					<tr>
-						<td colspan="2">Pellets Eaten: </td>
-						<td class="score">0</td>
 					</tr>
+				-->
 				</table>
 			</td>
 		</tr>

@@ -10,7 +10,7 @@ td.foodcell {
 }
 
 td.impactcell {
-  background-color: #00FF00;
+  background-color: #CC3300;
 }
 
 td.snakecell {
@@ -22,11 +22,11 @@ td.emptycell {
 }
 
 td.foodcell {
-  background-color:#1111FF;
+  background-color: #1111FF;
 }
 
 td.level {
-  font-size: 2em;
+  font-size: 3em;
 }
 
 table.snaketable {
@@ -51,13 +51,13 @@ button:focus {
 }
 
 button.upButton {
-  font-size: 0.5em;
-  height: 30px;
-  width: 30px;
+  font-size: 2em;
+  height: 70px;
+  width: 70px;
 }
 
 button.downButton {
-  font-size: 0.5em;
-  height: 30px;
-  width: 30px;
+  font-size: 2em;
+  height: 70px;
+  width: 70px;
 }
