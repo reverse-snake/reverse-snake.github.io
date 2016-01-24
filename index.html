@@ -47,7 +47,7 @@
 					</tr><tr></tr><tr>
 						<td colspan="2">
 							<div align="center">Snake Speed: <span name="speed">5</span></div>
-							<input min="1" max="10" value="5" step="1" onchange="showValue(this)" type="range">
+							<input id="speedSlider" min="1" max="10" value="5" step="1" onchange="showValue(this)" type="range">
 							<script type="text/javascript">
 							function showValue(self) {
 								changeSpeed(1000/self.value);
