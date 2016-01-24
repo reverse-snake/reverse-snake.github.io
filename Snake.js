@@ -61,6 +61,8 @@ function stopGame() {
 }
 
 function resetGame() {
+  followLeftEdge = false;
+  moves = [];
   console.log("Resetting Game");
   window.clearInterval(intervalId);
   stopTime = [];
