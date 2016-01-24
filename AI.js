@@ -726,14 +726,14 @@ function aiLevel4() {
             moveHead(dir);
           }
         }
-        dir = 'right';
+        dir = 'down';
       } else {
         for (var j=food[1]+1; j++; j<snake[0][1]) {
           if (inSnake(snake[0][0]+'_'+j)) {
             moveHead(dir);
           }
         }
-        dir = 'left';
+        dir = 'up';
       }
     }
   } else if (dir == 'left') {
@@ -829,14 +829,14 @@ function aiLevel4() {
             moveHead(dir);
           }
         }
-        dir = 'right';
+        dir = 'up';
       } else {
         for (var j=food[1]+1; j++; j<snake[0][1]) {
           if (inSnake(snake[0][0]+'_'+j)) {
             moveHead(dir);
           }
         }
-        dir = 'left';
+        dir = 'down';
       }
     }
   } else if (dir == 'up') {
