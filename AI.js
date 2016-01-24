@@ -80,6 +80,7 @@ function upLevel() {
   level = level + 1;
   if (level > 4) { // Actual hard limit for levels
     level = 4;
+    showVictory();
   }
   if (level > maxLevel) {
     level = maxLevel;
