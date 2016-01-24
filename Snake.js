@@ -52,7 +52,7 @@ function stopGame() {
 
 function resetGame() {
   gameIsStopped = true;
-  intervalId.clearInterval();
+  window.clearInterval(intevalId);
   board = [];
   board.length = width; // board[x][y]
   for (var i = 0; i < width; i++) {
