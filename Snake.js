@@ -17,7 +17,8 @@ if (document.cookie !== null) {
     var cookie = cookies[c].split('=');
     console.log(cookie);
     if (cookie[0] == 'speed') {
-      changeSpeed(cookie[1]);
+      document.getElementsByTag('input')[0].setAttribute('value', cookie[1]);
+      showValue(cookie[1]);
     } else if (cookie[0] == 'highest') {
       maxLevel = cookie[1];
     }
