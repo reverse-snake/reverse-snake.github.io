@@ -53,15 +53,15 @@ function stopGame() {
   console.log("Round ended! Advancing AI to level", level);
   maxLevel++;
   upLevel();
-  if (level == 5) {
-    showVictory();
-  }
   refreshButton.disabled = true;
   console.log("Game stopped");
   resetGame();
 }
 
 function resetGame() {
+  if (level == 5) {
+    showVictory();
+  }
   followLeftEdge = false;
   moves = [];
   console.log("Resetting Game");
