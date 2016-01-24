@@ -578,7 +578,7 @@ function aiLevel3() {
       if (snake[0][0] <= 1) {
         dir = 'right';
         // If near the right side of the board, go left
-      } else if (snake[0][0] == width - 1) {
+      } else if (snake[0][0] >= width - 2) {
         dir = 'left';
       } else {
         for (var i = snake[0][0] - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
