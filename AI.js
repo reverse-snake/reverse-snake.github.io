@@ -27,17 +27,17 @@ function downLevel() {
 function ai(level) {
   switch (level) {
     case 0:
-      return aiLevel0();
+    return aiLevel0();
     case 1:
-      return aiLevel1();
+    return aiLevel1();
     case 2:
-      return aiLevel2();
+    return aiLevel2();
     case 3:
-      return aiLevel3();
+    return aiLevel3();
     case 4:
-      return aiLevel4();
+    return aiLevel4();
     case 5:
-      console.log('Victory!');
+    console.log('Victory!');
   }
 }
 function getLoopDirection() {
@@ -224,7 +224,7 @@ function aiLevel2() {
       // If at bottom of board, go up
       if (snake[0][1] == height - 1) {
         dir = 'up';
-      // If at top of board, go down
+        // If at top of board, go down
       } else if (snake[0][1] === 0) {
         dir = 'down';
       } else {
@@ -242,7 +242,7 @@ function aiLevel2() {
         }
         dir = 'down';
       }
-    // Blocked by tail
+      // Blocked by tail
     } else if (inSnake((snake[0][0] + 1) + '_' + snake[0][1])) {
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
         dir = 'up';
@@ -268,7 +268,7 @@ function aiLevel2() {
       // If at top of board, go down
       if (snake[0][1] === 0) {
         dir = 'down';
-      // If at bottom of board, go up
+        // If at bottom of board, go up
       } else if (snake[0][1] == height-1) {
         dir = 'up';
       } else {
@@ -286,7 +286,7 @@ function aiLevel2() {
         }
         dir = 'up';
       }
-    // Blocked by tail
+      // Blocked by tail
     } else if (inSnake((snake[0][0] - 1) + '_' + snake[0][1])) {
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
         dir = 'down';
@@ -313,7 +313,7 @@ function aiLevel2() {
       // If at right side of board, go left
       if (snake[0][0] == width - 1) {
         dir = 'left';
-      // If at left side of board, go right
+        // If at left side of board, go right
       } else if (snake[0][0] === 0) {
         dir = 'right';
       } else {
@@ -331,7 +331,7 @@ function aiLevel2() {
         }
         dir = 'right';
       }
-    // Blocked by tail
+      // Blocked by tail
     } else if (inSnake(snake[0][0] + '_' + (snake[0][1] - 1))) {
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
         dir = 'left';
@@ -357,7 +357,7 @@ function aiLevel2() {
       // If at left side of board, go right
       if (snake[0][0] === 0) {
         dir = 'right';
-      // If at right side of board, go left
+        // If at right side of board, go left
       } else if (snake[0][0] == width - 1) {
         dir = 'left';
       } else {
@@ -375,7 +375,7 @@ function aiLevel2() {
         }
         dir = 'left';
       }
-    // Blocked by tail
+      // Blocked by tail
     } else if (inSnake(snake[0][0] + '_' + (snake[0][1] + 1))) {
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
         dir = 'right';
@@ -401,71 +401,71 @@ function aiLevel2() {
 
 // Same as level 2 but will intentionally leave a 1-wide gap at edge before turning to avoid getting trapped.
 function aiLevel3() {
-	if (dir == 'right') {
-	  // Close to the right wall
-	  if (snake[0][0] >= width - 2) {
-	    // If near the bottom of the board, go up
-	    if (snake[0][1] >= height - 2) {
-	      dir = 'up';
-	    // If near the top of the board, go down
-    	} else if (snake[0][1] <= 1) {
-	      dir = 'down';
-	    } else { // In the middle of the wall
-	      for (var j = snake[0][1] + 1; j < height; j++) { // Check along right edge for our own tail (loop)
+  if (dir == 'right') {
+    // Close to the right wall
+    if (snake[0][0] >= width - 2) {
+      // If near the bottom of the board, go up
+      if (snake[0][1] >= height - 2) {
+        dir = 'up';
+        // If near the top of the board, go down
+      } else if (snake[0][1] <= 1) {
+        dir = 'down';
+      } else { // In the middle of the wall
+        for (var j = snake[0][1] + 1; j < height; j++) { // Check along right edge for our own tail (loop)
           // why not use getLoopDirection here?
-	        if (inSnake((width - 1) + '_' + j)) {
-	          dir = 'up';
-	          return moveHead(dir);
-	        }
-	      }
-	      for (var i = width - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
+          if (inSnake((width - 1) + '_' + j)) {
+            dir = 'up';
+            return moveHead(dir);
+          }
+        }
+        for (var i = width - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
           // why not use getLoopDirection here?
-	        if (inSnake(i + '_' + (width - 1))) {
-	          dir = 'up';
-	          return moveHead(dir);
-	        }
-	      }
+          if (inSnake(i + '_' + (width - 1))) {
+            dir = 'up';
+            return moveHead(dir);
+          }
+        }
         for (var j = height; j >= height/2; j--) { // Check halfway along left edge for our own tail (loop)
-	        if (inSnake(0 + '_' + j)) {
-	          dir = 'up';
-	          return moveHead(dir);
-	        }
-	      }
-	      dir = 'down';
-	    }
-	  }
-	  // Blocked by tail
-	  if (inSnake((snake[0][0] + 1) + '_' + snake[0][1])) {
-	    if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
-	      dir = 'up';
-	    } else {
-	      dir = 'down';
-	    }
-	    return moveHead(dir);
-	  }
-	  // Food is where snake is | slightly ahead.
-	  if (snake[0][0] == food[0] || snake[0][0]+1 == food[0]) {
-	    if (snake[0][1] < food[1]) { // food is below snake
-  	    if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) { // checks for collision
-  	      dir = 'down';
-  	    }
-  	  } else if (snake[0][1] == food[1]) {
+          if (inSnake(0 + '_' + j)) {
+            dir = 'up';
+            return moveHead(dir);
+          }
+        }
+        dir = 'down';
+      }
+    }
+    // Blocked by tail
+    if (inSnake((snake[0][0] + 1) + '_' + snake[0][1])) {
+      if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
+        dir = 'up';
+      } else {
+        dir = 'down';
+      }
+      return moveHead(dir);
+    }
+    // Food is where snake is | slightly ahead.
+    if (snake[0][0] == food[0] || snake[0][0]+1 == food[0]) {
+      if (snake[0][1] < food[1]) { // food is below snake
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) { // checks for collision
+          dir = 'down';
+        }
+      } else if (snake[0][1] == food[1]) {
         if (!inSnake((snake[0][0]+1)+'_'+snake[0][1])) {
-  	      dir = 'right';
-  	    }
-	    } else if (snake[0][1] > food[1]) {
-  	    if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
-  	      dir = 'up';
-  	    }
-	    }
-	  }
-	} else if (dir == 'left') {
+          dir = 'right';
+        }
+      } else if (snake[0][1] > food[1]) {
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
+          dir = 'up';
+        }
+      }
+    }
+  } else if (dir == 'left') {
     // Close to the left wall
     if (snake[0][0] <= 1) {
       // If near the top of the board, go down
       if (snake[0][1] <= 1) {
         dir = 'down';
-      // If near the bottom of the board, go up
+        // If near the bottom of the board, go up
       } else if (snake[0][1] >= height-2) {
         dir = 'up';
       } else {
@@ -500,15 +500,15 @@ function aiLevel3() {
       return moveHead(dir);
     }
     // Food is where we are | slightly ahead.
-	  if (snake[0][0] == food[0] || snake[0][0]-1 == food[0]) {
-  	  if (snake[0][1] < food[1]) {
-    	  if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) {
+    if (snake[0][0] == food[0] || snake[0][0]-1 == food[0]) {
+      if (snake[0][1] < food[1]) {
+        if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) {
           dir = 'down';
         }
       } else if (snake[0][1] == food[1]) {
-  	    if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
-  	      dir = 'left';
-  	    }
+        if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
+          dir = 'left';
+        }
       } else if (snake[0][1] > food[1]) {
         if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
           dir = 'up';
@@ -521,7 +521,7 @@ function aiLevel3() {
       // If near the right side of the board, go left
       if (snake[0][0] >= width - 2) {
         dir = 'left';
-      // If near the left side of the board, go right
+        // If near the left side of the board, go right
       } else if (snake[0][0] <= 1) {
         dir = 'right';
       } else {
@@ -563,8 +563,8 @@ function aiLevel3() {
         }
       } else if (snake[0][0] == food[0]) {
         if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
-  	      dir = 'up';
-  	    }
+          dir = 'up';
+        }
       } else if (snake[0][0] > food[0]) {
         if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
           dir = 'left';
@@ -577,7 +577,7 @@ function aiLevel3() {
       // If near the left side of the board, go right
       if (snake[0][0] <= 1) {
         dir = 'right';
-      // If near the right side of the board, go left
+        // If near the right side of the board, go left
       } else if (snake[0][0] == width - 1) {
         dir = 'left';
       } else {
@@ -640,58 +640,80 @@ function aiLevel4() {
       if (snake[0][1] == height - 1) {
         dir = 'up';
         return moveHead(dir);
-      // If at top of board, go down
+        // If at top of board, go down
       } else if (snake[0][1] === 0) {
         dir = 'down';
         return moveHead(dir);
       } else {
         var goUp = 0;
+        var segmentUp = -1;
         var goDown = 0;
-        for (var j = snake[0][1] - 1; j >= 0; j--) { // Check along right edge for our own tail (loop)
-          if (!inSnake((width - 1) + '_' + j)) {
+        var segmentDown = -1;
+        for (var j = snake[0][1] - 1; j >= 1; j--) { // Check along right edge for our own tail (loop up)
+          if ((segmentUp = getSnakeIndex((width - 1) + '_' + j)) != -1) {
+            if (goUp + segmentUp <= snake.length) { // this segment will disappear before we reach it
+              break;
+            }
+          }
+          goUp++;
+        }
+        if (segmentUp == -1 || goUp + segmentUp > snake.length) {
+          for (var i = width - 1; i >= 0; i--) { // Check along top edge for our own tail (loop up)
+            if ((segmentUp = getSnakeIndex(i + '_' + 0)) != -1) {
+              if (goUp + segmentUp <= snake.length) { // this segment will disappear before we reach it
+                break;
+              }
+            }
             goUp++;
-          } else {
-            goUp *= -1;
-            break;
           }
         }
-        if (goUp > 0) {
-          for (var i = width - 1; i >= 0; i--) { // Check along top edge for our own tail (loop)
-            if (!inSnake(i + '_' + 0)) {
-              goUp++;
-            } else {
+        for (var j = snake[0][1] + 1; j < height - 1; j++) { // Check along right edge for our own tail (loop down)
+          if ((segmentDown = getSnakeIndex((width - 1) + '_' + j)) != -1) {
+            if (goDown + segmentDown <= snake.length) { // this segment will disappear before we reach it
               break;
             }
           }
+          goDown++;
         }
-        for (var j = snake[0][1] + 1; j < height; j++) { // Check along right edge for our own tail (loop)
-          if (!inSnake((width - 1) + '_' + j)) {
-            goDown++;
-          } else {
-            goDown *= -1;
-            break;
-          }
-        }
-        if (goDown > 0) {
+        if (segmentDown == -1 || goDown + segmentDown > snake.length) {
           for (var i = width - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
-            if (!inSnake(i + '_' + (width - 1))) {
-              goDown++;
-            } else {
-              break;
+            if ((segmentDown = getSnakeIndex(i + '_' + (width - 1))) != -1) {
+              if (goDown + segmentDown <= snake.length) { // this segment will disappear before we reach it
+                break;
+              }
             }
+            goDown++;
           }
         }
-        goUp = Math.abs(goUp);
-        goDown = Math.abs(goDown);
-        console.log('688', goUp, goDown);
+        console.log('688', goUp, goDown, segmentUp, segmentDown);
+        // CASES: both unblocked, both blocked, down blocked, or up blocked
+
+        if (segmentDown == -1 || goDown + segmentDown > snake.length) {
+          // No conflicting segments
+        } else {
+          // goDown should now contain *negative* the number of needed steps in that direction
+          // goDown is 10 (free steps). segmentDown is 7, snake.length is 20.
+          // goDown = -(20 - 10 - 7)
+          goDown = -(snake.length-segmentDown-goDown);
+        }
+        if (segmentUp == -1 || goUp + segmentUp > snake.length) {
+          // No conflicting segments
+        } else {
+          // goUp should now contain the number of needed steps in that direction
+          goUp = snake.length-segmentUp-goUp;
+        }
+
         if (goUp > goDown) {
           dir = 'up';
         } else {
           dir = 'down';
         }
+        if (goUp < 0 && goDown < 0) {
+          // Desperation mode for # moves
+        }
         return moveHead(dir);
       }
-    // Blocked by tail
+      // Blocked by tail
     } else if (inSnake((snake[0][0] + 1) + '_' + snake[0][1])) {
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
         dir = 'up';
@@ -718,7 +740,7 @@ function aiLevel4() {
       if (snake[0][1] === 0) {
         dir = 'down';
         return moveHead(dir);
-      // If at bottom of board, go up
+        // If at bottom of board, go up
       } else if (snake[0][1] == height-1) {
         dir = 'up';
         return moveHead(dir);
@@ -769,7 +791,7 @@ function aiLevel4() {
         }
         return moveHead(dir);
       }
-    // Blocked by tail
+      // Blocked by tail
     } else if (inSnake((snake[0][0] - 1) + '_' + snake[0][1])) {
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
         dir = 'down';
@@ -797,7 +819,7 @@ function aiLevel4() {
       if (snake[0][0] == width - 1) {
         dir = 'left';
         return moveHead(dir);
-      // If at left side of board, go right
+        // If at left side of board, go right
       } else if (snake[0][0] === 0) {
         dir = 'right';
         return moveHead(dir);
@@ -848,7 +870,7 @@ function aiLevel4() {
         }
         return moveHead(dir);
       }
-    // Blocked by tail
+      // Blocked by tail
     } else if (inSnake(snake[0][0] + '_' + (snake[0][1] - 1))) {
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
         dir = 'left';
@@ -877,7 +899,7 @@ function aiLevel4() {
       if (snake[0][0] === 0) {
         dir = 'right';
         return moveHead(dir);
-      // If at right side of board, go left
+        // If at right side of board, go left
       } else if (snake[0][0] == width - 1) {
         dir = 'left';
         return moveHead(dir);
@@ -928,7 +950,7 @@ function aiLevel4() {
         }
         return moveHead(dir);
       }
-    // Blocked by tail
+      // Blocked by tail
     } else if (inSnake(snake[0][0] + '_' + (snake[0][1] + 1))) {
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
         dir = 'right';

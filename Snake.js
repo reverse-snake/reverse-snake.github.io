@@ -94,6 +94,16 @@ function inSnake(string) {
   return false;
 }
 
+// String is of form x_y to allow compatibility with Board.js
+function getSnakeIndex(string) {
+  for (var s=0; s<snake.length; s++) {
+    if (string == snake[s][0]+'_'+snake[s][1]) {
+      return s;
+    }
+  }
+  return -1;  // not in snake
+}
+
 function moveHead(dir) {
   // move snake's head in given direction
   // 'right', 'left', 'up', and 'down'
