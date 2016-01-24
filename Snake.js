@@ -37,7 +37,6 @@ function stopGame() {
     snake.unshift([i, 0]);
   }
   dir = 'right';
-  debugSnake();
   updateBoard();
   console.log("Game ready");
 }
@@ -153,7 +152,6 @@ function placeFood(x, y) {
     console.log('Invalid food placement: Food is off board');
   } else {
     food = [x, y];
-    console.log('Food placed at '+x+' '+y);
     updateBoard();
   }
 }
