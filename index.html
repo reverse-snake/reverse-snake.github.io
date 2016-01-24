@@ -45,19 +45,29 @@
 						<td colspan="2">
 							<div align="center">Snake Speed: <span name="speed">5</span></div>
 							<input min="1" max="10" value="5" step="1" onchange="showValue(this)" type="range">
-						<script type="text/javascript">
-						function showValue(self) {
-							changeSpeed(1000/self.value);
-							console.log('Changed speed to', 1000/self.value);
-							document.getElementsByName("speed")[0].innerHTML = self.value;
-						}
-						</script>
-					</td>
-				</tr>
+							<script type="text/javascript">
+							function showValue(self) {
+								changeSpeed(1000/self.value);
+								console.log('Changed speed to', 1000/self.value);
+								document.getElementsByName("speed")[0].innerHTML = self.value;
+							}
+							</script>
+						</td>
+					</tr>
 				</table>
-				<script src="Snake.js"></script>
-				<script src="AI.js"></script>
-				<script src="Board.js"></script>
-				<!-- script src="detectmobilebrowser.js"></script-->
-			</body>
-			</html>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h1>Reverse Snake</h1>
+				<p>Click on any square to place food!</p>
+				<p>Trick the snake into crashing.</p>
+			</td>
+		</tr>
+	</table>
+	<script src="Snake.js"></script>
+	<script src="AI.js"></script>
+	<script src="Board.js"></script>
+	<!-- script src="detectmobilebrowser.js"></script-->
+</body>
+</html>

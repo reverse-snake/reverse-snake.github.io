@@ -79,10 +79,6 @@ function moveHead(dir) {
     } else if (inSnake((newHead[0]+1)+'_'+newHead[1])) {
       window.clearInterval(intervalId);
       // turn head dark red here
-      //var cell = table.rows[r].cells[c];
-      var collisionCell = table.rows[snake[0][0]].cells[snake[0][1]];
-      collisionCell.setAttribute('class', 'impactcell');
-      console.log(collisionCell);
       window.setTimeout(stopGame, 5*refreshRate);
     }
     newHead[0]++;
@@ -91,9 +87,7 @@ function moveHead(dir) {
       throw 'cannot move left from' + newHead[0] + ', ' + newHead[1];
     } else if (inSnake((newHead[0]-1)+'_'+newHead[1])) {
       window.clearInterval(intervalId);
-      var collisionCell = table.rows[snake[0][0]].cells[snake[0][1]];
-      collisionCell.setAttribute('class', 'impactcell');
-      console.log(collisionCell);
+      // turn head dark red here
       window.setTimeout(stopGame, 5*refreshRate);
     }
     newHead[0]--;
@@ -102,9 +96,7 @@ function moveHead(dir) {
       throw 'cannot move up from ' + newHead[0] + ', ' + newHead[1];
     } else if (inSnake(newHead[0]+'_'+(newHead[1]-1))) {
       window.clearInterval(intervalId);
-      var collisionCell = table.rows[snake[0][0]].cells[snake[0][1]];
-      collisionCell.setAttribute('class', 'impactcell');
-      console.log(collisionCell);
+      // turn head dark red here
       window.setTimeout(stopGame, 5*refreshRate);
     }
     newHead[1]--;  // changes y-coordinate by -1 (going UP)
@@ -113,9 +105,7 @@ function moveHead(dir) {
       throw 'cannot move down from ' + newHead[0] + ', ' + newHead[1];
     } else if (inSnake(newHead[0]+'_'+(newHead[1]+1))) {
       window.clearInterval(intervalId);
-      var collisionCell = table.rows[snake[0][0]].cells[snake[0][1]];
-      collisionCell.setAttribute('class', 'impactcell');
-      console.log(collisionCell);
+      // turn head dark red here
       window.setTimeout(stopGame, 5*refreshRate);
     }
     newHead[1]++;
