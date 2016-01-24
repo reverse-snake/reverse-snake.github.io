@@ -78,7 +78,6 @@ function monteCarlo(numMoves, target) {
 // increases level by one; replaces setLevel(level + 1)
 function upLevel() {
   level++;
-  maxLevel++;
   if (level > maxLevel) {
     level = maxLevel;
   }

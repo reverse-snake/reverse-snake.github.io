@@ -40,7 +40,7 @@ if (document.cookie !== null) {
 // Clears board & stops AI
 function stopGame() {
   if (level == 4) {
-    console.log("Victory!");
+    showVictory();
   }
   startTime = [];
   /*if (pelletHighScores[level] == 0 || ((snake.length - snake.level) < pelletHighScores[level])) {
@@ -54,6 +54,7 @@ function stopGame() {
   }*/
   stopTime = new Date();
   console.log("Round ended! Advancing AI to level", level);
+  maxLevel++;
   upLevel();
   refreshButton.disabled = true;
   console.log("Game stopped");
@@ -83,9 +84,6 @@ function resetGame() {
   }
   dir = 'right';
   updateBoard();
-  if (level == 5) {
-    showVictory();
-  }
 }
 
 // Snake collided with self, start next AI level
