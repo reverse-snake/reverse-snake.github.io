@@ -59,6 +59,16 @@ function debugSnake() {
   }
 }
 
+function inSnakeTwice(string) {
+  var count = 0;
+  for (var s=0; s<snake.length; s++) {
+    if (string == snake[s][0]+'_'+snake[s][1]) {
+      count++;
+    }
+  }
+  return count==2;
+}
+
 // String is of form x_y to allow compatibility with Board.js
 function inSnake(string) {
   for (var s=0; s<snake.length; s++) {
