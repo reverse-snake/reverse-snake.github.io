@@ -13,8 +13,8 @@ var currentTimeScore = 0;
 // random garbage
 //console.log(document.getElementsByClass("score"));
 //console.log(document.getElementsByClass("score")[0]);
-var score = document.getElementsByClassName("score")[0].innerHTML
-score = (snake.length - level);
+var score = document.getElementsByClassName("score")[0]
+score.innerHTML = (snake.length - level);
 
 if (document.cookie !== null) {
   cookies = document.cookie.split(';');
