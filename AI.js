@@ -1,9 +1,9 @@
 var dir = 'right';
 var moves = [];
-var moveAttempts = 0;
 
 // Find a safe route to target using at least numMoves
 function monteCarlo(numMoves, target) {
+var moveAttempts = 0;
   console.log('Started monte carlo challenge w/', numMoves, 'moves');
   var snake_cpy = snake.slice(0); // Copy the snake so we can restore it
   moves = [];
@@ -12,12 +12,12 @@ function monteCarlo(numMoves, target) {
     var x = snake[0][0];
     var y = snake[0][1];
     try {
-      while (x != target[0] && y != target[1]) {  // if no possible solution, gives an infinite loop
+      while (x != target[0] && y != target[1] && moveAttempts < 1024) {  // if no possible solution, gives an infinite loop
         r = Math.floor(Math.random()*4); // Try a new direction until we succeed.
         // TODO: Must do this systematically so that we can tell if it is impossible
         // OR keep a counter? What is the maximum number of moves in a given space?
         // Move counter doesn't account for repeating moves (this is randomized)
-        // 
+        //
         if (r === 0) {
           moves.unshift('right');
           x++;
@@ -41,7 +41,9 @@ function monteCarlo(numMoves, target) {
           throw collisionError;
         }
         snake.unshift([x, y]);
+        moveAttempts++;
       }
+      console.log(moveAttempts);
       if (snake.length - snake_cpy.length >= numMoves) { // We got out, with enough moves!
         snake = snake_cpy.slice(0); // Restore original snake
         console.log('Finished monte carlo challenge.');
