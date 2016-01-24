@@ -4,6 +4,51 @@ var maxLevel = 0;
 var upButton = document.getElementsByClassName("upButton")[0];
 var levelGauge = document.getElementsByClassName("level")[0];
 var downButton = document.getElementsByClassName("downButton")[0];
+var moves;
+
+// Find a safe route to target using at least numMoves
+function monteCarlo(numMoves, target) {
+  var snake_cpy = snake.slice(0); // Copy the snake so we can restore it
+  moves = [];
+  while (true) {
+    snake = snake_cpy.slice(0); // Reset array and try again!
+    var x = snake[0][0];
+    var y = snake[0][1];
+    try {
+      while (x != target[0] && y != target[1]) {
+        r = Math.floor(Math.random()*4); // Try a new direction until we succeed.
+        if (r === 0) {
+          moves.unshift('right');
+          x++;
+        } else if (r == 1) {
+          moves.unshift('left');
+          x--;
+        } else if (r == 2) {
+          moves.unshift('up');
+          y--;
+        } else if (r == 3) {
+          moves.unshift('down');
+          y++;
+        }
+        if (x < 0 || x >= width) {
+          throw collisionError;
+        }
+        if (y < 0 || y >= height) {
+          throw collisionError;
+        }
+        if (inSnake(x+'_'+y)) {
+          throw collisionError;
+        }
+        snake.unshift([x, y]);
+      }
+      if (snake.length - snake_cpy.length >= numMoves) { // We got out, with enough moves!
+        snake = snake_cpy.slice(0); // Restore original snake
+        return; // Movements are stored in var moves.
+      }
+    } catch (collisionError) {} // If we collide, just try again.
+  } // End while(true)
+}
+
 function setLevel(_level) {
   level = _level;
   if (level > 4) { // Actual hard limit for levels
@@ -696,8 +741,13 @@ function aiLevel3() {
   moveHead(dir);
 }
 
-// Same as level 2 but more conservative
+// Same idea as level 2 but more conservative
 function aiLevel4() {
+  if (moves.length > 0) {
+    dir =
+    return moveHead
+  }
+
   if (dir == 'right') {
     // Blocked by wall
     if (snake[0][0] == width - 1) {
@@ -771,7 +821,8 @@ function aiLevel4() {
           dir = 'down';
         }
         if (goUp < 0 && goDown < 0) {
-          // Desperation mode for # moves
+          // Not enough valid moves, so look for some!
+          moves = monteCarlo(-Math.max(goUp, goDown));
         }
         return moveHead(dir);
       }
@@ -883,7 +934,8 @@ function aiLevel4() {
           dir = 'down';
         }
         if (goUp < 0 && goDown < 0) {
-          // Desperation mode for # moves
+          // Not enough valid moves, so look for some!
+          moves = monteCarlo(-Math.max(goUp, goDown));
         }
         return moveHead(dir);
       }
@@ -993,7 +1045,8 @@ function aiLevel4() {
           dir = 'left';
         }
         if (goRight < 0 && goLeft < 0) {
-          // Desperation mode for Math.max(goRight, goLeft); moves
+          // Not enough valid moves, so look for some!
+          moves = monteCarlo(-Math.max(goRight, goLeft));
         }
         return moveHead(dir);
       }
@@ -1103,7 +1156,8 @@ function aiLevel4() {
           dir = 'left';
         }
         if (goRight < 0 && goLeft < 0) {
-          // Desperation mode for Math.max(goRight, goLeft); moves
+          // Not enough valid moves, so look for some!
+          moves = monteCarlo(-Math.max(goRight, goLeft));
         }
         return moveHead(dir);
       }
