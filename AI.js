@@ -67,6 +67,8 @@ function setLevel(_level) {
   if (gameIsStopped) {
     resetGame(); // Game has not started but level was changed, redraw snake.
   }
+  console.log(level);
+  console.log(levelGauge.innerHTML);
   levelGauge.innerHTML = level;
   downButton.disabled = (level === 0);
   upButton.disabled = (level == maxLevel);
@@ -78,6 +80,7 @@ function upLevel() {
   setLevel(level + 1);
   upButton.disabled = (level == maxLevel);
 }
+
 function downLevel() {
   levelGuage.innerHTML = level;
   setLevel(level - 1);
