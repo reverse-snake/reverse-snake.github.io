@@ -51,7 +51,7 @@ function startGame() {
   if (!gameIsStopped) {
     return;
   }
-  document.cookie = 'speed='+refreshRate;
+  document.cookie = 'speed='+refreshRate+'; maxLevel='+maxLevel;
   gameIsStopped = false;
   console.log("Game started");
   console.log("Round ended! Advancing to AI level", level);
