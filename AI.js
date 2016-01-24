@@ -1,12 +1,15 @@
 var dir = 'right';
 var level = 0;
-var maxLevel = 5;
+var maxLevel = 4;
 var upButton = document.getElementsByClassName("upButton")[0];
 var levelGauge = document.getElementsByClassName("level")[0];
 var downButton = document.getElementsByClassName("downButton")[0];
 function setLevel(_level) {
   level = _level;
-  if (level > maxLevel) {
+  if (level > 4) { // Actual hard limit for levels
+    level = 4;
+  }
+  if (level > maxLevel) { // User "levels up" to next difficulty.
     maxLevel = level;
   }
   //if (gameIsStopped) {
