@@ -645,19 +645,49 @@ function aiLevel4() {
         dir = 'down';
         return moveHead(dir);
       } else {
+        var goUp = 0;
+        var goDown = 0;
         for (var j = snake[0][1] + 1; j < height; j++) { // Check along right edge for our own tail (loop)
-          if (inSnake((width - 1) + '_' + j)) {
-            dir = 'up';
-            return moveHead(dir);
+          if (!inSnake((width - 1) + '_' + j)) {
+            goUp++;
+          } else {
+            goUp *= -1;
+            break;
           }
         }
-        for (var i = width - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
-          if (inSnake(i + '_' + (width - 1))) {
-            dir = 'up';
-            return moveHead(dir);
+        if (goUp > 0) {
+          for (var i = width - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
+            if (!inSnake(i + '_' + (width - 1))) {
+              goUp++;
+            } else {
+              goUp *= -1;
+              break;
+            }
+        }
+        for (var j = snake[0][1] - 1; j >= 0; j--) { // Check along right edge for our own tail (loop)
+          if (!inSnake((width - 1) + '_' + j)) {
+            goDown++;
+          } else {
+            goDown *= -1;
+            break;
           }
         }
-        dir = 'down';
+        if (goDown > 0) {
+          for (var i = width - 1; i >= 0; i--) { // Check along top edge for our own tail (loop)
+            if (!inSnake(i + '_' + 0)) {
+              goDown++;
+            } else {
+              goDown *= -1;
+              break;
+            }
+        }
+        goUp = Math.abs(goUp);
+        goDown = Math.abs(goDown);
+        if (goDown > goUp) {
+          dir = 'down';
+        } else {
+          dir = 'up';
+        }
         return moveHead(dir);
       }
     // Blocked by tail
@@ -692,19 +722,49 @@ function aiLevel4() {
         dir = 'up';
         return moveHead(dir);
       } else {
+        var goUp = 0;
+        var goDown = 0;
         for (var j = snake[0][1] - 1; j >= 0; j--) { // Check along left edge for our own tail (loop)
-          if (inSnake(0 + '_' + j)) {
-            dir = 'down';
-            return moveHead(dir);
+          if (!inSnake(0 + '_' + j)) {
+            goUp++;
+          } else {
+            goUp *= -1;
+            break;
           }
         }
-        for (var i = 0; i < width; i++) { // Check along top edge for our own tail (loop)
-          if (inSnake(i + '_' + 0)) {
-            dir = 'down';
-            return moveHead(dir);
+        if (goUp > 0) {
+          for (var i = 0; i < width; i++) { // Check along top edge for our own tail (loop)
+            if (!inSnake(i + '_' + 0)) {
+              goUp++;
+            } else {
+              break;
+            }
           }
         }
-        dir = 'up';
+        for (var j = snake[0][1] + 1; j < height; j++) { // Check along left edge for our own tail (loop)
+          if (!inSnake(0 + '_' + j)) {
+            goDown++;
+          } else {
+            goDown *= -1;
+            break;
+          }
+        }
+        if (goDown > 0) {
+          for (var i = 0; i < width; i++) { // Check along bottom edge for our own tail (loop)
+            if (!inSnake(i + '_' + height-1)) {
+              goDown++;
+            } else {
+              break;
+            }
+          }
+        }
+        goUp = Math.abs(goUp);
+        goDown = Math.abs(goDown);
+        if (goDown > goUp) {
+          dir = 'down';
+        } else {
+          dir = 'up';
+        }
         return moveHead(dir);
       }
     // Blocked by tail
@@ -740,19 +800,50 @@ function aiLevel4() {
         dir = 'right';
         return moveHead(dir);
       } else {
+        var goRight = 0;
+        var goLeft = 0;
         for (var i = snake[0][0] + 1; i < width; i++) { // Check along top edge for our own tail (loop)
-          if (inSnake(i + '_' + 0)) {
-            dir = 'left';
-            return moveHead(dir);
+          if (!inSnake(i + '_' + 0)) {
+            goRight++;
+          } else {
+            goRight *= -1;
+            break;
           }
         }
-        for (var j = 0; j < height; j++) { // Check along right edge for our own tail (loop)
-          if (inSnake((width - 1) + '_' + j)) {
-            dir = 'left';
-            return moveHead(dir);
+        if (goRight > 0) {
+          for (var j = 0; j < height; j++) { // Check along right edge for our own tail (loop)
+            if (!inSnake((width - 1) + '_' + j)) {
+              goRight++;
+            } else {
+              break;
+            }
           }
         }
-        dir = 'right';
+        for (var i = snake[0][0] - 1; i >= 0; i--) { // Check along top edge for our own tail (loop)
+          if (!inSnake(i + '_' + 0)) {
+            goLeft++;
+          } else {
+            goLeft *= -1;
+            break;
+          }
+        }
+        if (goLeft > 0) {
+          for (var j = 0; j < height; j++) { // Check along left edge for our own tail (loop)
+            if (!inSnake(0 + '_' + j)) {
+              goLeft++;
+            } else {
+              break;
+            }
+          }
+        }
+        goRight = Math.abs(goRight);
+        goLeft = Math.abs(goLeft);
+        if (goLeft > goRight) {
+          dir = 'left';
+        } else {
+          dir = 'right';
+        }
+        return moveHead(dir);
       }
     // Blocked by tail
     } else if (inSnake(snake[0][0] + '_' + (snake[0][1] - 1))) {
@@ -788,19 +879,49 @@ function aiLevel4() {
         dir = 'left';
         return moveHead(dir);
       } else {
+        var goRight = 0;
+        var goLeft = 0;
         for (var i = snake[0][0] - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
-          if (inSnake(i + '_' + (height-1))) {
-            dir = 'right';
-            return moveHead(dir);
+          if (!inSnake(i + '_' + (height-1))) {
+            goRight++;
+          } else {
+            goRight *= -1;
+            break;
           }
         }
-        for (var j = height - 1; j >= 0; j--) { // Check along left edge for our own tail (loop)
-          if (inSnake(0 + '_' + j)) {
-            dir = 'right';
-            return moveHead(dir);
+        if (goRight > 0) {
+          for (var j = height - 1; j >= 0; j--) { // Check along left edge for our own tail (loop)
+            if (!inSnake(0 + '_' + j)) {
+              goRight++;
+            } else {
+              break;
+            }
           }
         }
-        dir = 'left';
+        for (var i = snake[0][0] + 1; i < width; i++) { // Check along bottom edge for our own tail (loop)
+          if (!inSnake(i + '_' + (height-1))) {
+            goLeft++;
+          } else {
+            goLeft *= -1;
+            break;
+          }
+        }
+        if (goLeft > 0) {
+          for (var j = height - 1; j >= 0; j--) { // Check along right edge for our own tail (loop)
+            if (!inSnake((width-1) + '_' + j)) {
+              goLeft++;
+            } else {
+              break;
+            }
+          }
+        }
+        goRight = Math.abs(goRight);
+        goLeft = Math.abs(goLeft);
+        if (goLeft > goRight) {
+          dir = 'left';
+        } else {
+          dir = 'right';
+        }
         return moveHead(dir);
       }
     // Blocked by tail
