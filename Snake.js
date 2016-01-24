@@ -17,8 +17,9 @@ if (document.cookie !== null) {
     var cookie = cookies[c].split('=');
     console.log(cookie);
     if (cookie[0] == 'speed') {
-      document.getElementById('speedSlider').setAttribute('value', cookie[1]);
-      showValue(cookie[1]);
+      var speed = parseInt(cookie[1]);
+      document.getElementById('speedSlider').setAttribute('value', speed);
+      showValue(speed);
     } else if (cookie[0] == 'highest') {
       maxLevel = cookie[1];
     }
