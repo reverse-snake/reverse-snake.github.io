@@ -47,11 +47,12 @@ function stopGame() {
   upLevel();
   refreshButton.disabled = true;
   console.log("Game stopped");
-  gameIsStopped = true;
   resetGame();
 }
 
 function resetGame() {
+  gameIsStopped = true;
+  intervalId.clearInterval();
   board = [];
   board.length = width; // board[x][y]
   for (var i = 0; i < width; i++) {
