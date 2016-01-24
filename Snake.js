@@ -5,6 +5,20 @@ var food = [-10, -10];  // if there is no food, use this to avoid null pointers
 var refreshRate = 250; // How quickly the snake moves. (ms)
 var intervalId;
 var gameIsStopped = true;
+if (document.cookie === null) {
+  document.cookie = 'speed='+refreshRate+'; highest='+maxLevel;
+} else {
+  cookies = document.cookie.split(';');
+  for (var c=0; c<cookies.length; c++) {
+    var cookie = cookies[c].split('=');
+    console.log(cookie);
+    if (cookie[0] == 'speed') {
+      changeSpeed(cookie[1]);
+    } else if (cookie[0] == 'highest') {
+      maxLevel = cookie[1];
+    }
+  }
+}
 
 // Clears board & stops AI
 function stopGame() {
@@ -31,19 +45,6 @@ function stopGame() {
 
 // Snake collided with self, start next AI level
 function startGame() {
-  if (document.cookie === null) {
-    document.cookie = 'speed='+refreshRate+'; highest='+maxLevel;
-  } else {
-    cookies = document.cookie.split(';');
-    for (var c=0; c<cookies.length; c++) {
-      var cookie = cookies[c].split('=');
-      if (cookie[0] == 'speed') {
-        changeSpeed(cookie[1]);
-      } else if (cookie[0] == 'highest') {
-        maxLevel = cookie[1];
-      }
-    }
-  }
   if (!gameIsStopped) {
     return;
   }
