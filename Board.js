@@ -56,15 +56,15 @@ function showVictory() {
 	table.rows[6].cells[8].setAttribute('class', 'snakecell');
 	table.rows[7].cells[8].setAttribute('class', 'snakecell');
 	// n
+	table.rows[4].cells[10].setAttribute('class', 'snakecell');
 	table.rows[5].cells[10].setAttribute('class', 'snakecell');
 	table.rows[6].cells[10].setAttribute('class', 'snakecell');
 	table.rows[7].cells[10].setAttribute('class', 'snakecell');
-	table.rows[8].cells[10].setAttribute('class', 'snakecell');
-	table.rows[5].cells[11].setAttribute('class', 'snakecell');
-	table.rows[5].cells[12].setAttribute('class', 'snakecell');
+	table.rows[4].cells[11].setAttribute('class', 'snakecell');
+	table.rows[4].cells[12].setAttribute('class', 'snakecell');
+	table.rows[5].cells[13].setAttribute('class', 'snakecell');
 	table.rows[6].cells[13].setAttribute('class', 'snakecell');
-	table.rows[6].cells[14].setAttribute('class', 'snakecell');
-	table.rows[6].cells[15].setAttribute('class', 'snakecell');
+	table.rows[7].cells[13].setAttribute('class', 'snakecell');
 }
 
 function updateBoard() {
