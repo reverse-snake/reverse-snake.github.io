@@ -460,7 +460,7 @@ function aiLevel3() {
 	    }
 	  }
 	} else if (dir == 'left') {
-    // Close to a wall
+    // Close to the left wall
     if (snake[0][0] <= 1) {
       // If near the top of the board, go down
       if (snake[0][1] <= 1) {
@@ -516,7 +516,7 @@ function aiLevel3() {
       }
     }
   } else if (dir == 'up') {
-    // Close to a wall
+    // Close to the top wall
     if (snake[0][1] <= 1) {
       // If near the right side of the board, go left
       if (snake[0][0] >= width - 2) {
@@ -575,7 +575,7 @@ function aiLevel3() {
     }
     console.log('576', dir)
   } else if (dir == 'down') {
-    // Near a wall
+    // Near the bottom wall
     if (snake[0][1] >= height - 2) {
       // If near the left side of the board, go right
       if (snake[0][0] <= 1) {
