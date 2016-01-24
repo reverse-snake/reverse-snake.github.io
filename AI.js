@@ -1205,13 +1205,14 @@ function aiLevel4() {
       // Blocked by tail
     } else if (inSnake(snake[0][0] + '_' + (snake[0][1] + 1))) {
       if (getLoopDirection() < 0) { // Loop direction Counter-clockwise
-        if (snake[0][0] !== 0) {
+        if (snake[0][0] !== 0 && !inSnake((snake[0][0] + 1) + '_' + snake[0][1])) {
           dir = 'right';
         } else {
           dir = 'left';
         }
       } else {
-        if (snake[0][0] != width-1) {
+        // if snake not at left wall, fo left
+        if (snake[0][0] != width-1 && !inSnake((snake[0][0] - 1) + '_' + snake[0][1])) {
           dir = 'left';
         } else {
           dir = 'right';
