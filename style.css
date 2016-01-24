@@ -1,5 +1,14 @@
 /* colors from https://www.wpi.edu/Images/CMS/Marketing/WPILogoUsage_QuickReferenceGuide.pdf */
 
+td.impactcell,
+td.snakecell,
+td.emptycell,
+td.foodcell {
+  border: 1px solid black;
+  width: 26px;
+  height: 26px;
+}
+
 td.impactcell {
   background-color: #00FF00;
 }
