@@ -85,6 +85,7 @@ function upLevel() {
     level = maxLevel;
   }
   console.log(level);
+  console.log(levelGuage.innerHTML);
   levelGuage.innerHTML = level;
   upButton.disabled = (level == maxLevel);
   resetGame();

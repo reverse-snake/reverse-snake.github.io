@@ -52,6 +52,7 @@ function updateBoard() {
 		var minutes = (Date.now().getMinutes() - startTime.getMinutes() + 60) % 60;
 		var seconds = (Date.now().getSeconds() - startTime.getSeconds() + 60) % 60;
 	}
+	console.log(minutes + ':' + (seconds<10?'0':'')+seconds);
 	time.innerHTML = minutes + ':' + (seconds<10?'0':'')+seconds;
 }
 
