@@ -402,7 +402,7 @@ function aiLevel2() {
 // Same as level 2 but will intentionally leave a 1-wide gap at edge before turning to avoid getting trapped.
 function aiLevel3() {
 	if (dir == 'right') {
-	  // Close to a wall
+	  // Close to the right wall
 	  if (snake[0][0] >= width - 2) {
 	    // If near the bottom of the board, go up
 	    if (snake[0][1] >= height - 2) {
@@ -412,18 +412,21 @@ function aiLevel3() {
 	      dir = 'down';
 	    } else { // In the middle of the wall
 	      for (var j = snake[0][1] + 1; j < height; j++) { // Check along right edge for our own tail (loop)
+          // why not use getLoopDirection here?
 	        if (inSnake((width - 1) + '_' + j)) {
 	          dir = 'up';
 	          return moveHead(dir);
 	        }
 	      }
 	      for (var i = width - 1; i >= 0; i--) { // Check along bottom edge for our own tail (loop)
+          // why not use getLoopDirection here?
 	        if (inSnake(i + '_' + (width - 1))) {
 	          dir = 'up';
 	          return moveHead(dir);
 	        }
 	      }
         for (var j = height; j >= height/2; j--) { // Check halfway along left edge for our own tail (loop)
+          // why not use getLoopDirection here?
 	        if (inSnake(0 + '_' + j)) {
 	          dir = 'up';
 	          return moveHead(dir);
@@ -441,10 +444,10 @@ function aiLevel3() {
 	    }
 	    return moveHead(dir);
 	  }
-	  // Food is where we are | slightly ahead.
+	  // Food is where snake is | slightly ahead.
 	  if (snake[0][0] == food[0] || snake[0][0]+1 == food[0]) {
-	    if (snake[0][1] < food[1]) {
-  	    if (!inSnake((snake[0][0]+1)+'_'+snake[0][1])) {
+	    if (snake[0][1] < food[1]) { // food is below snake
+  	    if (!inSnake((snake[0][0]+1)+'_'+snake[0][1])) { // why checking x-values before going down???
   	      dir = 'down';
   	    }
   	  } else if (snake[0][1] == food[1]) {
