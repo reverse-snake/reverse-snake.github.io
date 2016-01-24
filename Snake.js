@@ -5,10 +5,7 @@ var food = [-10, -10];  // if there is no food, use this to avoid null pointers
 var refreshRate = 250; // How quickly the snake moves. (ms)
 var intervalId;
 var gameIsStopped = true;
-if (document.cookie === null) {
-  document.cookie = 'speed='+refreshRate+'; highest='+maxLevel;
-  console.log(document.cookie);
-} else {
+if (document.cookie !== null) {
   console.log(document.cookie);
   cookies = document.cookie.split(';');
   for (var c=0; c<cookies.length; c++) {
@@ -21,8 +18,6 @@ if (document.cookie === null) {
     }
   }
 }
-document.cookie = null;
-
 
 // Clears board & stops AI
 function stopGame() {
@@ -52,10 +47,10 @@ function startGame() {
   if (!gameIsStopped) {
     return;
   }
+  document.cookie = 'speed='+refreshRate+'; highest='+maxLevel;
+  console.log(document.cookie);
   gameIsStopped = false;
   console.log("Game started");
-  console.log(level);
-  console.log(refreshRate);
   console.log("Round ended! Advancing to AI level", level);
   intervalId = window.setInterval(ai, refreshRate, level); // calls ai(level) at refreshRate
   ai(level);
