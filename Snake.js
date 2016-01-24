@@ -8,7 +8,7 @@ var refreshRate = 250; // How quickly the snake moves. (ms)
 var intervalId;
 var gameIsStopped = true;
 var level = 0;
-var maxLevel = 4;
+var maxLevel = 0; // Starting max level
 // high scores (both time- and food-based) for each level
 //var timeHighScores = [];
 //var pelletHighScores = [0, 0, 0, 0, 0];
@@ -83,7 +83,7 @@ function resetGame() {
   }
   dir = 'right';
   updateBoard();
-  if (level == 4) {
+  if (level == 5) {
     showVictory();
   }
 }
