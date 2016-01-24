@@ -76,24 +76,24 @@ function setLevel(_level) {
 }
 
 function upLevel() {
-  levelGuage.innerHTML = level;
-  setLevel(level + 1);
+  level = level + 1;
   if (level > 4) { // Actual hard limit for levels
     level = 4;
   }
   if (level > maxLevel) {
     level = maxLevel;
   }
+  levelGuage.innerHTML = level;
   upButton.disabled = (level == maxLevel);
   resetGame();
 }
 
 function downLevel() {
-  levelGuage.innerHTML = level;
-  setLevel(level - 1);
+  level = level - 1;
   if (level < 0) {
     level = 0;
   }
+  levelGuage.innerHTML = level;
   downButton.disabled = (level === 0);
   resetGame();
 }
