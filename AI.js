@@ -426,7 +426,6 @@ function aiLevel3() {
 	        }
 	      }
         for (var j = height; j >= height/2; j--) { // Check halfway along left edge for our own tail (loop)
-          // why not use getLoopDirection here?
 	        if (inSnake(0 + '_' + j)) {
 	          dir = 'up';
 	          return moveHead(dir);
@@ -447,15 +446,15 @@ function aiLevel3() {
 	  // Food is where snake is | slightly ahead.
 	  if (snake[0][0] == food[0] || snake[0][0]+1 == food[0]) {
 	    if (snake[0][1] < food[1]) { // food is below snake
-  	    if (!inSnake((snake[0][0]+1)+'_'+snake[0][1])) { // why checking x-values before going down???
+  	    if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) { // checks for collision
   	      dir = 'down';
   	    }
   	  } else if (snake[0][1] == food[1]) {
-        if (!inSnake(snake[0][0]+'_'+(snake[0][1]+1))) {
+        if (!inSnake((snake[0][0]+1)+'_'+snake[0][1])) {
   	      dir = 'right';
   	    }
 	    } else if (snake[0][1] > food[1]) {
-  	    if (!inSnake((snake[0][0]-1)+'_'+snake[0][1])) {
+  	    if (!inSnake(snake[0][0]+'_'+(snake[0][1]-1))) {
   	      dir = 'up';
   	    }
 	    }
