@@ -43,12 +43,12 @@ button:focus {
 
 button.upButton {
   font-size: 1em;
-  height: 70px;
-  width: 70px;
+  height: 30px;
+  width: 30px;
 }
 
 button.downButton {
   font-size: 1em;
-  height: 70px;
-  width: 70px;
+  height: 30px;
+  width: 30px;
 }
