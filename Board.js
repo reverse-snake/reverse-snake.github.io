@@ -44,20 +44,15 @@ function updateBoard() {
 	score.innerHTML = (snake.length - level - 3);
 	var minutes, seconds;
 	console.log("Before minutes and seconds are calculated");
-	if (startTime !== null) { // Before stage start
+	if (startTime == []) { // Before stage start
 		time.innerHTML = '0:00.00';
-	} else if (stopTime !== null) { // After stage end
-		minutes = (stopTime.getMinutes() - startTime.getMinutes() + 60) % 60;
-		seconds = (stopTime.getSeconds() - startTime.getSeconds() + 60) % 60;
+	} else if (stopTime == []) { // After stage end
+		minutes = (stopTime[0] - startTime[0] + 60) % 60;
+		seconds = (stopTime[1] - startTime[1] + 60) % 60;
 	} else { // Stage in progress
-		var minutes = (Date.now().getMinutes() - startTime.getMinutes() + 60) % 60;
-		var seconds = (Date.now().getSeconds() - startTime.getSeconds() + 60) % 60;
+		var minutes = (new Date().getMinutes() - startTime[0] + 60) % 60;
+		var seconds = (new Date().getSeconds() - startTime[1] + 60) % 60;
 	}
-	console.log(minutes + ':' + (seconds<10?'0':'')+seconds);
-	console.log(Date.now());
-	console.log("Other method of getting date");
-	var dt= new Date();
-	console.log(dt.getMinutes());
 	console.log("Minutes and seconds");
 	time.innerHTML = minutes + ':' + (seconds<10?'0':'')+seconds;
 }

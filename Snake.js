@@ -20,8 +20,8 @@ var levelGauge = document.getElementsByClassName("level")[0];
 var downButton = document.getElementsByClassName("downButton")[0];
 var score = document.getElementsByClassName("score")[0];
 var time = document.getElementsByClassName("time")[0];
-var startTime = null;
-var stopTime = null;
+var startTime = [];
+var stopTime = [];
 // score.innerHTML = (snake.length - level - 2);
 
 if (document.cookie !== null) {
@@ -39,10 +39,11 @@ if (document.cookie !== null) {
 
 // Clears board & stops AI
 function stopGame() {
+  startTime = [];
   if ((snake.length - snake.level) > pelletHighScores[level]) {
     pelletHighScores[level] = snake.length - snake.level;
   }
-  stopTime = Date.now();
+  stopTime = new Date();
   console.log("Round ended! Advancing AI to level", level);
   upLevel();
   refreshButton.disabled = true;
@@ -72,10 +73,12 @@ function resetGame() {
 
 // Snake collided with self, start next AI level
 function startGame() {
+  stopTime = [];
   if (!gameIsStopped) {
     return;
   }
-  startTime = Date.now();
+  startTime[0] = new Date().getMinutes();
+  startTime[1] = new Date().getSeconds();
   refreshButton.disabled = false;
   upButton.disabled = true;
   downButton.disabled = true;
@@ -84,8 +87,6 @@ function startGame() {
   console.log("Game started");
   // Date.getMinutes() does not work
   console.log(startTime);
-  //console.log(startTime.getMinutes());
-  //console.log(startTime.getSeconds());
   console.log("startTime is defined");
   intervalId = window.setInterval(ai, refreshRate, level); // calls ai(level) at refreshRate
   ai(level);
