@@ -84,8 +84,8 @@ function startGame() {
   console.log("Game started");
   // Date.getMinutes() does not work
   console.log(startTime);
-  console.log(startTime.getMinutes());
-  console.log(startTime.getSeconds());
+  //console.log(startTime.getMinutes());
+  //console.log(startTime.getSeconds());
   intervalId = window.setInterval(ai, refreshRate, level); // calls ai(level) at refreshRate
   ai(level);
 }
