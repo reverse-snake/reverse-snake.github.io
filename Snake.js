@@ -59,9 +59,6 @@ function stopGame() {
 }
 
 function resetGame() {
-  if (level == 5) {
-    showVictory();
-  }
   followLeftEdge = false;
   moves = [];
   console.log("Resetting Game");
@@ -84,6 +81,9 @@ function resetGame() {
   }
   dir = 'right';
   updateBoard();
+  if (level == 5) {
+    showVictory();
+  }
 }
 
 // Snake collided with self, start next AI level
