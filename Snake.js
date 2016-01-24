@@ -51,8 +51,9 @@ function stopGame() {
 }
 
 function resetGame() {
+  console.log("Resetting Game");
+  window.clearInterval(intervalId);
   gameIsStopped = true;
-  window.clearInterval(intevalId);
   board = [];
   board.length = width; // board[x][y]
   for (var i = 0; i < width; i++) {
@@ -169,11 +170,11 @@ function moveHead(dir) {
   }
   snake.unshift(newHead); // add newHead to the beginning of the list
   if (snake[0][0] == food[0] && snake[0][1] == food[1]) { // if snake's head is on the food
-    food = [-10, -10];
-  } else {
-    snake.pop(); // Remove the tail
-  }
-  updateBoard();
+  food = [-10, -10];
+} else {
+  snake.pop(); // Remove the tail
+}
+updateBoard();
 }
 
 function placeFood(x, y) {
