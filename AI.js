@@ -57,10 +57,9 @@ function setLevel(_level) {
   if (level > maxLevel) { // User "levels up" to next difficulty.
     maxLevel = level;
   }
-  //if (gameIsStopped) {
-  //  stopGame(); // Game has not started but level was changed, redraw snake.
-  //}
-  // NOTE: Code commented out because it creates an infinite loop
+  if (gameIsStopped) {
+    resetGame(); // Game has not started but level was changed, redraw snake.
+  }
   levelGauge.innerHTML = level;
   downButton.disabled = (level === 0);
   upButton.disabled = (level == maxLevel);
@@ -72,6 +71,7 @@ function upLevel() {
 function downLevel() {
   setLevel(level - 1);
 }
+
 function ai(level) {
   switch (level) {
     case 0:
@@ -747,7 +747,6 @@ function aiLevel4() {
     dir =
     return moveHead
   }
-
   if (dir == 'right') {
     // Blocked by wall
     if (snake[0][0] == width - 1) {

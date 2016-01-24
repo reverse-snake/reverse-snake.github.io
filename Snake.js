@@ -33,10 +33,15 @@ function stopGame() {
   if ((snake.length - snake.level) > pelletHighScores[level]) {
     pelletHighScores[level] = snake.length - snake.level;
   }
+  console.log("Round ended! Advancing AI to level", level);
+  upLevel();
   refreshButton.disabled = true;
   console.log("Game stopped");
   gameIsStopped = true;
-  upLevel();
+  resetGame();
+}
+
+function resetGame() {
   board = [];
   board.length = width; // board[x][y]
   for (var i = 0; i < width; i++) {
@@ -58,12 +63,11 @@ function startGame() {
     return;
   }
   refreshButton.disabled = false;
-  downButton.disabled = true;
   upButton.disabled = true;
-  document.cookie = 'speed='+refreshRate+'; maxLevel='+maxLevel;
+  downButton.disabled = true;
+  // document.cookie = 'speed='+refreshRate+'; maxLevel='+maxLevel;
   gameIsStopped = false;
   console.log("Game started");
-  console.log("Round ended! Advancing to AI level", level);
   intervalId = window.setInterval(ai, refreshRate, level); // calls ai(level) at refreshRate
   ai(level);
 }
