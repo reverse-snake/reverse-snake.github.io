@@ -70,9 +70,11 @@ function setLevel(_level) {
   console.log("Level set to", level);
 }
 function upLevel() {
+  levelGuage.innerHTML = level;
   setLevel(level + 1);
 }
 function downLevel() {
+  levelGuage.innerHTML = level;
   setLevel(level - 1);
 }
 
