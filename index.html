@@ -73,8 +73,6 @@
 					req.open('GET', 'https://api.github.com/gists/88e3ed201d39cc686204', true);
 					req.onload = function(){ // Asynchronous callback.
 						console.log(req.responseText.files);
-						console.log(req.responseText.files[0]);
-						console.log(req.responseText.files[0].content);
 						console.log(req.responseText["files"]);
 						console.log(req.responseText["files"]["highscores.txt"]);
 						console.log(req.responseText["files"]["highscores.txt"]["content"]);
