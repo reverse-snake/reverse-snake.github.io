@@ -81,6 +81,7 @@
 
 					req = new XMLHttpRequest();
 					req.open('PATCH', 'https://api.github.com/gists/88e3ed201d39cc686204', true);
+					req.setRequestHeader('Authorization', 'token ###'); // Token by jbzdarkid, gist permission only
 					req.onload = function(){ // Asynchronous callback.
 						console.log(req.responseText);
 						console.log(JSON.parse(req.responseText));
@@ -91,14 +92,14 @@
 			<td width="20%"> <!-- Controls and statistics -->
 				<table style="font-size: 1em">
 					<tr>
-						<td><button class="refresh" onclick="resetGame()" style="height: 70px;
-							width: 70px; font-size: 3em" disabled>&#8635;</button></td>
-							<td><button class="upButton" disabled onclick="upLevel()">&#9650;</button></td>
+						<td><button disabled class="refresh" onclick="resetGame()" style="height: 70px;
+							width: 70px; font-size: 3em">&#8635;</button></td>
+							<td><button disabled class="upButton" onclick="upLevel()">&#9650;</button></td>
 						</tr><tr>
 							<td width="50%" style="font-size: 3em; text-align: right">Level</td>
 							<td class="level" name="level" style="padding-left: 25px">0</td>
 						</tr><tr>
-							<td></td><td><button class="downButton" disabled onclick="downLevel()">&#9660;</button></td>
+							<td></td><td><button disabled class="downButton" onclick="downLevel()">&#9660;</button></td>
 						</tr><tr>
 							<td colspan="2">
 								Snake Speed: <span name="speed">5</span><br>
