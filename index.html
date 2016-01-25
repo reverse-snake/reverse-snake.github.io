@@ -10,7 +10,7 @@
 	<div align="right"><!--Version 3.22--></div>
 	<table width="100%" align="center">
 		<tr>
-			<td width="30%"> <!-- Intro box & legend -->
+			<td width="40%"> <!-- Intro box & legend -->
 				<table style="border: 1px solid black">
 					<tr>
 						<td colspan="4"><div style="font-size: 1.5em; text-align: center">Legend</div></td>
@@ -39,7 +39,7 @@
 					</tr>
 				</table>
 			</td>
-			<td width="40%"> <!-- Main scoreboard -->
+			<td width="40%"> <!-- Play board & scoreboard -->
 				<table class="snaketable"></table>
 				<table width="50%" align="center" text-align="center">
 					<tr>
@@ -80,9 +80,10 @@
 					req.send()
 
 					req = new XMLHttpRequest();
-					req.open('PATCH', 'https://api.github.com/gists/652df45c4688ea9129c1', true);
+					req.open('PATCH', 'https://api.github.com/gists/88e3ed201d39cc686204', true);
 					req.onload = function(){ // Asynchronous callback.
 						console.log(req.responseText);
+						console.log(JSON.parse(req.responseText));
 					}
 					req.send('{\"description\":\"The highscores\", \"files\":{\"highscores\":{\"content\":\"'+scores+'\"}}}');
 				</script>
