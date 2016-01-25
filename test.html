@@ -16,8 +16,8 @@
 			<td width="50%">
 				<table>
 					<tr>
-						<td></td>
-						<td><button class="upButton" onclick="upLevel()">&#9650;</button></td>
+						<td>Current test: <div class="current test">0</div></td>
+						<td><button class="upButton" onclick="upLevel(); loadScenario(lastScenario);">&#9650;</button></td>
 						<td width="10%"></td>
 						<td align="left" rowspan="3">
 							Level 1: Avoids walls<br>
@@ -30,65 +30,68 @@
 						<td style="font-size: 3em; text-align: right">Level</td>
 						<td class="level" name="level" style="padding-left: 25px">1</td>
 					</tr><tr>
-						<td></td><td><button disabled class="downButton" onclick="downLevel()">&#9660;</button></td>
+						<td></td><td><button disabled class="downButton" onclick="downLevel(); loadScenario(lastScenario);">&#9660;</button></td>
 					</tr>
 				</table>
 				<button onclick="ai(level)">Advance 1 frame</button>
 				<br>Test scenarios (click to load):
 				<br>
-				<button onclick="scenario1()">1</button>
-				<button onclick="scenario2()">2</button>
-				<button onclick="scenario3()">3</button>
-				<button onclick="scenario4()">4</button>
-				<button onclick="scenario5()">5</button>
+				<button onclick="loadScenario(1)">1</button>
+				<button onclick="loadScenario(2)">2</button>
+				<button onclick="loadScenario(3)">3</button>
+				<button onclick="loadScenario(4)">4</button>
+				<button onclick="loadScenario(5)">5</button>
 				<br>
-				<button onclick="scenario6()">6</button>
-				<button onclick="scenario7()">7</button>
-				<button onclick="scenario8()">8</button>
-				<button onclick="scenario9()">9</button>
-				<button onclick="scenario10()">10</button>
+				<button onclick="loadScenario(6)">6</button>
+				<button onclick="loadScenario(7)">7</button>
+				<button onclick="loadScenario(8)">8</button>
+				<button onclick="loadScenario(9)">9</button>
+				<button onclick="loadScenario(10)">10</button>
 				<br>
-				<button onclick="scenario11()">1</button>
-				<button onclick="scenario12()">2</button>
-				<button onclick="scenario13()">3</button>
-				<button onclick="scenario14()">4</button>
-				<button onclick="scenario15()">5</button>
+				<button onclick="loadScenario(11)">11</button>
+				<button onclick="loadScenario(12)">12</button>
+				<button onclick="loadScenario(13)">13</button>
+				<button onclick="loadScenario(14)">14</button>
+				<button onclick="loadScenario(15)">15</button>
 				<br>
-				<button onclick="scenario16()">16</button>
-				<button onclick="scenario17()">17</button>
-				<button onclick="scenario18()">18</button>
-				<button onclick="scenario19()">19</button>
-				<button onclick="scenario20()">20</button>
+				<button onclick="loadScenario(16)">16</button>
+				<button onclick="loadScenario(17)">17</button>
+				<button onclick="loadScenario(18)">18</button>
+				<button onclick="loadScenario(19)">19</button>
+				<button onclick="loadScenario(20)">20</button>
 				<script>
+					var lastScenario = 0;
+					function loadScenario(num) {
+						test = document.getElementsByClassName("current test")[0];
+						test.innerHTML = num;
+						lastScenario = num;
+						eval('scenario'+num+'()');
+						updateBoard();
+					}
 					function scenario1() {
 						snake = [[5, 5], [5, 6], [5, 7], [5, 8], [6, 8], [7, 8], [7, 7], [7, 6], [7, 5], [7, 4], [7, 3], [7, 2], [7, 1], [7, 0], [8, 0], [9, 0]];
 						dir = 'up';
 						food = [9, 3];
-						updateBoard();
 					}
 					function scenario2() {
 						snake = [[5, 5], [5, 6], [5, 7], [5, 8], [6, 8], [6, 7], [6, 6], [6, 5], [6, 4], [6, 3], [6, 2], [6, 1], [6, 0], [7, 0], [8, 0], [9, 0]];
 						dir = 'up';
 						food = [7, 3];
-						updateBoard();
 					}
 					function scenario3() {
 						snake = [[5, 5], [5, 4], [5, 3], [5, 2], [5, 1], [6, 1], [6, 2], [6, 3], [6, 4], [6, 5], [6, 6], [6, 7], [6, 8], [6, 9], [7, 9], [8, 9]];
 						dir = 'down';
 						food = [7, 7];
-						updateBoard();
 					}
 					function scenario4() {
 						snake = [[5, 5], [4, 5], [3, 5], [2, 5], [1, 5], [0, 5], [0, 6], [1, 6], [2, 6], [3, 6], [4, 6], [5, 6], [6, 6], [7, 6], [8, 6], [9, 6], [10, 6], [11, 6], [12, 6]]
 						dir = 'right';
 						food = [7, 7];
-						updateBoard();
 					}
 					function scenario5() {
 						snake = [[5, 5], [6, 5], [7, 5], [8, 5], [9, 5], [10, 5], [10, 4], [9, 4], [8, 4], [7, 4], [6, 4], [5, 4], [4, 4], [3, 4], [2, 4], [1, 4], [0, 4], [0, 3], [0, 2]]
 						dir = 'left';
 						food = [3, 3];
-						updateBoard();
 					}
 				</script>
 			</td>
