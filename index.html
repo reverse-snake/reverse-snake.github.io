@@ -44,29 +44,34 @@
 				<table width="50%" align="center" text-align="center">
 					<tr>
 						<td>Level: </td>
-						<td>Score: </td>
+						<td>Best Time: </td>
+						<td>Least Food: </td>
 					</tr><tr>
 						<td>1</td>
-						<td class="highscore0">99:99.99</td>
+						<td class="time0">59:59.99</td>
+						<td class="score0">999</td>
 					</tr><tr>
-						<td>1</td>
-						<td class="highscore1">99:99.99</td>
+						<td>2</td>
+						<td class="time1">59:59.99</td>
+						<td class="score1">999</td>
 					</tr><tr>
-						<td>1</td>
-						<td class="highscore2">99:99.99</td>
+						<td>3</td>
+						<td class="time2">59:59.99</td>
+						<td class="score2">999</td>
 					</tr><tr>
-						<td>1</td>
-						<td class="highscore3">99:99.99</td>
+						<td>4</td>
+						<td class="time3">59:59.99</td>
+						<td class="score3">999</td>
 					</tr><tr>
-						<td>1</td>
-						<td class="highscore4">99:99.99</td>
+						<td>5</td>
+						<td class="time4">59:59.99</td>
+						<td class="score4">999</td>
 					</tr>
 				</table>
 				<script>
 					var req = new XMLHttpRequest();
 					req.open('GET', 'https://api.github.com/gists/88e3ed201d39cc686204', true);
 					req.onload = function(){ // Asynchronous callback.
-						console.log(req.responseText['files']['highscores.txt']['content']);
 						console.log(req.responseText.files);
 						console.log(req.responseText.files[0]);
 						console.log(req.responseText.files[0].content);
