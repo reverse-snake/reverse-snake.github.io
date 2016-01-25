@@ -71,8 +71,8 @@
 				<script>
 					var scores = [[999, 999], [999, 999], [999, 999], [999, 999], [999, 999]];
 					var req = new XMLHttpRequest();
-					req.setRequestHeader('Authorization', 'token 41d8fcbce36a834b605972f3a63bef58ed273fab'); // Token by jbzdarkid, gist permission only
 					req.open('GET', 'https://api.github.com/gists/88e3ed201d39cc686204', true);
+					req.setRequestHeader('Authorization', 'token 41d8fcbce36a834b605972f3a63bef58ed273fab'); // Token by jbzdarkid, gist permission only
 					req.onload = function(){ // Asynchronous callback.
 						console.log(req.responseText);
 						console.log(JSON.parse(req.responseText));
