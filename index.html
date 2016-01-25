@@ -66,9 +66,16 @@
 					var req = new XMLHttpRequest();
 					req.open('GET', 'https://api.github.com/gists/88e3ed201d39cc686204', true);
 					req.onload = function(){ // Asynchronous callback.
-						console.log(req.responseText);
+						console.log(req.responseText['files']['highscores.txt']['content']);
 					}
 					req.send()
+
+					req = new XMLHttpRequest();
+					req.open('PATCH', 'https://api.github.com/gists', true);
+					req.onload = function(){ // Asynchronous callback.
+						console.log(req.responseText);
+					}
+					req.send('{\"description\":\"The highscores\", \"files\":{\"highscores.txt\":{\"content\":\"asdfghjkl\"}}}');
 				</script>
 			</td>
 			<td width="20%"> <!-- Controls and statistics -->
