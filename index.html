@@ -64,15 +64,11 @@
 				</table>
 				<script>
 					var req = new XMLHttpRequest();
-					req.open('GET', 'http://reverse-snake.cloudant.com/highscores/highscores', true); // METHOD, url, async?
-					var scores = [null, null, null, null, null];
-					scores[0] = document.getElementsByClassName('highscore0')[0];
-					req.onreadystatechange = function(){ // Asynchronous callback.
-						scores[0].innerHTML = req.responseText;
+					req.open('POST', '/gists', true);
+					req.onload = function(){ // Asynchronous callback.
 						console.log(req.responseText);
 					}
-					req.send();
-
+					req.send("{'description':'The highscores', 'files'={'highscores.txt':{'content':[]}}}");
 				</script>
 			</td>
 			<td width="20%"> <!-- Controls and statistics -->
