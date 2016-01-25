@@ -41,25 +41,39 @@
 			</td>
 			<td width="40%"> <!-- Main scoreboard -->
 				<table class="snaketable"></table>
-				<!-- High Scores (Removed for time reasons)
 				<table width="50%" align="center" text-align="center">
 					<tr>
 						<td>Level: </td>
-						<td>0</td>
-						<td>1</td>
-						<td>2</td>
-						<td>3</td>
-						<td>4</td>
-					</tr>
-					<tr>
 						<td>Score: </td>
-						<td class="highScore0">0</td>
-						<td class="highScore1">1</td>
-						<td class="highScore2">2</td>
-						<td class="highScore3">3</td>
-						<td class="highScore4">4</td>
+					</tr><tr>
+						<td>1</td>
+						<td class="highscore0">99:99.99</td>
+					</tr><tr>
+						<td>1</td>
+						<td class="highscore1">99:99.99</td>
+					</tr><tr>
+						<td>1</td>
+						<td class="highscore2">99:99.99</td>
+					</tr><tr>
+						<td>1</td>
+						<td class="highscore3">99:99.99</td>
+					</tr><tr>
+						<td>1</td>
+						<td class="highscore4">99:99.99</td>
 					</tr>
-				</table> -->
+				</table>
+				<script>
+					var req = new XMLHttpRequest();
+					req.open('GET', 'http://reverse-snake.cloudant.com/highscores/highscores', true); // METHOD, url, async?
+					var scores = [null, null, null, null, null];
+					scores[0] = document.getElementsByClassName('highscore0')[0];
+					req.onreadystatechange = function(){ // Asynchronous callback.
+						scores[0].innerHTML = req.responseText;
+						console.log(req.responseText);
+					}
+					req.send();
+
+				</script>
 			</td>
 			<td width="20%"> <!-- Controls and statistics -->
 				<table style="font-size: 1em">
