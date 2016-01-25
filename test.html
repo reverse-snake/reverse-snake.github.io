@@ -10,17 +10,52 @@
 	<div align="right">Version 1.1</div>
 	<table width="100%" align="center">
 		<tr>
-			<td width="40%"> <!-- Intro box & legend -->
-			</td>
-			<td width="40%"> <!-- Main scoreboard -->
+			<td width="90%">
 				<table class="snaketable"></table>
 			</td>
-			<td width="20%">
+			<td width="10%">
+				<table>
+					<tr>
+						<td><button class="refresh" onclick="resetGame()" style="height: 70px;
+						width: 70px; font-size: 3em">&#8635;</button></td>
+						<td><button class="upButton" onclick="upLevel()">&#9650;</button></td>
+					</tr><tr>
+						<td width="50%" style="font-size: 3em; text-align: right">Level</td>
+						<td class="level" name="level" style="padding-left: 25px">1</td>
+					</tr><tr>
+						<td></td><td><button class="downButton" onclick="downLevel()">&#9660;</button></td>
+					</tr>
+				</table>
+				<button onclick="ai(level)">Advance 1 frame</button>
+				<br>Test scenarios (click to load):
+				<button onclick="scenario1()">1</button>
+				<button onclick="scenario2()">2</button>
+				<button onclick="scenario3()">3</button>
+				<button onclick="scenario4()">4</button>
+				<br>
+				<button onclick="scenario5()">5</button>
+				<button onclick="scenario6()">6</button>
+				<button onclick="scenario7()">7</button>
+				<button onclick="scenario8()">8</button>
+				<script>
+					function scenario1() {
+						snake = [[5, 5], [5, 6], [5, 7], [5, 8], [6, 8], [7, 8], [7, 7], [7, 6], [7, 5], [7, 4], [7, 3], [7, 2], [7, 1], [7, 0], [8, 0], [9, 0]];
+						dir = 'up';
+						food = [9, 3];
+						updateBoard();
+					}
+				</script>
 			</td>
-			</tr>
-		</table>
-		<script src="AI.js"></script>
-		<script src="Snake.js"></script>
-		<script src="Board.js"></script>
-	</body>
-	</html>
+			<td class="score" style="display:none"></td>
+			<td class="time" style="display:none"></td>
+		</tr>
+	</table>
+	<script src="AI.js"></script>
+	<script src="Snake.js"></script>
+	<script src="Board.js"></script>
+	<script>
+		refreshRate = 1000000;
+		maxLevel = 4;
+	</script>
+</body>
+</html>
