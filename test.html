@@ -4,92 +4,23 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no"/> <!-- disable scaling on mobile -->
 	<link rel="Stylesheet" href="style.css"></link>
 	<link rel="shortcut icon" href="/favicon2.ico?">
-	<title>Reverse Snake</title>
+	<title>Test Page</title>
 </head>
 <body>
-	<div align="right"><!--Version 3.22--></div>
+	<div align="right">Version 1.1</div>
 	<table width="100%" align="center">
 		<tr>
-			<td width="30%"> <!-- Intro box & legend -->
-				<table style="border: 1px solid black">
-					<tr>
-						<td colspan="4"><div style="font-size: 1.5em; text-align: center">Legend</div></td>
-					</tr><tr>
-						<td><div style="margin: 0 auto; background-color: #FF1111; border: 1px solid black; width: 30px; height: 30px;"></div></td>
-						<td><div style="margin: 0 auto; background-color: #11FF11; border: 1px solid black; width: 30px; height: 30px;"></div></td>
-						<td><div style="margin: 0 auto; background-color: #1111FF; border: 1px solid black; width: 30px; height: 30px;"></div></td>
-						<td><div style="margin: 0 auto; background-color: #CCCCCC; border: 1px solid black; width: 30px; height: 30px;"></div></td>
-					</tr><tr style="text-align: center">
-						<td>Snake</td>
-						<td>Collision</td>
-						<td>Food</td>
-						<td>Empty Cell</td>
-					</tr>
-
-					<tr align="center">
-						<td colspan="4">
-							<h1>Welcome to Reverse Snake!</h1>
-							<p>This is the test page.</p>
-							<p>Joseph Blackman<br>Quyen Hoang<br>Maddy Longo<br>Hung Hong</p>
-						</td>
-					</tr>
-				</table>
+			<td width="40%"> <!-- Intro box & legend -->
 			</td>
 			<td width="40%"> <!-- Main scoreboard -->
 				<table class="snaketable"></table>
-				<!-- High Scores (Removed for time reasons)
-				<table width="50%" align="center" text-align="center">
-					<tr>
-						<td>Level: </td>
-						<td>0</td>
-						<td>1</td>
-						<td>2</td>
-						<td>3</td>
-						<td>4</td>
-					</tr>
-					<tr>
-						<td>Score: </td>
-						<td class="highScore0">0</td>
-						<td class="highScore1">1</td>
-						<td class="highScore2">2</td>
-						<td class="highScore3">3</td>
-						<td class="highScore4">4</td>
-					</tr>
-				</table> -->
 			</td>
-			<td width="20%"> <!-- Controls and statistics -->
-				<table style="font-size: 1em">
-					<tr>
-						<td><button class="refresh" onclick="resetGame()" style="height: 70px;
-							width: 70px; font-size: 3em" disabled>↻</button></td>
-							<td><button class="upButton" disabled onclick="upLevel()">▲</button></td>
-						</tr><tr>
-							<td width="50%" style="font-size: 3em; text-align: right">Level</td>
-							<td class="level" name="level" style="padding-left: 25px">0</td>
-						</tr><tr>
-							<td></td><td><button class="downButton" disabled onclick="downLevel()">▼</button></td>
-						</tr><tr>
-							<td colspan="2">
-								<button onclick="ai(level)">Advance 1 frame</button>
-								<script>
-									refreshRate = 1000000;
-									maxLevel = 4;
-								</script>
-							</td>
-						</tr><tr>
-							<td>Food Eaten: </td>
-							<td class="score">0</td>
-						</tr><tr>
-							<td>Time: </td>
-							<td class="time">0:00.00</td>
-						</tr>
-					</table>
-				</td>
+			<td width="20%">
+			</td>
 			</tr>
 		</table>
 		<script src="AI.js"></script>
 		<script src="Snake.js"></script>
 		<script src="Board.js"></script>
-		<!-- script src="detectmobilebrowser.js"></script-->
 	</body>
 	</html>
