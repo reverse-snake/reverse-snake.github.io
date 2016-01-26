@@ -18,6 +18,7 @@ var refreshButton = document.getElementsByClassName("refresh")[0];
 var upButton = document.getElementsByClassName("upButton")[0];
 var levelGauge = document.getElementsByClassName("level")[0];
 var downButton = document.getElementsByClassName("downButton")[0];
+var highscores;
 var score = document.getElementsByClassName("score")[0];
 var time = document.getElementsByClassName("time")[0];
 var startTime = [];
@@ -37,39 +38,85 @@ if (document.cookie !== null) {
   }
 }
 
+// Takes a time array as [minutes, seconds, milliseconds] and returns a zero-padded MM:SS.msss
+function formatTime(time) {
+  return
+    time[0]
+    + ':'
+    + (time[1]<10?'0':'')
+    + time[1]
+    + '.'
+    + (time[2]<1000?'0':'')
+    + (time[2]<100?'0':'')
+    + (time[2]<10?'0':'')
+    + time[2];
+}
+
+function getScores() {
+  var req = new XMLHttpRequest();
+  req.open('GET', 'http://reverse-snake.cloudant.com/highscores/highscores', true); // METHOD, url, async
+  req.onload = function() { // Asynchronous callback.
+    highscores = JSON.parse(req.responseText)["data"];
+    for (var i=0; i<5; i++) {
+      document.getElementsByClassName("score"+i)[0].innerHTML = highscores["scores"][i];
+      var time = highscores["times"][i];
+      var timeString;
+      if (time[0] > 0) {
+        if (time[1] > 10) {
+          timeString = time[0]+":"+time[1];
+        } else {
+          timeString = time[0]+":0"+time[1];
+        }
+      } else {
+        timeString = ""+time[1];
+      }
+      document.getElementsByClassName("time"+i)[0].innerHTML = timeString;
+      checkHighscore();
+    }
+  }
+  req.send();
+}
+
+// Assume our scores are up-to-date, since this should only be called from getScores() above.
+function checkHighscore() {
+  if (score.innerHTML < highscores["scores"][level]) {
+    console.log("New highscore", score.innerHTML);
+  }
+  if (time.innerHTML < highscores["scores"][level]) {
+    console.log("New highscore", score.innerHTML);
+  }
+  return;
+  var req = new XMLHttpRequest();
+  req.open('PUT', 'http://reverse-snake.cloudant.com/highscores/highscores', true); // METHOD, url, async
+  req.onload = function() { // Asynchronous callback.
+    console.log(req.responseText);
+  }
+  req.send("{\"data\":{\"scores\":"+scores+",\"times\":"+times+"}}");
+}
+
 // Clears board & stops AI
 function stopGame() {
-  startTime = [];
-  /*if (pelletHighScores[level] == 0 || ((snake.length - snake.level) < pelletHighScores[level])) {
-    console.log(snake.length);
-    console.log(pelletHighScores[level]);
-    document.getElementsByClassName("highScore0")[0].innerHTML = pelletHighScores[0];
-    document.getElementsByClassName("highScore1")[1].innerHTML = pelletHighScores[1];
-    document.getElementsByClassName("highScore2")[2].innerHTML = pelletHighScores[2];
-    document.getElementsByClassName("highScore3")[3].innerHTML = pelletHighScores[3];
-    document.getElementsByClassName("highScore4")[4].innerHTML = pelletHighScores[4];
-  }*/
-  stopTime = new Date();
   console.log("Round ended! Advancing AI to level", level);
+  var now = new Date();
+  stopTime = [now.getMinutes(), now.getSeconds()];
   maxLevel++;
   upLevel();
   refreshButton.disabled = true;
-  console.log("Game stopped");
   resetGame();
 }
 
 function resetGame() {
+  console.log("Game reset");
+  startTime = [];
+  stopTime = [];
   followLeftEdge = false;
   moves = [];
-  console.log("Resetting Game");
   window.clearInterval(intervalId);
-  stopTime = [];
-  startTime = [];
   upButton.disabled = (level == maxLevel || level == 4);
   downButton.disabled = (level === 0);
   gameIsStopped = true;
-  board = [];
-  board.length = width; // board[x][y]
+  board = []; // board[x][y]
+  board.length = width;
   for (var i = 0; i < width; i++) {
     board[i] = [];
     board[i].length = height;
@@ -86,23 +133,18 @@ function resetGame() {
   }
 }
 
-// Snake collided with self, start next AI level
 function startGame() {
-  stopTime = [];
   if (!gameIsStopped) {
     return;
   }
-  startTime[0] = new Date().getMinutes();
-  startTime[1] = new Date().getSeconds();
+  console.log("Game started");
+  var now = new Date();
+  startTime = [now.getMinutes(), now.getSeconds()]
   refreshButton.disabled = false;
   upButton.disabled = true;
   downButton.disabled = true;
   // document.cookie = 'speed='+refreshRate+'; maxLevel='+maxLevel;
   gameIsStopped = false;
-  console.log("Game started");
-  // Date.getMinutes() does not work
-  //console.log(startTime);
-  //console.log("startTime is defined");
   intervalId = window.setInterval(ai, refreshRate, level); // calls ai(level) at refreshRate
   ai(level);
 }
@@ -204,7 +246,7 @@ function placeFood(x, y) {
   startGame();
   if (inSnake(x+'_'+y)) {
     console.log('Invalid food placement: Food collides with snake');
-  } else if (x >= width || y >= height || x < 0 || y < 0) { // off of board
+  } else if (x >= width || y >= height || x < 0 || y < 0) {
     console.log('Invalid food placement: Food is off board');
   } else {
     food = [x, y];

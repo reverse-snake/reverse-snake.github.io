@@ -41,53 +41,32 @@
 			</td>
 			<td width="40%"> <!-- Play board & scoreboard -->
 				<table class="snaketable"></table>
-				<table width="50%" align="center" text-align="center">
+				<table width="60%" align="center" text-align="center">
 					<tr>
-						<td>Level: </td>
-						<td>Best Time: </td>
-						<td>Least Food: </td>
+						<td align="center" colspan="6">Highscores</td>
 					</tr><tr>
-						<td>1</td>
-						<td class="time0">59:59.99</td>
-						<td class="score0">999</td>
+						<td width="40%">Level</td>
+						<td width="15%">1</td>
+						<td width="15%">2</td>
+						<td width="15%">3</td>
+						<td width="15%">4</td>
+						<td width="15%">5</td>
 					</tr><tr>
-						<td>2</td>
-						<td class="time1">59:59.99</td>
-						<td class="score1">999</td>
+						<td>Best Time</td>
+						<td class="time0"></td>
+						<td class="time1"></td>
+						<td class="time2"></td>
+						<td class="time3"></td>
+						<td class="time4"></td>
 					</tr><tr>
-						<td>3</td>
-						<td class="time2">59:59.99</td>
-						<td class="score2">999</td>
-					</tr><tr>
-						<td>4</td>
-						<td class="time3">59:59.99</td>
-						<td class="score3">999</td>
-					</tr><tr>
-						<td>5</td>
-						<td class="time4">59:59.99</td>
-						<td class="score4">999</td>
+						<td>Least Food</td>
+						<td class="score0"></td>
+						<td class="score1"></td>
+						<td class="score2"></td>
+						<td class="score3"></td>
+						<td class="score4"></td>
 					</tr>
 				</table>
-				<script>
-					var scores = [[999, 999], [999, 999], [999, 999], [999, 999], [999, 999]];
-					var req = new XMLHttpRequest();
-					req.open('GET', 'https://api.github.com/gists/88e3ed201d39cc686204', true);
-					req.setRequestHeader('Authorization', 'token 41d8fcbce36a834b605972f3a63bef58ed273fab'); // Token by jbzdarkid, gist permission only
-					req.onload = function(){ // Asynchronous callback.
-						console.log(req.responseText);
-						console.log(JSON.parse(req.responseText));
-					}
-					req.send()
-
-					req = new XMLHttpRequest();
-					req.open('PATCH', 'https://api.github.com/gists/88e3ed201d39cc686204', true);
-					req.setRequestHeader('Authorization', 'token ###'); // Token by jbzdarkid, gist permission only
-					req.onload = function(){ // Asynchronous callback.
-						console.log(req.responseText);
-						console.log(JSON.parse(req.responseText));
-					}
-					req.send('{\"description\":\"The highscores\", \"files\":{\"highscores\":{\"content\":\"'+scores+'\"}}}');
-				</script>
 			</td>
 			<td width="20%"> <!-- Controls and statistics -->
 				<table style="font-size: 1em">

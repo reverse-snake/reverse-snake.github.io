@@ -86,16 +86,19 @@ function updateBoard() {
 	}
 	score.innerHTML = (snake.length - level - 3);
 	var minutes, seconds;
-	if (startTime.length == []) { // Before stage start
-		time.innerHTML = '0:00';
-	} else if (stopTime == []) { // After stage end
+	console.log(startTime, stopTime);
+	if (startTime.length == 0) { // Before stage start
+		time.innerHTML = '0:00.0000';
+	} else if (stopTime.length == 0) { // Stage in progress
+		minutes = (new Date().getMinutes() - startTime[0] + 60) % 60;
+		seconds = (new Date().getSeconds() - startTime[1] + 60) % 60;
+		milliseconds = (new Date().getMilliseconds() - startTime[2] + 1000) % 1000;
+		time.innerHTML = formatTime([minutes, seconds, milliseconds]);
+	} else { // After stage end
 		minutes = (stopTime[0] - startTime[0] + 60) % 60;
 		seconds = (stopTime[1] - startTime[1] + 60) % 60;
-		time.innerHTML = minutes + ':' + (seconds<10?'0':'')+seconds;
-	} else { // Stage in progress
-		var minutes = (new Date().getMinutes() - startTime[0] + 60) % 60;
-		var seconds = (new Date().getSeconds() - startTime[1] + 60) % 60;
-		time.innerHTML = minutes + ':' + (seconds<10?'0':'')+seconds;
+		milliseconds = (stopTime[2] - startTime[2] + 1000) % 1000;
+		time.innerHTML = formatTime([minutes, seconds, milliseconds]);
 	}
 }
 
