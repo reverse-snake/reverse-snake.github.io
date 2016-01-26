@@ -1,6 +1,9 @@
-var body = document.body;
-var html = document.documentElement;
 var table = document.getElementsByClassName('snaketable')[0];
+var score = document.getElementsByClassName("score")[0];
+var time = document.getElementsByClassName("time")[0];
+
+var startTime = [];
+var stopTime = [];
 
 var size = 30; // Size of cell
 var height = 10;
@@ -85,11 +88,10 @@ function updateBoard() {
 		}
 	}
 	score.innerHTML = (snake.length - level - 3);
-	var minutes, seconds;
-	console.log(startTime, stopTime);
-	if (startTime.length == 0) { // Before stage start
-		time.innerHTML = '0:00.0000';
-	} else if (stopTime.length == 0) { // Stage in progress
+	var minutes, seconds, milliseconds;
+	if (startTime.length === 0) { // Before stage start
+		time.innerHTML = '0:00.000';
+	} else if (stopTime.length === 0) { // Stage in progress
 		minutes = (new Date().getMinutes() - startTime[0] + 60) % 60;
 		seconds = (new Date().getSeconds() - startTime[1] + 60) % 60;
 		milliseconds = (new Date().getMilliseconds() - startTime[2] + 1000) % 1000;
