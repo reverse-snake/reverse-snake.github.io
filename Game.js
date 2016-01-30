@@ -89,12 +89,13 @@ function uploadHighscores() {
     console.log(req.responseText);
   }
   req.setRequestHeader('Content-Type', 'application/json');
+  console.log("Sending scores...");
   req.send(highscores);
 }
 
 // Clears board & stops AI
 function stopGame() {
-  console.log("Round ended! Advancing AI to level "+level);
+  console.log("Round ended! Advancing AI to level "+ (level + 1));
   getScores();
   var now = new Date();
   stopTime = [now.getMinutes(), now.getSeconds(), now.getMilliseconds()];
@@ -102,9 +103,11 @@ function stopGame() {
   time[0] = (stopTime[0] - startTime[0] + 60) % 60;
   time[1] = (stopTime[1] - startTime[1] + 60) % 60;
   time[2] = (stopTime[2] - startTime[2] + 1000) % 1000;
+  console.log("Uploading scores...");
   if (checkHighscore('TIME', time, level) | checkHighscore('SCORE', score, level)) {
     uploadHighscores();
   }
+  console.log("Scores uploaded");
   maxLevel++;
   upLevel();
   refreshButton.disabled = true;
