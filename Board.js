@@ -87,6 +87,15 @@ function updateBoard() {
 			cell.setAttribute('width', size+'px');
 		}
 	}
+
+
+/*
+ 	for (var s=0; s<snake.length; s++) {
+		var cell = table.rows[snake[s][0]].cells[snake[s][1]];
+		cell.setAttribute('class', 'snakecell');
+	}
+*/
+
 	score.innerHTML = (snake.length - level - 3);
 	var minutes, seconds, milliseconds;
 	if (startTime.length === 0) { // Before stage start
