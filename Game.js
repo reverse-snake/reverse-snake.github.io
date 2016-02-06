@@ -38,7 +38,7 @@ function formatTime(time) {
 
 function getScores() {
   var req = new XMLHttpRequest();
-  req.open('GET', 'http://reverse-snake.cloudant.com/highscores/highscores', true); // METHOD, url, async
+  req.open('GET', 'https://reverse-snake.cloudant.com/highscores/highscores', true); // METHOD, url, async
   req.onload = function() { // Asynchronous callback.
     highscores = JSON.parse(req.responseText);
     for (var i=0; i<5; i++) {
@@ -56,7 +56,7 @@ getScores();
 function checkHighscore(kind, value, level) {
   if (kind == 'SCORE') {
     if (value < highscores["data"]["scores"][level]) {
-      console.log("New highscore for level "+level+": "+value);
+      console.log("New highscore for level "+(level+1)+": "+value);
       highscores["data"]["scores"][level] = value;
       return true;
     }
@@ -74,7 +74,7 @@ function checkHighscore(kind, value, level) {
       }
     }
     if (newHighscore) {
-      console.log("New best time for level "+level+": "+formatTime(value));
+      console.log("New best time for level "+(level+1)+": "+formatTime(value));
       highscores["data"]["times"][level] = value;
       return true;
     }
@@ -84,14 +84,13 @@ function checkHighscore(kind, value, level) {
 
 function uploadHighscores() {
   var req = new XMLHttpRequest();
-  req.open('PUT', 'http://reverse-snake.cloudant.com/highscores/highscores', true); // METHOD, url, async
+  req.open('PUT', 'https://reverse-snake.cloudant.com/highscores/highscores', true); // METHOD, url, async
   req.onload = function() { // Asynchronous callback.
     console.log(req.responseText);
     console.log("Scores uploaded");
   }
-  req.setRequestHeader('Content-Type', 'application/json');
   console.log("Sending scores...");
-  req.send(highscores);
+  req.send(JSON.stringify(highscores));
 }
 
 // Clears board & stops AI
@@ -105,7 +104,7 @@ function stopGame() {
   time[1] = (stopTime[1] - startTime[1] + 60) % 60;
   time[2] = (stopTime[2] - startTime[2] + 1000) % 1000;
   console.log("Uploading scores...");
-  if (checkHighscore('TIME', time, level) | checkHighscore('SCORE', score, level)) {
+  if (checkHighscore('TIME', time, level) | checkHighscore('SCORE', score.innerHTML, level)) {
     uploadHighscores();
   }
   maxLevel++;
