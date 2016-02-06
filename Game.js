@@ -87,6 +87,7 @@ function uploadHighscores() {
   req.open('PUT', 'http://reverse-snake.cloudant.com/highscores/highscores', true); // METHOD, url, async
   req.onload = function() { // Asynchronous callback.
     console.log(req.responseText);
+    console.log("Scores uploaded");
   }
   req.setRequestHeader('Content-Type', 'application/json');
   console.log("Sending scores...");
@@ -107,7 +108,6 @@ function stopGame() {
   if (checkHighscore('TIME', time, level) | checkHighscore('SCORE', score, level)) {
     uploadHighscores();
   }
-  console.log("Scores uploaded");
   maxLevel++;
   upLevel();
   refreshButton.disabled = true;
