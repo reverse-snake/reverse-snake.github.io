@@ -37,53 +37,63 @@
 				<br>
 				<table class="tests" style="align:center">
 					<tr align="center">
-						<td width="15%"><button onclick="loadScenario(1)">1</button></td>
-						<td width="15%"><button onclick="loadScenario(2)">2</button></td>
-						<td width="15%"><button onclick="loadScenario(3)">3</button></td>
-						<td width="15%"><button onclick="loadScenario(4)">4</button></td>
-						<td width="15%"><button onclick="loadScenario(5)">5</button></td>
-						<td width="15%"><button onclick="loadScenario(6)">6</button></td>
+						<td width="12%"><button onclick="loadScenario(1)">1</button></td>
+						<td width="12%"><button onclick="loadScenario(2)">2</button></td>
+						<td width="12%"><button onclick="loadScenario(3)">3</button></td>
+						<td width="12%"><button onclick="loadScenario(4)">4</button></td>
+						<td width="12%"><button onclick="loadScenario(5)">5</button></td>
+						<td width="12%"><button onclick="loadScenario(6)">6</button></td>
+						<td width="12%"><button onclick="loadScenario(7)">7</button></td>
+						<td width="12%"><button onclick="loadScenario(8)">8</button></td>
 					</tr><tr align="center">
-						<td width="15%"><button onclick="loadScenario(7)">7</button></td>
-						<td width="15%"><button onclick="loadScenario(8)">8</button></td>
-						<td width="15%"><button onclick="loadScenario(9)">9</button></td>
-						<td width="15%"><button onclick="loadScenario(10)">10</button></td>
-						<td width="15%"><button onclick="loadScenario(11)">11</button></td>
-						<td width="15%"><button onclick="loadScenario(12)">12</button></td>
+						<td width="12%"><button onclick="loadScenario(9)">9</button></td>
+						<td width="12%"><button onclick="loadScenario(10)">10</button></td>
+						<td width="12%"><button onclick="loadScenario(11)">11</button></td>
+						<td width="12%"><button onclick="loadScenario(12)">12</button></td>
+						<td width="12%"><button onclick="loadScenario(13)">13</button></td>
+						<td width="12%"><button onclick="loadScenario(14)">14</button></td>
+						<td width="12%"><button onclick="loadScenario(15)">15</button></td>
+						<td width="12%"><button onclick="loadScenario(16)">16</button></td>
 					</tr><tr align="center">
-						<td width="15%"><button onclick="loadScenario(13)">13</button></td>
-						<td width="15%"><button onclick="loadScenario(14)">14</button></td>
-						<td width="15%"><button onclick="loadScenario(15)">15</button></td>
-						<td width="15%"><button onclick="loadScenario(16)">16</button></td>
-						<td width="15%"><button onclick="loadScenario(17)">17</button></td>
-						<td width="15%"><button onclick="loadScenario(18)">18</button></td>
+						<td width="12%"><button onclick="loadScenario(17)">17</button></td>
+						<td width="12%"><button onclick="loadScenario(18)">18</button></td>
+						<td width="12%"><button onclick="loadScenario(19)">19</button></td>
+						<td width="12%"><button onclick="loadScenario(20)">20</button></td>
+						<td width="12%"><button onclick="loadScenario(21)">21</button></td>
+						<td width="12%"><button onclick="loadScenario(22)">22</button></td>
+						<td width="12%"><button onclick="loadScenario(23)">23</button></td>
+						<td width="12%"><button onclick="loadScenario(24)">24</button></td>
 					</tr><tr align="center">
-						<td width="15%"><button onclick="loadScenario(19)">19</button></td>
-						<td width="15%"><button onclick="loadScenario(20)">20</button></td>
-						<td width="15%"><button onclick="loadScenario(21)">21</button></td>
-						<td width="15%"><button onclick="loadScenario(22)">22</button></td>
-						<td width="15%"><button onclick="loadScenario(23)">23</button></td>
-						<td width="15%"><button onclick="loadScenario(24)">24</button></td>
+						<td width="12%"><button onclick="loadScenario(25)">25</button></td>
+						<td width="12%"><button onclick="loadScenario(26)">26</button></td>
+						<td width="12%"><button onclick="loadScenario(27)">27</button></td>
+						<td width="12%"><button onclick="loadScenario(28)">28</button></td>
+						<td width="12%"><button onclick="loadScenario(29)">29</button></td>
+						<td width="12%"><button onclick="loadScenario(30)">30</button></td>
+						<td width="12%"><button onclick="loadScenario(31)">31</button></td>
+						<td width="12%"><button onclick="loadScenario(32)">32</button></td>
 					</tr><tr align="center">
-						<td width="15%"><button onclick="loadScenario(25)">25</button></td>
-						<td width="15%"><button onclick="loadScenario(26)">26</button></td>
-						<td width="15%"><button onclick="loadScenario(27)">27</button></td>
-						<td width="15%"><button onclick="loadScenario(28)">28</button></td>
-						<td width="15%"><button onclick="loadScenario(29)">29</button></td>
-						<td width="15%"><button onclick="loadScenario(30)">30</button></td>
+						<td width="12%"><button onclick="loadScenario(33)">33</button></td>
+						<td width="12%"><button onclick="loadScenario(34)">34</button></td>
+						<td width="12%"><button onclick="loadScenario(35)">35</button></td>
+						<td width="12%"><button onclick="loadScenario(36)">36</button></td>
+						<td width="12%"><button onclick="loadScenario(37)">37</button></td>
+						<td width="12%"><button onclick="loadScenario(38)">38</button></td>
+						<td width="12%"><button onclick="loadScenario(39)">39</button></td>
+						<td width="12%"><button onclick="loadScenario(40)">40</button></td>
 					</tr>
 				</table>
 				<script>
 					var lastScenario = 0;
 					function loadScenario(num) {
 						testTable = document.getElementsByClassName("tests")[0];
-						var r = Math.floor((lastScenario-1)/6);
-						var c = (lastScenario-1)%6;
+						var r = Math.floor((lastScenario-1)/8);
+						var c = (lastScenario-1)%8;
 						if (lastScenario != 0) {
 							testTable.rows[r].cells[c].style.background = '#FFF';
 						}
-						r = Math.floor((num-1)/6);
-						c = (num-1)%6;
+						r = Math.floor((num-1)/8);
+						c = (num-1)%8;
 						console.log('Loaded test no.', lastScenario, 'button at', r, c);
 						try {
 							eval('scenario'+num+'()');
@@ -105,24 +115,24 @@
 						food = [7, 3];
 					}
 					function scenario2() {
+						snake = [[7, 5], [7, 6], [7, 7], [7, 8], [6, 8], [6, 7], [6, 6], [6, 5], [6, 4], [6, 3], [6, 2], [6, 1], [6, 0], [5, 0], [4, 0], [3, 0]];
+						dir = 'up';
+						food = [2, 3];
+					}
+					function scenario3() {
 						snake = [[4, 2], [3, 2], [2, 2], [1, 2], [1, 3], [2, 3], [3, 3], [4, 3], [5, 3], [6, 3], [7, 3], [8, 3], [9, 3], [9, 4], [9, 5], [9, 6]];
 						dir = 'right';
 						food = [6, 7];
 					}
-					function scenario3() {
+					function scenario4() {
+						snake = [[4, 7], [3, 7], [2, 7], [1, 7], [1, 6], [2, 6], [3, 6], [4, 6], [5, 6], [6, 6], [7, 6], [8, 6], [9, 6], [9, 5], [9, 4], [9, 3]];
+						dir = 'right';
+						food = [6, 2];
+					}
+					function scenario5() {
 						snake = [[7, 4], [7, 3], [7, 2], [7, 1], [6, 1], [6, 2], [6, 3], [6, 4], [6, 5], [6, 6], [6, 7], [6, 8], [6, 9], [5, 9], [4, 9], [3, 9]];
 						dir = 'down';
 						food = [2, 6];
-					}
-					function scenario4() {
-						snake = [[5, 7], [6, 7], [7, 7], [8, 7], [8, 6], [7, 6], [6, 6], [5, 6], [4, 6], [3, 6], [2, 6], [1, 6], [0, 6], [0, 5], [0, 4], [0, 3]];
-						dir = 'left';
-						food = [3, 2];
-					}
-					function scenario5() {
-						snake = [[7, 5], [7, 6], [7, 7], [7, 8], [6, 8], [6, 7], [6, 6], [6, 5], [6, 4], [6, 3], [6, 2], [6, 1], [6, 0], [5, 0], [4, 0], [3, 0]];
-						dir = 'up';
-						food = [2, 3];
 					}
 					function scenario6() {
 						snake = [[2, 4], [2, 3], [2, 2], [2, 1], [3, 1], [3, 2], [3, 3], [3, 4], [3, 5], [3, 6], [3, 7], [3, 8], [3, 9], [4, 9], [5, 9], [6, 9]];
@@ -130,63 +140,133 @@
 						food = [7, 6];
 					}
 					function scenario7() {
+						snake = [[5, 7], [6, 7], [7, 7], [8, 7], [8, 6], [7, 6], [6, 6], [5, 6], [4, 6], [3, 6], [2, 6], [1, 6], [0, 6], [0, 5], [0, 4], [0, 3]];
+						dir = 'left';
+						food = [3, 2];
+					}
+					function scenario8() {
+						snake = [[5, 2], [6, 2], [7, 2], [8, 2], [8, 3], [7, 3], [6, 3], [5, 3], [4, 3], [3, 3], [2, 3], [1, 3], [0, 3], [0, 4], [0, 5], [0, 6]];
+						dir = 'left';
+						food = [3, 7];
+					}
+					function scenario9() {
 						snake = [[5, 3], [5, 2], [5, 1], [4, 1], [3, 1], [2, 1], [1, 1], [1, 2], [1, 3], [1, 4], [1, 5], [1, 6], [2, 6], [3, 6], [4, 6], [5, 6], [6, 6], [7, 6], [8, 6], [9, 6]];
 						dir = 'down';
 						food = [-10, -10];
 					}
-					function scenario8() {
-						snake = [[6, 5], [7, 5], [8, 5], [8, 4], [8, 3], [8, 2], [8, 1], [7, 1], [6, 1], [5, 1], [4, 1], [3, 1], [3, 2], [3, 3], [3, 4], [3, 5], [3, 6], [3, 7], [3, 8], [3, 9]];
-						dir = 'left';
-						food = [-10, -10];
-					}
-					function scenario9() {
-						snake = [[4, 6], [4, 7], [4, 8], [5, 8], [6, 8], [7, 8], [8, 8], [8, 7], [8, 6], [8, 5], [8, 4], [8, 3], [7, 3], [6, 3], [5, 3], [4, 3], [3, 3], [2, 3], [1, 3], [0, 3]];
-						dir = 'up';
-						food = [-10, -10];
-					}
 					function scenario10() {
-						snake = [[3, 4], [2, 4], [1, 4], [1, 5], [1, 6], [1, 7], [1, 8], [2, 8], [3, 8], [4, 8], [5, 8], [6, 8], [6, 7], [6, 6], [6, 5], [6, 4], [6, 3], [6, 2], [6, 1], [6, 0]];
-						dir = 'right';
-						food = [-10, -10];
-					}
-					function scenario11() {
 						snake = [[4, 3], [4, 2], [4, 1], [5, 1], [6, 1], [7, 1], [8, 1], [8, 2], [8, 3], [8, 4], [8, 5], [8, 6], [7, 6], [6, 6], [5, 6], [4, 6], [3, 6], [2, 6], [1, 6], [0, 6]];
 						dir = 'down';
 						food = [-10, -10];
 					}
+					function scenario11() {
+						snake = [[6, 5], [7, 5], [8, 5], [8, 4], [8, 3], [8, 2], [8, 1], [7, 1], [6, 1], [5, 1], [4, 1], [3, 1], [3, 2], [3, 3], [3, 4], [3, 5], [3, 6], [3, 7], [3, 8], [3, 9]];
+						dir = 'left';
+						food = [-10, -10];
+					}
 					function scenario12() {
-						snake = [[5, 6], [5, 7], [5, 8], [4, 8], [3, 8], [2, 8], [1, 8], [1, 7], [1, 6], [1, 5], [1, 4], [1, 3], [2, 3], [3, 3], [4, 3], [5, 3], [6, 3], [7, 3], [8, 3], [9, 3]];
-						dir = 'up';
+						snake = [[6, 4], [7, 4], [8, 4], [8, 5], [8, 6], [8, 7], [8, 8], [7, 8], [6, 8], [5, 8], [4, 8], [3, 8], [3, 7], [3, 6], [3, 5], [3, 4], [3, 3], [3, 2], [3, 1], [3, 0]];
+						dir = 'left';
 						food = [-10, -10];
 					}
 					function scenario13() {
-						snake = [[7, 2], [7, 3], [7, 4], [7, 5], [7, 6], [6, 6], [5, 6], [4, 6], [3, 6], [3, 5], [3, 4], [3, 3], [3, 2], [3, 1], [3, 0], [2, 0], [1, 0], [0, 0]];
+						snake = [[4, 6], [4, 7], [4, 8], [5, 8], [6, 8], [7, 8], [8, 8], [8, 7], [8, 6], [8, 5], [8, 4], [8, 3], [7, 3], [6, 3], [5, 3], [4, 3], [3, 3], [2, 3], [1, 3], [0, 3]];
 						dir = 'up';
 						food = [-10, -10];
 					}
 					function scenario14() {
-						snake = [[12, 7], [11, 7], [10, 7], [9, 7], [8, 7], [8, 6], [8, 5], [8, 4], [8, 3], [9, 3], [10, 3], [11, 3], [12, 3], [13, 3], [14, 3], [14, 2], [14, 1], [14, 0]];
-						dir = 'right';
-						food = [-10, -10];
-					}
-					function scenario15() {
-						snake = [[2, 7], [2, 6], [2, 5], [2, 4], [2, 3], [3, 3], [4, 3], [5, 3], [6, 3], [6, 4], [6, 5], [6, 6], [6, 7], [6, 8], [6, 9], [7, 9], [8, 9], [9, 9]];
-						dir = 'down';
-						food = [-10, -10];
-					}
-					function scenario16() {
-						snake = [[2, 2], [3, 2], [4, 2], [5, 2], [6, 2], [6, 3], [6, 4], [6, 5], [6, 6], [5, 6], [4, 6], [3, 6], [2, 6], [1, 6], [0, 6], [0, 7], [0, 8], [0, 9]];
-						dir = 'left';
-						food = [-10, -10];
-					}
-					function scenario17() {
-						snake = [[2, 2], [2, 3], [2, 4], [2, 5], [2, 6], [3, 6], [4, 6], [5, 6], [6, 6], [6, 5], [6, 4], [6, 3], [6, 2], [6, 1], [6, 0], [7, 0], [8, 0], [9, 0]];
+						snake = [[5, 6], [5, 7], [5, 8], [4, 8], [3, 8], [2, 8], [1, 8], [1, 7], [1, 6], [1, 5], [1, 4], [1, 3], [2, 3], [3, 3], [4, 3], [5, 3], [6, 3], [7, 3], [8, 3], [9, 3]];
 						dir = 'up';
 						food = [-10, -10];
 					}
-					function scenario18() {
-						snake = [[7, 7], [7, 6], [7, 5], [7, 4], [7, 3], [6, 3], [5, 3], [4, 3], [3, 3], [3, 4], [3, 5], [3, 6], [3, 7], [3, 8], [3, 9], [2, 9], [1, 9], [0, 9]];
+					function scenario15() {
+						snake = [[3, 4], [2, 4], [1, 4], [1, 5], [1, 6], [1, 7], [1, 8], [2, 8], [3, 8], [4, 8], [5, 8], [6, 8], [6, 7], [6, 6], [6, 5], [6, 4], [6, 3], [6, 2], [6, 1], [6, 0]];
+						dir = 'right';
+						food = [-10, -10];
+					}
+					function scenario16() {
+						snake = [[3, 5], [2, 5], [1, 5], [1, 4], [1, 3], [1, 2], [1, 1], [2, 1], [3, 1], [4, 1], [5, 1], [6, 1], [6, 2], [6, 3], [6, 4], [6, 5], [6, 6], [6, 7], [6, 8], [6, 9]];
+						dir = 'right';
+						food = [-10, -10];
+					}
+					function scenario17() {
+						snake = [[5, 3], [5, 2], [5, 1], [4, 1], [3, 1], [2, 1], [1, 1], [1, 2], [1, 3], [1, 4], [1, 5], [1, 6], [2, 6], [3, 6], [4, 6], [5, 6], [6, 6], [7, 6], [8, 6], [9, 6]];
 						dir = 'down';
+						food = [3, 5];
+					}
+					function scenario18() {
+						snake = [[4, 3], [4, 2], [4, 1], [5, 1], [6, 1], [7, 1], [8, 1], [8, 2], [8, 3], [8, 4], [8, 5], [8, 6], [7, 6], [6, 6], [5, 6], [4, 6], [3, 6], [2, 6], [1, 6], [0, 6]];
+						dir = 'down';
+						food = [6, 5];
+					}
+					function scenario19() {
+						snake = [[6, 5], [7, 5], [8, 5], [8, 4], [8, 3], [8, 2], [8, 1], [7, 1], [6, 1], [5, 1], [4, 1], [3, 1], [3, 2], [3, 3], [3, 4], [3, 5], [3, 6], [3, 7], [3, 8], [3, 9]];
+						dir = 'left';
+						food = [4, 3];
+					}
+					function scenario20() {
+						snake = [[6, 4], [7, 4], [8, 4], [8, 5], [8, 6], [8, 7], [8, 8], [7, 8], [6, 8], [5, 8], [4, 8], [3, 8], [3, 7], [3, 6], [3, 5], [3, 4], [3, 3], [3, 2], [3, 1], [3, 0]];
+						dir = 'left';
+						food = [4, 6];
+					}
+					function scenario21() {
+						snake = [[4, 6], [4, 7], [4, 8], [5, 8], [6, 8], [7, 8], [8, 8], [8, 7], [8, 6], [8, 5], [8, 4], [8, 3], [7, 3], [6, 3], [5, 3], [4, 3], [3, 3], [2, 3], [1, 3], [0, 3]];
+						dir = 'up';
+						food = [6, 4];
+					}
+					function scenario22() {
+						snake = [[5, 6], [5, 7], [5, 8], [4, 8], [3, 8], [2, 8], [1, 8], [1, 7], [1, 6], [1, 5], [1, 4], [1, 3], [2, 3], [3, 3], [4, 3], [5, 3], [6, 3], [7, 3], [8, 3], [9, 3]];
+						dir = 'up';
+						food = [3, 4];
+					}
+					function scenario23() {
+						snake = [[3, 4], [2, 4], [1, 4], [1, 5], [1, 6], [1, 7], [1, 8], [2, 8], [3, 8], [4, 8], [5, 8], [6, 8], [6, 7], [6, 6], [6, 5], [6, 4], [6, 3], [6, 2], [6, 1], [6, 0]];
+						dir = 'right';
+						food = [5, 6];
+					}
+					function scenario24() {
+						snake = [[3, 5], [2, 5], [1, 5], [1, 4], [1, 3], [1, 2], [1, 1], [2, 1], [3, 1], [4, 1], [5, 1], [6, 1], [6, 2], [6, 3], [6, 4], [6, 5], [6, 6], [6, 7], [6, 8], [6, 9]];
+						dir = 'right';
+						food = [5, 3];
+					}
+					function scenario25() {
+						snake = [[7, 2], [7, 3], [7, 4], [7, 5], [7, 6], [6, 6], [5, 6], [4, 6], [3, 6], [3, 5], [3, 4], [3, 3], [3, 2], [3, 1], [3, 0], [2, 0], [1, 0], [0, 0], [0, 1], [0, 2], [0, 3]];
+						dir = 'up';
+						food = [-10, -10];
+					}
+					function scenario26() {
+						snake = [[7, 2], [7, 3], [7, 4], [7, 5], [7, 6], [8, 6], [9, 6], [10, 6], [11, 6], [11, 5], [11, 4], [11, 3], [11, 2], [11, 1], [11, 0], [12, 0], [13, 0], [14, 0], [14, 1], [14, 2], [14, 3]];
+						dir = 'up';
+						food = [-10, -10];
+					}
+					function scenario27() {
+						snake = [[12, 7], [11, 7], [10, 7], [9, 7], [8, 7], [8, 6], [8, 5], [8, 4], [8, 3], [9, 3], [10, 3], [11, 3], [12, 3], [13, 3], [14, 3], [14, 2], [14, 1], [14, 0], [13, 0], [12, 0], [11, 0]];
+						dir = 'right';
+						food = [-10, -10];
+					}
+					function scenario28() {
+						snake = [[12, 2], [11, 2], [10, 2], [9, 2], [8, 2], [8, 3], [8, 4], [8, 5], [8, 6], [9, 6], [10, 6], [11, 6], [12, 6], [13, 6], [14, 6], [14, 7], [14, 8], [14, 9], [13, 9], [12, 9], [11, 9]];
+						dir = 'right';
+						food = [-10, -10];
+					}
+					function scenario29() {
+						snake = [[2, 7], [2, 6], [2, 5], [2, 4], [2, 3], [3, 3], [4, 3], [5, 3], [6, 3], [6, 4], [6, 5], [6, 6], [6, 7], [6, 8], [6, 9], [7, 9], [8, 9], [9, 9], [9, 8], [9, 7], [9, 6]];
+						dir = 'down';
+						food = [-10, -10];
+					}
+					function scenario30() {
+						snake = [[7, 7], [7, 6], [7, 5], [7, 4], [7, 3], [6, 3], [5, 3], [4, 3], [3, 3], [3, 4], [3, 5], [3, 6], [3, 7], [3, 8], [3, 9], [2, 9], [1, 9], [0, 9], [0, 8], [0, 7], [0, 6]];
+						dir = 'down';
+						food = [-10, -10];
+					}
+					function scenario31() {
+						snake = [[2, 2], [3, 2], [4, 2], [5, 2], [6, 2], [6, 3], [6, 4], [6, 5], [6, 6], [5, 6], [4, 6], [3, 6], [2, 6], [1, 6], [0, 6], [0, 7], [0, 8], [0, 9], [1, 9], [2, 9], [3, 9]];
+						dir = 'left';
+						food = [-10, -10];
+					}
+					function scenario32() {
+						snake = [[2, 7], [3, 7], [4, 7], [5, 7], [6, 7], [6, 6], [6, 5], [6, 4], [6, 3], [5, 3], [4, 3], [3, 3], [2, 3], [1, 3], [0, 3], [0, 2], [0, 1], [0, 0], [1, 0], [2, 0], [3, 0]];
+						dir = 'left';
 						food = [-10, -10];
 					}
 				</script>
