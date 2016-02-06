@@ -95,6 +95,9 @@ function uploadHighscores() {
 
 // Clears board & stops AI
 function stopGame() {
+  if (refreshRate == -1) { // On the test page
+    return;
+  }
   console.log("Round ended! Advancing AI to level "+ (level + 1));
   getScores();
   var now = new Date();
