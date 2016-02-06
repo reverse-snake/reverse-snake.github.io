@@ -92,7 +92,6 @@ updateBoard();
 }
 
 function placeFood(x, y) {
-  startGame();
   if (inSnake(x+'_'+y)) {
     console.log('Invalid food placement: Food collides with snake');
   } else if (x >= width || y >= height || x < 0 || y < 0) {
@@ -101,4 +100,5 @@ function placeFood(x, y) {
     food = [x, y];
     updateBoard();
   }
+  startGame();
 }
