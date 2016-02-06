@@ -36,29 +36,33 @@
 				<button onclick="ai(level)">Advance 1 frame</button>
 				<br>Test scenarios (click to load):
 				<br>
-				<button onclick="loadScenario(1)">1</button>
-				<button onclick="loadScenario(2)">2</button>
-				<button onclick="loadScenario(3)">3</button>
-				<button onclick="loadScenario(4)">4</button>
-				<button onclick="loadScenario(5)">5</button>
-				<br>
-				<button onclick="loadScenario(6)">6</button>
-				<button onclick="loadScenario(7)">7</button>
-				<button onclick="loadScenario(8)">8</button>
-				<button onclick="loadScenario(9)">9</button>
-				<button onclick="loadScenario(10)">10</button>
-				<br>
-				<button onclick="loadScenario(11)">11</button>
-				<button onclick="loadScenario(12)">12</button>
-				<button onclick="loadScenario(13)">13</button>
-				<button onclick="loadScenario(14)">14</button>
-				<button onclick="loadScenario(15)">15</button>
-				<br>
-				<button onclick="loadScenario(16)">16</button>
-				<button onclick="loadScenario(17)">17</button>
-				<button onclick="loadScenario(18)">18</button>
-				<button onclick="loadScenario(19)">19</button>
-				<button onclick="loadScenario(20)">20</button>
+				<table class="tests" style="align:center">
+					<tr align="center">
+						<td width="20%"><button onclick="loadScenario(1)">1</button></td>
+						<td width="20%"><button onclick="loadScenario(2)">2</button></td>
+						<td width="20%"><button onclick="loadScenario(3)">3</button></td>
+						<td width="20%"><button onclick="loadScenario(4)">4</button></td>
+						<td width="20%"><button onclick="loadScenario(5)">5</button></td>
+					</tr><tr align="center">
+						<td width="20%"><button onclick="loadScenario(6)">6</button></td>
+						<td width="20%"><button onclick="loadScenario(7)">7</button></td>
+						<td width="20%"><button onclick="loadScenario(8)">8</button></td>
+						<td width="20%"><button onclick="loadScenario(9)">9</button></td>
+						<td width="20%"><button onclick="loadScenario(10)">10</button></td>
+					</tr><tr align="center">
+						<td width="20%"><button onclick="loadScenario(11)">11</button></td>
+						<td width="20%"><button onclick="loadScenario(12)">12</button></td>
+						<td width="20%"><button onclick="loadScenario(13)">13</button></td>
+						<td width="20%"><button onclick="loadScenario(14)">14</button></td>
+						<td width="20%"><button onclick="loadScenario(15)">15</button></td>
+					</tr><tr align="center">
+						<td width="20%"><button onclick="loadScenario(16)">16</button></td>
+						<td width="20%"><button onclick="loadScenario(17)">17</button></td>
+						<td width="20%"><button onclick="loadScenario(18)">18</button></td>
+						<td width="20%"><button onclick="loadScenario(19)">19</button></td>
+						<td width="20%"><button onclick="loadScenario(20)">20</button></td>
+					</tr>
+				</table>
 				<script>
 					var lastScenario = 0;
 					function loadScenario(num) {
