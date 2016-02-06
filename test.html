@@ -16,8 +16,7 @@
 			<td width="50%">
 				<table>
 					<tr>
-						<td>Current test: <div class="current test">0</div></td>
-						<td><button class="upButton" onclick="upLevel(); loadScenario(lastScenario);">&#9650;</button></td>
+						<td></td><td><button class="upButton" onclick="upLevel(); loadScenario(lastScenario);">&#9650;</button></td>
 						<td width="10%"></td>
 						<td align="left" rowspan="3">
 							Level 1: Avoids walls<br>
@@ -66,11 +65,28 @@
 				<script>
 					var lastScenario = 0;
 					function loadScenario(num) {
-						test = document.getElementsByClassName("current test")[0];
-						test.innerHTML = num;
-						lastScenario = num;
-						eval('scenario'+num+'()');
-						updateBoard();
+						testTable = document.getElementsByClassName("tests")[0];
+						var r = Math.floor((lastScenario-1)/5);
+						var c = (lastScenario-1)%5;
+						if (lastScenario != 0) {
+							testTable.rows[r].cells[c].style.background = '#FFF';
+						}
+						r = Math.floor((num-1)/5);
+						c = (num-1)%5;
+						console.log('Loaded test no.', lastScenario, 'button at', r, c);
+						try {
+							eval('scenario'+num+'()');
+							lastScenario = num;
+							testTable.rows[r].cells[c].style.background = '#A55';
+							updateBoard();
+						} catch (err) {
+							if (err instanceof ReferenceError) {
+								console.log('Test', num, 'is not defined.');
+								testTable.rows[r].cells[c].children[0].disabled = true;
+							} else {
+								throw err;
+							}
+						}
 					}
 					function scenario1() {
 						snake = [[5, 5], [5, 6], [5, 7], [5, 8], [6, 8], [7, 8], [7, 7], [7, 6], [7, 5], [7, 4], [7, 3], [7, 2], [7, 1], [7, 0], [8, 0], [9, 0]];
