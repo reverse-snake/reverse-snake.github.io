@@ -54,7 +54,7 @@ function moveHead(dir) {
       throw 'cannot move right from ' + newHead[0] + ', ' + newHead[1];
     } else if (inSnake((newHead[0]+1)+'_'+newHead[1])) {
       window.clearInterval(intervalId);
-      window.setTimeout(stopGame, 20*refreshRate);
+      window.setTimeout(stopGame, 5000);
     }
     newHead[0]++;
   } else if (dir == 'left') {
@@ -62,7 +62,7 @@ function moveHead(dir) {
       throw 'cannot move left from ' + newHead[0] + ', ' + newHead[1];
     } else if (inSnake((newHead[0]-1)+'_'+newHead[1])) {
       window.clearInterval(intervalId);
-      window.setTimeout(stopGame, 20*refreshRate);
+      window.setTimeout(stopGame, 5000);
     }
     newHead[0]--;
   } else if (dir == 'up') {  // add new head above current one
@@ -70,7 +70,7 @@ function moveHead(dir) {
       throw 'cannot move up from ' + newHead[0] + ', ' + newHead[1];
     } else if (inSnake(newHead[0]+'_'+(newHead[1]-1))) {
       window.clearInterval(intervalId);
-      window.setTimeout(stopGame, 20*refreshRate);
+      window.setTimeout(stopGame, 5000);
     }
     newHead[1]--;  // changes y-coordinate by -1 (going UP)
   } else if (dir == 'down') {
@@ -78,7 +78,7 @@ function moveHead(dir) {
       throw 'cannot move down from ' + newHead[0] + ', ' + newHead[1];
     } else if (inSnake(newHead[0]+'_'+(newHead[1]+1))) {
       window.clearInterval(intervalId);
-      window.setTimeout(stopGame, 20*refreshRate);
+      window.setTimeout(stopGame, 5000);
     }
     newHead[1]++;
   }
